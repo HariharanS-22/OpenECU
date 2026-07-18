@@ -68,8 +68,8 @@ all: main-build
 main-build: SEGGER_testing.elf secondary-outputs
 
 # Tool invocations
-SEGGER_testing.elf SEGGER_testing.map: $(OBJS) $(USER_OBJS) C:\Users\Jagakishan\Mini-AUTOSAR\SEGGER_testing\STM32F446RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "SEGGER_testing.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\Jagakishan\Mini-AUTOSAR\SEGGER_testing\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="SEGGER_testing.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+SEGGER_testing.elf SEGGER_testing.map: $(OBJS) $(USER_OBJS) H:\OpenECU\Code\SEGGER_testing\STM32F446RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "SEGGER_testing.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"H:\OpenECU\Code\SEGGER_testing\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="SEGGER_testing.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

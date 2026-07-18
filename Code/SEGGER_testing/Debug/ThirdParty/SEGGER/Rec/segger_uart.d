@@ -1,12 +1,12 @@
 ThirdParty/SEGGER/Rec/segger_uart.o: \
  ../ThirdParty/SEGGER/Rec/segger_uart.c \
- C:/Users/Jagakishan/Mini-AUTOSAR/SEGGER_testing/ThirdParty/SEGGER/SEGGER/SEGGER_SYSVIEW.h \
- C:/Users/Jagakishan/Mini-AUTOSAR/SEGGER_testing/ThirdParty/SEGGER/SEGGER/SEGGER.h \
- C:/Users/Jagakishan/Mini-AUTOSAR/SEGGER_testing/ThirdParty/SEGGER/Config/Global.h \
- C:/Users/Jagakishan/Mini-AUTOSAR/SEGGER_testing/ThirdParty/SEGGER/SEGGER/SEGGER_SYSVIEW_ConfDefaults.h \
- C:/Users/Jagakishan/Mini-AUTOSAR/SEGGER_testing/ThirdParty/SEGGER/Config/SEGGER_SYSVIEW_Conf.h \
- C:/Users/Jagakishan/Mini-AUTOSAR/SEGGER_testing/ThirdParty/SEGGER/Config/SEGGER_RTT_Conf.h \
- C:/Users/Jagakishan/Mini-AUTOSAR/SEGGER_testing/ThirdParty/SEGGER/SEGGER/SEGGER_RTT.h \
+ H:/OpenECU/Code/SEGGER_testing/ThirdParty/SEGGER/SEGGER/SEGGER_SYSVIEW.h \
+ H:/OpenECU/Code/SEGGER_testing/ThirdParty/SEGGER/SEGGER/SEGGER.h \
+ H:/OpenECU/Code/SEGGER_testing/ThirdParty/SEGGER/Config/Global.h \
+ H:/OpenECU/Code/SEGGER_testing/ThirdParty/SEGGER/SEGGER/SEGGER_SYSVIEW_ConfDefaults.h \
+ H:/OpenECU/Code/SEGGER_testing/ThirdParty/SEGGER/Config/SEGGER_SYSVIEW_Conf.h \
+ H:/OpenECU/Code/SEGGER_testing/ThirdParty/SEGGER/Config/SEGGER_RTT_Conf.h \
+ H:/OpenECU/Code/SEGGER_testing/ThirdParty/SEGGER/SEGGER/SEGGER_RTT.h \
  ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h \
  ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f446xx.h \
  ../Drivers/CMSIS/Include/core_cm4.h \
@@ -34,13 +34,13 @@ ThirdParty/SEGGER/Rec/segger_uart.o: \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h
-C:/Users/Jagakishan/Mini-AUTOSAR/SEGGER_testing/ThirdParty/SEGGER/SEGGER/SEGGER_SYSVIEW.h:
-C:/Users/Jagakishan/Mini-AUTOSAR/SEGGER_testing/ThirdParty/SEGGER/SEGGER/SEGGER.h:
-C:/Users/Jagakishan/Mini-AUTOSAR/SEGGER_testing/ThirdParty/SEGGER/Config/Global.h:
-C:/Users/Jagakishan/Mini-AUTOSAR/SEGGER_testing/ThirdParty/SEGGER/SEGGER/SEGGER_SYSVIEW_ConfDefaults.h:
-C:/Users/Jagakishan/Mini-AUTOSAR/SEGGER_testing/ThirdParty/SEGGER/Config/SEGGER_SYSVIEW_Conf.h:
-C:/Users/Jagakishan/Mini-AUTOSAR/SEGGER_testing/ThirdParty/SEGGER/Config/SEGGER_RTT_Conf.h:
-C:/Users/Jagakishan/Mini-AUTOSAR/SEGGER_testing/ThirdParty/SEGGER/SEGGER/SEGGER_RTT.h:
+H:/OpenECU/Code/SEGGER_testing/ThirdParty/SEGGER/SEGGER/SEGGER_SYSVIEW.h:
+H:/OpenECU/Code/SEGGER_testing/ThirdParty/SEGGER/SEGGER/SEGGER.h:
+H:/OpenECU/Code/SEGGER_testing/ThirdParty/SEGGER/Config/Global.h:
+H:/OpenECU/Code/SEGGER_testing/ThirdParty/SEGGER/SEGGER/SEGGER_SYSVIEW_ConfDefaults.h:
+H:/OpenECU/Code/SEGGER_testing/ThirdParty/SEGGER/Config/SEGGER_SYSVIEW_Conf.h:
+H:/OpenECU/Code/SEGGER_testing/ThirdParty/SEGGER/Config/SEGGER_RTT_Conf.h:
+H:/OpenECU/Code/SEGGER_testing/ThirdParty/SEGGER/SEGGER/SEGGER_RTT.h:
 ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h:
 ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f446xx.h:
 ../Drivers/CMSIS/Include/core_cm4.h:
