@@ -47,5 +47,7 @@ void CAN1_Init(void);
 void CAN1_TxMsg(uint8_t *msg, uint8_t DLC);
 void CAN1_LoopBack(void);
 
+void CAN1_RX0_IRQHandler(void);
+
 
 #endif /* CAN_H_ */

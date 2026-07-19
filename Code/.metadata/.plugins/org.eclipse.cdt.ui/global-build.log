@@ -1,21 +1,4 @@
-17:57:03 **** Incremental Build of configuration Debug for project CAN_testing ****
-make -j12 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"H:/OpenECU/Code/CAN_testing/Module" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:123:20: warning: statement with no effect [-Wunused-value]
-  123 |                 buf[receivedDLC]] = '\0';
-      |                 ~~~^~~~~~~~~~~~~
-../Core/Src/main.c:123:33: error: expected ';' before ']' token
-  123 |                 buf[receivedDLC]] = '\0';
-      |                                 ^
-      |                                 ;
-../Core/Src/main.c:123:33: error: expected statement before ']' token
-../Core/Src/main.c:123:35: error: expected expression before '=' token
-  123 |                 buf[receivedDLC]] = '\0';
-      |                                   ^
-make: *** [Core/Src/subdir.mk:37: Core/Src/main.o] Error 1
-"make -j12 all" terminated with exit code 2. Build might be incomplete.
-17:57:15 **** Incremental Build of configuration Debug for project CAN_testing ****
+23:25:52 **** Incremental Build of configuration Debug for project CAN_testing ****
 make -j12 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"H:/OpenECU/Code/CAN_testing/Module" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
 arm-none-eabi-gcc -o "CAN_testing.elf" @"objects.list"   -mcpu=cortex-m4 -T"H:\OpenECU\Code\CAN_testing\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_testing.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
@@ -24,12 +7,19 @@ Finished building target: CAN_testing.elf
 arm-none-eabi-size  CAN_testing.elf 
 arm-none-eabi-objdump -h -S CAN_testing.elf  > "CAN_testing.list"
    text	   data	    bss	    dec	    hex	filename
-  13540	    104	   2000	  15644	   3d1c	CAN_testing.elf
+  13300	    104	   2000	  15404	   3c2c	CAN_testing.elf
 Finished building: default.size.stdout
  
 Finished building: CAN_testing.list
  
-17:59:10 **** Incremental Build of configuration Debug for project CAN_testing ****
+23:27:07 **** Incremental Build of configuration Debug for project CAN_testing ****
+make -j12 all 
+arm-none-eabi-size  CAN_testing.elf 
+   text	   data	    bss	    dec	    hex	filename
+  13300	    104	   2000	  15404	   3c2c	CAN_testing.elf
+Finished building: default.size.stdout
+ 
+23:28:00 **** Incremental Build of configuration Debug for project CAN_testing ****
 make -j12 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"H:/OpenECU/Code/CAN_testing/Module" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
 arm-none-eabi-gcc -o "CAN_testing.elf" @"objects.list"   -mcpu=cortex-m4 -T"H:\OpenECU\Code\CAN_testing\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_testing.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
@@ -38,7 +28,7 @@ Finished building target: CAN_testing.elf
 arm-none-eabi-size  CAN_testing.elf 
 arm-none-eabi-objdump -h -S CAN_testing.elf  > "CAN_testing.list"
    text	   data	    bss	    dec	    hex	filename
-  13496	    104	   2000	  15600	   3cf0	CAN_testing.elf
+  13332	    104	   2000	  15436	   3c4c	CAN_testing.elf
 Finished building: default.size.stdout
  
 Finished building: CAN_testing.list

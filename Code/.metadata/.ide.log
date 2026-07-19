@@ -174,3 +174,31 @@
 2026-07-19 17:39:23,988 [INFO] WebApp:191 - Connection restablished
 2026-07-19 17:44:14,508 [INFO] WebApp:194 - Connection lost
 2026-07-19 17:44:15,360 [INFO] WebApp:191 - Connection restablished
+2026-07-19 17:49:34,922 [INFO] WebApp:194 - Connection lost
+2026-07-19 17:49:39,271 [INFO] WebApp:191 - Connection restablished
+2026-07-19 17:51:22,312 [INFO] WebApp:194 - Connection lost
+2026-07-19 17:51:22,973 [INFO] WebApp:191 - Connection restablished
+2026-07-19 17:58:56,668 [INFO] WebApp:194 - Connection lost
+2026-07-19 17:58:58,199 [INFO] WebApp:191 - Connection restablished
+2026-07-19 18:02:03,023 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] Exception in thread "SWV client thread" java.lang.OutOfMemoryError: Java heap space
+2026-07-19 18:02:03,078 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.base/java.util.Arrays.copyOf(Arrays.java:3482)
+2026-07-19 18:02:03,081 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.base/java.util.ArrayList.grow(ArrayList.java:237)
+2026-07-19 18:02:03,084 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.base/java.util.ArrayList.grow(ArrayList.java:244)
+2026-07-19 18:02:03,088 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.base/java.util.ArrayList.add(ArrayList.java:483)
+2026-07-19 18:02:03,800 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.base/java.util.ArrayList.add(ArrayList.java:496)
+2026-07-19 18:02:03,806 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at com.st.stm32cube.ide.mcu.debug.swv.core.SWVBuffer.addRecord(SWVBuffer.java:97)
+2026-07-19 18:02:03,809 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at com.st.stm32cube.ide.mcu.debug.swv.core.SWVBuffer.addRecord(SWVBuffer.java:111)
+2026-07-19 18:02:03,813 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at com.st.stm32cube.ide.mcu.debug.swv.core.SWVClient.createInstrumentationPacket(SWVClient.java:623)
+2026-07-19 18:02:03,816 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at com.st.stm32cube.ide.mcu.debug.swv.core.SWVClient.run(SWVClient.java:376)
+2026-07-19 18:10:55,141 [INFO] WebApp:194 - Connection lost
+2026-07-19 18:10:55,990 [INFO] WebApp:191 - Connection restablished
+2026-07-19 23:06:21,518 [INFO] Activator:177 - 
+
+
+2026-07-19 23:06:21,520 [INFO] Activator:178 - !SESSION log4j initialized
+2026-07-19 23:06:35,824 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2026-07-19 23:10:13,924 [INFO] Activator:177 - 
+
+
+2026-07-19 23:10:13,926 [INFO] Activator:178 - !SESSION log4j initialized
+2026-07-19 23:10:23,414 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 

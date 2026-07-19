@@ -8,10 +8,13 @@
 
 #include "can.h"
 
-extern uint32_t receivedID;
-extern uint32_t receivedDLC;
+extern uint16_t receivedID;
+extern uint8_t receivedDLC;
+extern uint16_t receivedTimeStamp;
 extern uint64_t receivedMsg;
+
 extern uint8_t flag_msgReceived;
+
 
 void CAN1_Init(){
 	//Enable clock access to CAN1
@@ -124,21 +127,23 @@ void CAN1_RX0_IRQHandler(void){
 
 	flag_msgReceived = 1;
 
-	receivedID = CAN1->sFIFOMailBox[0].RIR;
-	receivedDLC = CAN1->sFIFOMailBox[0].RDTR;
+	receivedID = (uint16_t)((CAN1->sFIFOMailBox[0].RIR & 0xFFE00000)>>21);
+	receivedDLC = (uint8_t)(CAN1->sFIFOMailBox[0].RDTR & 0xF);
+	receivedTimeStamp = (uint16_t)((CAN1->sFIFOMailBox[0].RDTR & 0xFFFF0000)>>16);
 	receivedMsg = (((uint64_t)CAN1->sFIFOMailBox[0].RDHR << 32) | (uint64_t)CAN1->sFIFOMailBox[0].RDLR );
 
 	CAN1->RF0R |= RF0R_RFOM0;
 }
 
-void CAN1_RX1_IRQHandler(void){
-
-	flag_msgReceived = 1;
-
-	receivedID = CAN1->sFIFOMailBox[1].RIR;
-	receivedDLC = CAN1->sFIFOMailBox[1].RDTR;
-	receivedMsg = (((uint64_t)CAN1->sFIFOMailBox[1].RDHR << 32) | (uint64_t)CAN1->sFIFOMailBox[1].RDLR );
-
-	CAN1->RF1R |= RF1R_RFOM1;
-}
+//void CAN1_RX1_IRQHandler(void){
+//
+//	flag_msgReceived = 1;
+//
+//	receivedID = (uint16_t)((CAN1->sFIFOMailBox[1].RIR & 0xFFE00000)>>21);
+//	receivedDLC = (uint8_t)(CAN1->sFIFOMailBox[1].RDTR & 0xF);
+//	receivedTimeStamp = (uint16_t)((CAN1->sFIFOMailBox[1].RDTR & 0xFFFF0000)>>16);
+//	receivedMsg = (((uint64_t)CAN1->sFIFOMailBox[1].RDHR << 32) | (uint64_t)CAN1->sFIFOMailBox[1].RDLR );
+//
+//	CAN1->RF1R |= RF1R_RFOM1;
+//}
 
