@@ -1,10 +1,17 @@
-14:37:22 **** Incremental Build of configuration Debug for project CAN_testing ****
+17:46:55 **** Incremental Build of configuration Debug for project CAN_testing ****
 make -j12 all 
+arm-none-eabi-gcc "../Module/can.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"H:/OpenECU/Code/CAN_testing/Module" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Module/can.d" -MT"Module/can.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Module/can.o"
+arm-none-eabi-gcc -o "CAN_testing.elf" @"objects.list"   -mcpu=cortex-m4 -T"H:\OpenECU\Code\CAN_testing\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_testing.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: CAN_testing.elf
+ 
 arm-none-eabi-size  CAN_testing.elf 
+arm-none-eabi-objdump -h -S CAN_testing.elf  > "CAN_testing.list"
    text	   data	    bss	    dec	    hex	filename
-  13192	    104	   2000	  15296	   3bc0	CAN_testing.elf
+  13496	    104	   2000	  15600	   3cf0	CAN_testing.elf
 Finished building: default.size.stdout
  
+Finished building: CAN_testing.list
+ 
 
-14:37:23 Build Finished. 0 errors, 0 warnings. (took 620ms)
+17:46:59 Build Finished. 0 errors, 0 warnings. (took 3s.964ms)
 

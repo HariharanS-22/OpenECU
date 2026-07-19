@@ -11,14 +11,13 @@
 
 #include "main.h"
 #include "stm32f446xx.h"
-#include "stm32f4xx.h"
 
 #define ECU1_CAN_ID 			(0x01)		//11bit
 #define ECU2_CAN_ID  			(0x02)
 
 #define PA11_AF			(10U << 22)
 #define PA12_AF			(10U << 24)
-#define AF9 			(1001U)
+#define AF9 			(0x9)
 
 #define RCC_CAN1EN		(1U << 25)
 #define RCC_GPIOAEN		(1U << 0)
@@ -31,8 +30,10 @@
 
 #define IER_FMPIE0		(1U << 1)
 #define IER_FMPIE1		(1U << 4)
-
 #define IER_ERRIE		(1U << 15)
+
+#define RF0R_RFOM0		(1U << 5)
+#define RF1R_RFOM1		(1U << 5)
 
 #define CAN1_BTR		(0x012B0001)		//TS2-2 TS1-13 BRD-1
 #define BTR_LBKM		(1U << 30)

@@ -21,7 +21,9 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+
 #include <stdio.h>
+#include <string.h>
 #include "can.h"
 
 /* USER CODE END Includes */
@@ -94,21 +96,34 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   /* USER CODE BEGIN 2 */
-  uint32_t now = 0;
+  uint32_t now1 = 0, now2 = 0;
   char *MSG = "NIGGER";
-  uint8_t DLC = sizeof(MSG);
+  uint8_t DLC = strlen(MSG);
+  uint8_t buf[9] ;
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	if(now - uwTick >= 1000){
-		CAN1_TxMsg((uint8_t *)MSG, DLC);
-		now = uwTick;
+	if((uwTick - now1) >= 1000){
+		CAN1_TxMsg((uint8_t *)MSG, DLC+1);
+		now1= uwTick;
 	}
-	if(flag_msgReceived){
-		printf("Received: %s\n\r",(char*)(&receivedMsg));
+	if(flag_msgReceived | ((uwTick - now2) >= 1500)){
+		now2 = uwTick;
+
+		receivedID = CAN1->sFIFOMailBox[0].RIR;
+		receivedDLC = CAN1->sFIFOMailBox[0].RDTR;
+		receivedMsg = (((uint64_t)CAN1->sFIFOMailBox[0].RDHR << 32) | (uint64_t)CAN1->sFIFOMailBox[0].RDLR );
+
+		CAN1->RF0R |= RF0R_RFOM0;
+
+		memcpy(buf, &receivedMsg, 8);
+		buf[8] = '\0';
+
+		printf("Received: %s\n\r", buf);
+
 	}
     /* USER CODE END WHILE */
 

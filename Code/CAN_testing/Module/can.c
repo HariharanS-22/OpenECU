@@ -42,7 +42,7 @@ void CAN1_Init(){
 	CAN1->IER |= IER_ERRIE;
 
 	//BTR
-	CAN1->BTR |= CAN1_BTR;
+	CAN1->BTR = CAN1_BTR;
 
 	//FMR
 	CAN1->FMR |= FMR_FINIT;
@@ -52,21 +52,30 @@ void CAN1_Init(){
 	NVIC_EnableIRQ(CAN1_RX0_IRQn);
 	NVIC_EnableIRQ(CAN1_RX1_IRQn);
 
+	CAN1->FA1R &= ~(1U << 0);			//Disable Filter
+
 	//Filter1 enable - FF0
-	CAN1->FM1R |= (1U << 0);
+	CAN1->FM1R |= (1U << 0);			// List mode
+	CAN1->FS1R &= ~(1U << 0);           // 16-bit
+
+	//Filter0 assigned to FIFO0
+	CAN1->FFA1R &= ~(1U << 0);
+
+	CAN1->sFilterRegister[0].FR1 = ECU2_CAN_ID << 5;
 
 	//Filter activation - FF0
-	CAN1->FA1R |= (1U << 0);
+	CAN1->FA1R |= (1U << 0);			//Enable Filter
 
-	CAN1->sFilterRegister[0].FR1 |= ECU2_CAN_ID;
-
+	//Clear to exit FilterInitialization
 	CAN1->FMR &= ~FMR_FINIT;
 
 	// Software Initialization : Clear INRQ to initialize
 	CAN1->MCR &= ~MCR_INRQ;
+	CAN1->MCR &= ~MCR_SLEEP;
 	// Hardware Initialization : Wait for INAK is clear
-	while(!(CAN1->MSR & MSR_INAK)) {}
+	//while(CAN1->MSR & MSR_INAK) {}
 
+	__enable_irq();
 }
 
 void CAN1_TxMsg(uint8_t* tx_msg, uint8_t DLC){
@@ -79,18 +88,36 @@ void CAN1_TxMsg(uint8_t* tx_msg, uint8_t DLC){
 
 	while(!(CAN1->TSR & TSR_TME0)) {}
 
-	CAN1->sTxMailBox->TIR 	|= (ECU1_CAN_ID << 21) | (1U << 2) | (1U << 0);		// TXRQ - bit 0 | RTR - bit 1 | IDE - bit 2
+	CAN1->sTxMailBox->TIR 	= (ECU1_CAN_ID << 21);		//RTR - bit 1 | IDE - bit 2
+	CAN1->sTxMailBox->TIR 	&= ~(1U << 2);
 	CAN1->sTxMailBox->TIR 	&= ~(1U << 1);
-	CAN1->sTxMailBox->TDTR 	|= (timeStamp << 16) | (DLC << 0);
+
+	CAN1->sTxMailBox->TDTR 	= (timeStamp << 16) | (DLC << 0);
 	CAN1->sTxMailBox->TDLR  = (uint32_t) msg;
 	CAN1->sTxMailBox->TDHR  = (uint32_t) (msg >> 32 );
+
+	CAN1->sTxMailBox->TIR  |= (1U << 0);		// TXRQ - bit 1
 
 }
 
 void CAN1_LoopBack(){
+	//Software Initialization : Set INRQ to initialize
+	CAN1->MCR |= MCR_INRQ;
+	//Hardware Initialization : Wait for INAK is set
+	while(!(CAN1->MSR & MSR_INAK)) {}
+
+	//Set to enter FilterInitialization
+	CAN1->FMR |= FMR_FINIT;
+
 	//Loopback Enable
 	CAN1->BTR |= BTR_LBKM;
-	CAN1->sFilterRegister[0].FR2 |= ECU1_CAN_ID;
+	CAN1->sFilterRegister[0].FR1 |= (ECU1_CAN_ID << 5) << 16 ;
+
+	//Clear to exit FilterInitialization
+	CAN1->FMR &= ~FMR_FINIT;
+
+	CAN1->MCR &= ~MCR_INRQ;
+	//while((CAN1->MSR & MSR_INAK)) {}
 }
 
 void CAN1_RX0_IRQHandler(void){
@@ -100,6 +127,8 @@ void CAN1_RX0_IRQHandler(void){
 	receivedID = CAN1->sFIFOMailBox[0].RIR;
 	receivedDLC = CAN1->sFIFOMailBox[0].RDTR;
 	receivedMsg = (((uint64_t)CAN1->sFIFOMailBox[0].RDHR << 32) | (uint64_t)CAN1->sFIFOMailBox[0].RDLR );
+
+	CAN1->RF0R |= RF0R_RFOM0;
 }
 
 void CAN1_RX1_IRQHandler(void){
@@ -109,5 +138,7 @@ void CAN1_RX1_IRQHandler(void){
 	receivedID = CAN1->sFIFOMailBox[1].RIR;
 	receivedDLC = CAN1->sFIFOMailBox[1].RDTR;
 	receivedMsg = (((uint64_t)CAN1->sFIFOMailBox[1].RDHR << 32) | (uint64_t)CAN1->sFIFOMailBox[1].RDLR );
+
+	CAN1->RF1R |= RF1R_RFOM1;
 }
 
