@@ -21,6 +21,8 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include <stdio.h>
+#include "can.h"
 
 /* USER CODE END Includes */
 
@@ -43,6 +45,11 @@
 
 /* USER CODE BEGIN PV */
 
+uint32_t receivedID;
+uint32_t receivedDLC;
+uint64_t receivedMsg;
+
+uint8_t flag_msgReceived = 0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -63,7 +70,6 @@ static void MX_GPIO_Init(void);
   */
 int main(void)
 {
-
   /* USER CODE BEGIN 1 */
 
   /* USER CODE END 1 */
@@ -74,7 +80,8 @@ int main(void)
   HAL_Init();
 
   /* USER CODE BEGIN Init */
-
+  CAN1_Init();
+  CAN1_LoopBack();
   /* USER CODE END Init */
 
   /* Configure the system clock */
@@ -87,13 +94,22 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   /* USER CODE BEGIN 2 */
-
+  uint32_t now = 0;
+  char *MSG = "NIGGER";
+  uint8_t DLC = sizeof(MSG);
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	if(now - uwTick >= 1000){
+		CAN1_TxMsg((uint8_t *)MSG, DLC);
+		now = uwTick;
+	}
+	if(flag_msgReceived){
+		printf("Received: %s\n\r",(char*)(&receivedMsg));
+	}
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
