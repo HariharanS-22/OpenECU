@@ -36,11 +36,11 @@ int main(void)
 	//Initialization
 	SysTick_config();
 	CAN1_Init();
-	CAN1_LoopBack();
+	//CAN1_LoopBack();
 
 	uint32_t now = 0;
 
-	char *MSG = "OpenECU";
+	char *MSG = "OpenECU1";
 	uint8_t len = strlen(MSG);
 	uint8_t buf[9] = {0};
 
@@ -53,7 +53,7 @@ int main(void)
 		if(flag_msgReceived){
 			memcpy(buf, &receivedMsg, receivedDLC);
 			buf[receivedDLC] = '\0';
-			printf("Received from ISR: %s\n\r",buf);
+			printf("Received : %s @ %ld\n\r",buf,sysTick);
 			flag_msgReceived = 0;
 		}
 	}

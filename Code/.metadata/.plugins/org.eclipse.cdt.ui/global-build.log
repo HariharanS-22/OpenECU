@@ -1,7 +1,165 @@
-16:12:14 **** Incremental Build of configuration Debug for project CAN_Driver ****
+23:29:34 **** Incremental Build of configuration Debug for project CAN_Driver ****
+make -j12 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -c -I../Inc -I"H:/OpenECU/Code/CAN_Driver/Module" -I"H:/OpenECU/Code/CAN_Driver/CMSIS" -I"H:/OpenECU/Code/CAN_Driver/CMSIS/Device/ST/STM32F4xx/Include" -I"H:/OpenECU/Code/CAN_Driver/CMSIS/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc "../Module/can.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -c -I../Inc -I"H:/OpenECU/Code/CAN_Driver/Module" -I"H:/OpenECU/Code/CAN_Driver/CMSIS" -I"H:/OpenECU/Code/CAN_Driver/CMSIS/Device/ST/STM32F4xx/Include" -I"H:/OpenECU/Code/CAN_Driver/CMSIS/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Module/can.d" -MT"Module/can.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Module/can.o"
+arm-none-eabi-gcc -o "CAN_Driver.elf" @"objects.list"   -mcpu=cortex-m4 -T"H:\OpenECU\Code\CAN_Driver\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_Driver.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: CAN_Driver.elf
+ 
+arm-none-eabi-size  CAN_Driver.elf 
+arm-none-eabi-objdump -h -S CAN_Driver.elf  > "CAN_Driver.list"
+   text	   data	    bss	    dec	    hex	filename
+   6132	     92	   1928	   8152	   1fd8	CAN_Driver.elf
+Finished building: default.size.stdout
+ 
+Finished building: CAN_Driver.list
+ 
+23:29:42 **** Incremental Build of configuration Debug for project CAN_Driver ****
 make -j12 all 
 arm-none-eabi-size  CAN_Driver.elf 
    text	   data	    bss	    dec	    hex	filename
-   6248	     92	   1928	   8268	   204c	CAN_Driver.elf
+   6132	     92	   1928	   8152	   1fd8	CAN_Driver.elf
 Finished building: default.size.stdout
+ 
+23:36:50 **** Incremental Build of configuration Debug for project CAN_Driver ****
+make -j12 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -c -I../Inc -I"H:/OpenECU/Code/CAN_Driver/Module" -I"H:/OpenECU/Code/CAN_Driver/CMSIS" -I"H:/OpenECU/Code/CAN_Driver/CMSIS/Device/ST/STM32F4xx/Include" -I"H:/OpenECU/Code/CAN_Driver/CMSIS/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "CAN_Driver.elf" @"objects.list"   -mcpu=cortex-m4 -T"H:\OpenECU\Code\CAN_Driver\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_Driver.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: CAN_Driver.elf
+ 
+arm-none-eabi-size  CAN_Driver.elf 
+arm-none-eabi-objdump -h -S CAN_Driver.elf  > "CAN_Driver.list"
+   text	   data	    bss	    dec	    hex	filename
+   6252	     92	   1928	   8272	   2050	CAN_Driver.elf
+Finished building: default.size.stdout
+ 
+Finished building: CAN_Driver.list
+ 
+23:38:18 **** Incremental Build of configuration Debug for project CAN_Driver ****
+make -j12 all 
+arm-none-eabi-size  CAN_Driver.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6252	     92	   1928	   8272	   2050	CAN_Driver.elf
+Finished building: default.size.stdout
+ 
+23:39:04 **** Incremental Build of configuration Debug for project CAN_Driver ****
+make -j12 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -c -I../Inc -I"H:/OpenECU/Code/CAN_Driver/Module" -I"H:/OpenECU/Code/CAN_Driver/CMSIS" -I"H:/OpenECU/Code/CAN_Driver/CMSIS/Device/ST/STM32F4xx/Include" -I"H:/OpenECU/Code/CAN_Driver/CMSIS/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "CAN_Driver.elf" @"objects.list"   -mcpu=cortex-m4 -T"H:\OpenECU\Code\CAN_Driver\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_Driver.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: CAN_Driver.elf
+ 
+arm-none-eabi-size  CAN_Driver.elf 
+arm-none-eabi-objdump -h -S CAN_Driver.elf  > "CAN_Driver.list"
+   text	   data	    bss	    dec	    hex	filename
+   6256	     92	   1928	   8276	   2054	CAN_Driver.elf
+Finished building: default.size.stdout
+ 
+Finished building: CAN_Driver.list
+ 
+23:40:53 **** Incremental Build of configuration Debug for project CAN_Driver ****
+make -j12 all 
+arm-none-eabi-gcc "../Module/can.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -c -I../Inc -I"H:/OpenECU/Code/CAN_Driver/Module" -I"H:/OpenECU/Code/CAN_Driver/CMSIS" -I"H:/OpenECU/Code/CAN_Driver/CMSIS/Device/ST/STM32F4xx/Include" -I"H:/OpenECU/Code/CAN_Driver/CMSIS/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Module/can.d" -MT"Module/can.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Module/can.o"
+arm-none-eabi-gcc -o "CAN_Driver.elf" @"objects.list"   -mcpu=cortex-m4 -T"H:\OpenECU\Code\CAN_Driver\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_Driver.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: CAN_Driver.elf
+ 
+arm-none-eabi-size  CAN_Driver.elf 
+arm-none-eabi-objdump -h -S CAN_Driver.elf  > "CAN_Driver.list"
+   text	   data	    bss	    dec	    hex	filename
+   6260	     92	   1928	   8280	   2058	CAN_Driver.elf
+Finished building: default.size.stdout
+ 
+Finished building: CAN_Driver.list
+ 
+23:42:45 **** Incremental Build of configuration Debug for project CAN_Driver ****
+make -j12 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -c -I../Inc -I"H:/OpenECU/Code/CAN_Driver/Module" -I"H:/OpenECU/Code/CAN_Driver/CMSIS" -I"H:/OpenECU/Code/CAN_Driver/CMSIS/Device/ST/STM32F4xx/Include" -I"H:/OpenECU/Code/CAN_Driver/CMSIS/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "CAN_Driver.elf" @"objects.list"   -mcpu=cortex-m4 -T"H:\OpenECU\Code\CAN_Driver\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_Driver.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: CAN_Driver.elf
+ 
+arm-none-eabi-size  CAN_Driver.elf 
+arm-none-eabi-objdump -h -S CAN_Driver.elf  > "CAN_Driver.list"
+   text	   data	    bss	    dec	    hex	filename
+   6136	     92	   1928	   8156	   1fdc	CAN_Driver.elf
+Finished building: default.size.stdout
+ 
+Finished building: CAN_Driver.list
+ 
+23:43:19 **** Incremental Build of configuration Debug for project CAN_Driver ****
+make -j12 all 
+arm-none-eabi-size  CAN_Driver.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6136	     92	   1928	   8156	   1fdc	CAN_Driver.elf
+Finished building: default.size.stdout
+ 
+23:47:34 **** Incremental Build of configuration Debug for project CAN_Driver ****
+make -j12 all 
+arm-none-eabi-size  CAN_Driver.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6136	     92	   1928	   8156	   1fdc	CAN_Driver.elf
+Finished building: default.size.stdout
+ 
+23:54:29 **** Incremental Build of configuration Debug for project CAN_Driver ****
+make -j12 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -c -I../Inc -I"H:/OpenECU/Code/CAN_Driver/Module" -I"H:/OpenECU/Code/CAN_Driver/CMSIS" -I"H:/OpenECU/Code/CAN_Driver/CMSIS/Device/ST/STM32F4xx/Include" -I"H:/OpenECU/Code/CAN_Driver/CMSIS/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc "../Module/can.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -c -I../Inc -I"H:/OpenECU/Code/CAN_Driver/Module" -I"H:/OpenECU/Code/CAN_Driver/CMSIS" -I"H:/OpenECU/Code/CAN_Driver/CMSIS/Device/ST/STM32F4xx/Include" -I"H:/OpenECU/Code/CAN_Driver/CMSIS/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Module/can.d" -MT"Module/can.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Module/can.o"
+arm-none-eabi-gcc -o "CAN_Driver.elf" @"objects.list"   -mcpu=cortex-m4 -T"H:\OpenECU\Code\CAN_Driver\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_Driver.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: CAN_Driver.elf
+ 
+arm-none-eabi-size  CAN_Driver.elf 
+arm-none-eabi-objdump -h -S CAN_Driver.elf  > "CAN_Driver.list"
+   text	   data	    bss	    dec	    hex	filename
+   6128	     92	   1928	   8148	   1fd4	CAN_Driver.elf
+Finished building: default.size.stdout
+ 
+Finished building: CAN_Driver.list
+ 
+23:55:39 **** Incremental Build of configuration Debug for project CAN_Driver ****
+make -j12 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -c -I../Inc -I"H:/OpenECU/Code/CAN_Driver/Module" -I"H:/OpenECU/Code/CAN_Driver/CMSIS" -I"H:/OpenECU/Code/CAN_Driver/CMSIS/Device/ST/STM32F4xx/Include" -I"H:/OpenECU/Code/CAN_Driver/CMSIS/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc "../Module/can.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -c -I../Inc -I"H:/OpenECU/Code/CAN_Driver/Module" -I"H:/OpenECU/Code/CAN_Driver/CMSIS" -I"H:/OpenECU/Code/CAN_Driver/CMSIS/Device/ST/STM32F4xx/Include" -I"H:/OpenECU/Code/CAN_Driver/CMSIS/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Module/can.d" -MT"Module/can.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Module/can.o"
+arm-none-eabi-gcc -o "CAN_Driver.elf" @"objects.list"   -mcpu=cortex-m4 -T"H:\OpenECU\Code\CAN_Driver\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_Driver.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: CAN_Driver.elf
+ 
+arm-none-eabi-size  CAN_Driver.elf 
+arm-none-eabi-objdump -h -S CAN_Driver.elf  > "CAN_Driver.list"
+   text	   data	    bss	    dec	    hex	filename
+   6128	     92	   1928	   8148	   1fd4	CAN_Driver.elf
+Finished building: default.size.stdout
+ 
+Finished building: CAN_Driver.list
+ 
+00:01:52 **** Incremental Build of configuration Debug for project CAN_Driver ****
+make -j12 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -c -I../Inc -I"H:/OpenECU/Code/CAN_Driver/Module" -I"H:/OpenECU/Code/CAN_Driver/CMSIS" -I"H:/OpenECU/Code/CAN_Driver/CMSIS/Device/ST/STM32F4xx/Include" -I"H:/OpenECU/Code/CAN_Driver/CMSIS/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc "../Module/can.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -c -I../Inc -I"H:/OpenECU/Code/CAN_Driver/Module" -I"H:/OpenECU/Code/CAN_Driver/CMSIS" -I"H:/OpenECU/Code/CAN_Driver/CMSIS/Device/ST/STM32F4xx/Include" -I"H:/OpenECU/Code/CAN_Driver/CMSIS/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Module/can.d" -MT"Module/can.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Module/can.o"
+../Src/main.c: In function 'main':
+../Src/main.c:56:50: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+   56 |                         printf("Received : %s @ %d\n\r",buf,sysTick);
+      |                                                 ~^          ~~~~~~~
+      |                                                  |          |
+      |                                                  int        uint32_t {aka long unsigned int}
+      |                                                 %ld
+arm-none-eabi-gcc -o "CAN_Driver.elf" @"objects.list"   -mcpu=cortex-m4 -T"H:\OpenECU\Code\CAN_Driver\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_Driver.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: CAN_Driver.elf
+ 
+arm-none-eabi-size  CAN_Driver.elf 
+arm-none-eabi-objdump -h -S CAN_Driver.elf  > "CAN_Driver.list"
+   text	   data	    bss	    dec	    hex	filename
+   6132	     92	   1928	   8152	   1fd8	CAN_Driver.elf
+Finished building: default.size.stdout
+ 
+Finished building: CAN_Driver.list
+ 
+00:03:20 **** Incremental Build of configuration Debug for project CAN_Driver ****
+make -j12 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -c -I../Inc -I"H:/OpenECU/Code/CAN_Driver/Module" -I"H:/OpenECU/Code/CAN_Driver/CMSIS" -I"H:/OpenECU/Code/CAN_Driver/CMSIS/Device/ST/STM32F4xx/Include" -I"H:/OpenECU/Code/CAN_Driver/CMSIS/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "CAN_Driver.elf" @"objects.list"   -mcpu=cortex-m4 -T"H:\OpenECU\Code\CAN_Driver\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_Driver.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: CAN_Driver.elf
+ 
+arm-none-eabi-size  CAN_Driver.elf 
+arm-none-eabi-objdump -h -S CAN_Driver.elf  > "CAN_Driver.list"
+   text	   data	    bss	    dec	    hex	filename
+   6136	     92	   1928	   8156	   1fdc	CAN_Driver.elf
+Finished building: default.size.stdout
+ 
+Finished building: CAN_Driver.list
  
