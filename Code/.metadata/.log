@@ -5249,3 +5249,982 @@ COM6
 
 !ENTRY com.st.stm32cube.ide.mcu.debug.swv 1 1 2026-07-19 23:28:10.334
 !MESSAGE SWV configuration; base: 36000000; minDiv: 18; maxDiv: 65535; maxSWO: 2000000; limit: 2000000 => SWO: 2000000; CPU: 16000000; div: 8
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-07-19 23:29:45.290
+!MESSAGE Executed PowerShell command powershell.exe -Command "Get-CimInstance -ClassName Win32_SerialPort | Select-Object -ExpandProperty DeviceID":
+
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-07-19 23:29:45.291
+!MESSAGE port: 
+
+!ENTRY org.eclipse.ui 4 0 2026-07-19 23:41:34.171
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.NullPointerException: Cannot read field "handle" because the return value of "org.eclipse.swt.graphics.Image.getHandle(int, int)" is null
+	at org.eclipse.swt.graphics.Image.win32_getHandle(Image.java:867)
+	at org.eclipse.swt.internal.ImageList.set(ImageList.java:413)
+	at org.eclipse.swt.internal.ImageList.lambda$1(ImageList.java:409)
+	at java.base/java.util.HashMap.forEach(HashMap.java:1429)
+	at org.eclipse.swt.internal.ImageList.setForAllHandles(ImageList.java:409)
+	at org.eclipse.swt.internal.ImageList.add(ImageList.java:62)
+	at org.eclipse.swt.widgets.Tree.imageIndex(Tree.java:3751)
+	at org.eclipse.swt.widgets.Tree.wmNotifyChild(Tree.java:7539)
+	at org.eclipse.swt.widgets.Control.wmNotify(Control.java:5916)
+	at org.eclipse.swt.widgets.Composite.wmNotify(Composite.java:1965)
+	at org.eclipse.swt.widgets.Control.WM_NOTIFY(Control.java:5483)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4915)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5132)
+	at org.eclipse.swt.internal.win32.OS.CallWindowProc(Native Method)
+	at org.eclipse.swt.widgets.Tree.callWindowProc(Tree.java:1577)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4961)
+	at org.eclipse.swt.widgets.Tree.windowProc(Tree.java:6155)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5132)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessage(Native Method)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3748)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1147)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1038)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:153)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:677)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:583)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:173)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:185)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:219)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:149)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:115)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:467)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:298)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:615)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:563)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1415)
+	Suppressed: org.eclipse.swt.SWTException: Graphic is disposed
+		at org.eclipse.swt.SWT.error(SWT.java:4950)
+		at org.eclipse.swt.SWT.error(SWT.java:4865)
+		at org.eclipse.swt.SWT.error(SWT.java:4836)
+		at org.eclipse.swt.graphics.Image.getBounds(Image.java:1243)
+		at org.eclipse.swt.widgets.Tree.CDDS_ITEMPOSTPAINT(Tree.java:763)
+		at org.eclipse.swt.widgets.Tree.wmNotifyChild(Tree.java:7567)
+		... 31 more
+	Suppressed: java.lang.NullPointerException: Cannot read field "handle" because the return value of "org.eclipse.swt.graphics.Image.getHandle(int, int)" is null
+		... 39 more
+	Suppressed: org.eclipse.swt.SWTException: Graphic is disposed
+		at org.eclipse.swt.SWT.error(SWT.java:4950)
+		at org.eclipse.swt.SWT.error(SWT.java:4865)
+		at org.eclipse.swt.SWT.error(SWT.java:4836)
+		at org.eclipse.swt.graphics.Image.getBounds(Image.java:1243)
+		at org.eclipse.swt.widgets.Tree.CDDS_ITEMPOSTPAINT(Tree.java:763)
+		at org.eclipse.swt.widgets.Tree.wmNotifyChild(Tree.java:7567)
+		... 31 more
+
+!ENTRY org.eclipse.equinox.p2.operations 4 0 2026-07-20 13:50:23.652
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.operations 2 10001 2026-07-20 13:50:23.657
+!MESSAGE Your original request has been modified.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.657
+!MESSAGE "STM32CubeIDE IDE Analytics" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.657
+!MESSAGE "STM32CubeIDE MPU Project Tree Generator" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.657
+!MESSAGE "STM32CubeIDE MPU Linux Debug" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.658
+!MESSAGE "STM32CubeIDE MPU Advanced Linker Script Files" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.658
+!MESSAGE "Guava: Google Core Libraries for Java" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.658
+!MESSAGE "STM32CubeIDE IDE Analytics" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.658
+!MESSAGE "STM32CubeIDE Cyclomatic Complexity" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.658
+!MESSAGE "STM32CubeIDE Kernel Aware Debugging" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.658
+!MESSAGE "STM32CubeIDE IDE Utilities" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.658
+!MESSAGE "STM32CubeIDE MPU Serial" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.658
+!MESSAGE "STM32CubeIDE GNU Arm Embedded" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.658
+!MESSAGE "Gson" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.658
+!MESSAGE "Batik i18n library" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.658
+!MESSAGE "STM32CubeIDE IDE CMake Utilities" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.658
+!MESSAGE "STM32CubeIDE MCU External Tools UI" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.658
+!MESSAGE "STM32CubeIDE MCU Startup File" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.658
+!MESSAGE "STM32CubeIDE EcoSystem Integration UI" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.658
+!MESSAGE "STM32CubeIDE MPU Product Database" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.658
+!MESSAGE "STM32CubeIDE MCU External Tools STM32CubeProgrammer" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.658
+!MESSAGE "STM32CubeIDE Common Services" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.658
+!MESSAGE "STM32CubeIDE OpenSTLinux Integration Core" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.658
+!MESSAGE "STM32CubeIDE ThreadX Kernel Aware Debugging" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.658
+!MESSAGE "STM32CubeIDE Common Utilities" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.659
+!MESSAGE "STM32CubeIDE MCU Advanced Linker Script Files" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.659
+!MESSAGE "STM32CubeIDE Fault Analyzer" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.659
+!MESSAGE "STM32CubeIDE MCU External Tools SEGGER J-Link GDB server" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.659
+!MESSAGE "STM32CubeIDE Stack Analyzer" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.659
+!MESSAGE "STM32CubeIDE MPU Startup File" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.659
+!MESSAGE "TCP Console" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2026-07-20 13:50:23.659
+!MESSAGE "Jakarta Activation" is already installed, so an update will be performed instead.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.659
+!MESSAGE "STM32CubeIDE MCU External Tools Ninja Utilities" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.659
+!MESSAGE "STM32CubeIDE EcoSystem Integration (ST Insider)" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.659
+!MESSAGE "STM32CubeIDE MPU OpenOCD (ST-LINK)" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.659
+!MESSAGE "Eclipse Compiler for Java(TM)" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.659
+!MESSAGE "Lucene Smart Chinese Analysis" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.659
+!MESSAGE "STM32CubeIDE CDT locking down plugins impacted by CDT 11.0.0 release" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.659
+!MESSAGE "STM32CubeIDE IDE CMake Utilities" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.659
+!MESSAGE "STM32CubeIDE MCU Linker Script File Generator" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.660
+!MESSAGE "STM32CubeIDE C/C++ Debugging Tools for MCU" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.660
+!MESSAGE "STM32CubeIDE MCU Project Natures" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.660
+!MESSAGE "STM32CubeIDE MPU Extended Project Resources" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.660
+!MESSAGE "STM32CubeIDE MCU External Tools ST-LINK Server" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.661
+!MESSAGE "STM32CubeIDE C/C++ Embedded Development Tools for MPU" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.661
+!MESSAGE "STM32CubeIDE Project Converters" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.661
+!MESSAGE "STM32CubeIDE C/C++ Embedded Development Tools for MPU Linux" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.661
+!MESSAGE "STM32CubeIDE Information Center" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.661
+!MESSAGE "Apache Ant" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.661
+!MESSAGE "STM32CubeIDE MCU External Tools ST-LINK GDB Server" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.661
+!MESSAGE "STM32CubeIDE MCU Product Database" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.661
+!MESSAGE "STM32CubeIDE SWV" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.661
+!MESSAGE "Jakarta Dependency Injection" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.661
+!MESSAGE "STM32CubeIDE Common Adapted Services" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.661
+!MESSAGE "STM32CubeIDE EcoSystem Integration" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.661
+!MESSAGE "ASM Commons" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.661
+!MESSAGE "STM32CubeIDE C/C++ Embedded Development Tools for MCU" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.661
+!MESSAGE "Lucene Common Analysis" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.661
+!MESSAGE "STM32CubeIDE GNU Tools for STM32" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.661
+!MESSAGE "STM32CubeIDE RCP" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.661
+!MESSAGE "STM32CubeIDE Core Toolchain Helper UI" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.661
+!MESSAGE "STM32CubeIDE Core Toolchain Helper" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.661
+!MESSAGE "STM32CubeIDE MCU OpenOCD (ST-LINK)" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.662
+!MESSAGE "Lucene Core" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.662
+!MESSAGE "STM32CubeIDE MPU Linker Script File Generator" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.662
+!MESSAGE "STM32CubeIDE MCU Thread Safe Project Resources" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.662
+!MESSAGE "EMF Common" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.662
+!MESSAGE "Batik utility library" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.662
+!MESSAGE "STM32CubeIDE MPU Linux Project Creation" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.662
+!MESSAGE "STM32CubeIDE Project Creation UI" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.662
+!MESSAGE "Batik CSS engine" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.662
+!MESSAGE "Apache HttpClient5 Win32 Support" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.662
+!MESSAGE "STM32CubeIDE Project Creation" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.662
+!MESSAGE "STM32CubeIDE Build" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.662
+!MESSAGE "STM32CubeIDE MCU Extended Project Resources" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.662
+!MESSAGE "STM32CubeIDE JRE" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.662
+!MESSAGE "STM32CubeIDE MCU External Tools CMake Utilities" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.662
+!MESSAGE "STM32CubeIDE MCU External Tools OpenOCD" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.662
+!MESSAGE "STM32CubeIDE C/C++ Embedded Development Tools for MPU Linux" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.662
+!MESSAGE "EMF - Eclipse Modeling Framework Core Runtime" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.662
+!MESSAGE "STM32CubeIDE FreeRTOS Kernel Aware Debugging" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.662
+!MESSAGE "STM32CubeIDE MPU Project Natures" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.662
+!MESSAGE "Apache XML Graphics Commons" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.662
+!MESSAGE "STM32CubeIDE MPU Product Database for Debug" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.662
+!MESSAGE "STM32CubeIDE Common Preferences" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.662
+!MESSAGE "STM32CubeIDE ST-LINK" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.662
+!MESSAGE "STM32CubeIDE Linker Script File Editor" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.662
+!MESSAGE "STM32CubeIDE Documentation" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.663
+!MESSAGE "STM32CubeIDE MCU Common Project Resources" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.663
+!MESSAGE "Serial Connector for Eclipse Terminal" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.663
+!MESSAGE "Jakarta Annotations API" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.663
+!MESSAGE "STM32CubeIDE Build Analyzer" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.663
+!MESSAGE "Apache Commons IO" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.663
+!MESSAGE "Batik constants library" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.663
+!MESSAGE "ASM Core" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.663
+!MESSAGE "STM32CubeIDE Common Logger" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.663
+!MESSAGE "STM32CubeIDE MPU Target Adapter" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.664
+!MESSAGE "Apache HttpClient" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.664
+!MESSAGE "STM32CubeIDE MPU Product Database" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.664
+!MESSAGE "asm-util" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.664
+!MESSAGE "STM32CubeIDE ARM Toolchain Definition" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.664
+!MESSAGE "Apache HttpComponents Core HTTP/2" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.664
+!MESSAGE "STM32CubeIDE MPU Common Project Resources" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.664
+!MESSAGE "ICU4J" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.664
+!MESSAGE "STM32CubeIDE Common STM32CubeMX Services" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.664
+!MESSAGE "JSch" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.664
+!MESSAGE "STM32CubeIDE Live Expression" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.664
+!MESSAGE "STM32CubeIDE MCU External Tools Make Utilities" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.664
+!MESSAGE "ASM Tree" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.664
+!MESSAGE "Java Native Access" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.664
+!MESSAGE "STM32CubeIDE Target Adapter" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.664
+!MESSAGE "XZ for Java" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.664
+!MESSAGE "Java Native Access Platform" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.664
+!MESSAGE "STM32CubeIDE MPU SSH" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.664
+!MESSAGE "STM32CubeIDE SEGGER J-Link" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.664
+!MESSAGE "Extended XML APIs" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.664
+!MESSAGE "STM32CubeIDE MPU Debug" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.664
+!MESSAGE "STM32CubeIDE Build UI" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.664
+!MESSAGE "STM32CubeIDE MCU External Tools" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.664
+!MESSAGE "STM32CubeIDE SFR view" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.664
+!MESSAGE "STM32CubeIDE P2 Utils" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.664
+!MESSAGE "STM32CubeIDE MCU Product Debug Database" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.664
+!MESSAGE "STM32CubeIDE Common UI" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.664
+!MESSAGE "Apache HttpComponents Core5 HTTP/1.1" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.664
+!MESSAGE "Eclipse e4 Progress View" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.664
+!MESSAGE "STM32CubeIDE Common Logger UI" will be ignored because a newer version is already installed. 
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 1 2026-07-20 13:50:23.664
+!MESSAGE Cannot complete the install because some dependencies are not satisfiable
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2026-07-20 13:50:23.664
+!MESSAGE org.eclipse.equinox.p2.iu; org.eclipse.linuxtools.perf.feature.feature.group [8.21.0.202512022002,8.21.0.202512022002] cannot be installed in this environment because its filter is not applicable.
+
+!ENTRY org.eclipse.equinox.p2.operations 4 0 2026-07-20 13:50:23.781
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.operations 2 10001 2026-07-20 13:50:23.781
+!MESSAGE Your original request has been modified.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.781
+!MESSAGE "STM32CubeIDE IDE Analytics" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.781
+!MESSAGE "STM32CubeIDE MPU Project Tree Generator" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.781
+!MESSAGE "STM32CubeIDE MPU Linux Debug" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.781
+!MESSAGE "STM32CubeIDE MPU Advanced Linker Script Files" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.781
+!MESSAGE "Guava: Google Core Libraries for Java" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.781
+!MESSAGE "STM32CubeIDE IDE Analytics" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.781
+!MESSAGE "STM32CubeIDE Cyclomatic Complexity" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.781
+!MESSAGE "STM32CubeIDE Kernel Aware Debugging" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.781
+!MESSAGE "STM32CubeIDE IDE Utilities" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.781
+!MESSAGE "STM32CubeIDE MPU Serial" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.781
+!MESSAGE "STM32CubeIDE GNU Arm Embedded" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.781
+!MESSAGE "Gson" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.781
+!MESSAGE "Batik i18n library" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.781
+!MESSAGE "STM32CubeIDE IDE CMake Utilities" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.781
+!MESSAGE "STM32CubeIDE MCU External Tools UI" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.781
+!MESSAGE "STM32CubeIDE MCU Startup File" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.781
+!MESSAGE "STM32CubeIDE EcoSystem Integration UI" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.781
+!MESSAGE "STM32CubeIDE MPU Product Database" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.781
+!MESSAGE "STM32CubeIDE MCU External Tools STM32CubeProgrammer" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.781
+!MESSAGE "STM32CubeIDE Common Services" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.781
+!MESSAGE "STM32CubeIDE OpenSTLinux Integration Core" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.781
+!MESSAGE "STM32CubeIDE ThreadX Kernel Aware Debugging" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.781
+!MESSAGE "STM32CubeIDE Common Utilities" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.781
+!MESSAGE "STM32CubeIDE MCU Advanced Linker Script Files" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.781
+!MESSAGE "STM32CubeIDE Fault Analyzer" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.781
+!MESSAGE "STM32CubeIDE MCU External Tools SEGGER J-Link GDB server" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.781
+!MESSAGE "STM32CubeIDE Stack Analyzer" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.781
+!MESSAGE "STM32CubeIDE MPU Startup File" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.781
+!MESSAGE "TCP Console" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2026-07-20 13:50:23.781
+!MESSAGE "Jakarta Activation" is already installed, so an update will be performed instead.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.781
+!MESSAGE "STM32CubeIDE MCU External Tools Ninja Utilities" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.781
+!MESSAGE "STM32CubeIDE EcoSystem Integration (ST Insider)" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.781
+!MESSAGE "STM32CubeIDE MPU OpenOCD (ST-LINK)" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.781
+!MESSAGE "Eclipse Compiler for Java(TM)" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.781
+!MESSAGE "Lucene Smart Chinese Analysis" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.781
+!MESSAGE "STM32CubeIDE CDT locking down plugins impacted by CDT 11.0.0 release" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.781
+!MESSAGE "STM32CubeIDE IDE CMake Utilities" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.781
+!MESSAGE "STM32CubeIDE MCU Linker Script File Generator" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.781
+!MESSAGE "STM32CubeIDE C/C++ Debugging Tools for MCU" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.781
+!MESSAGE "STM32CubeIDE MCU Project Natures" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.781
+!MESSAGE "STM32CubeIDE MPU Extended Project Resources" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.782
+!MESSAGE "STM32CubeIDE MCU External Tools ST-LINK Server" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.782
+!MESSAGE "STM32CubeIDE C/C++ Embedded Development Tools for MPU" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.782
+!MESSAGE "STM32CubeIDE Project Converters" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.782
+!MESSAGE "STM32CubeIDE C/C++ Embedded Development Tools for MPU Linux" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.782
+!MESSAGE "STM32CubeIDE Information Center" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.782
+!MESSAGE "Apache Ant" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.782
+!MESSAGE "STM32CubeIDE MCU External Tools ST-LINK GDB Server" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.782
+!MESSAGE "STM32CubeIDE MCU Product Database" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.782
+!MESSAGE "STM32CubeIDE SWV" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.782
+!MESSAGE "Jakarta Dependency Injection" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.782
+!MESSAGE "STM32CubeIDE Common Adapted Services" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.782
+!MESSAGE "STM32CubeIDE EcoSystem Integration" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.782
+!MESSAGE "ASM Commons" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.782
+!MESSAGE "STM32CubeIDE C/C++ Embedded Development Tools for MCU" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.782
+!MESSAGE "Lucene Common Analysis" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.782
+!MESSAGE "STM32CubeIDE GNU Tools for STM32" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.782
+!MESSAGE "STM32CubeIDE RCP" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.782
+!MESSAGE "STM32CubeIDE Core Toolchain Helper UI" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.782
+!MESSAGE "STM32CubeIDE Core Toolchain Helper" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.782
+!MESSAGE "STM32CubeIDE MCU OpenOCD (ST-LINK)" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.782
+!MESSAGE "Lucene Core" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.782
+!MESSAGE "STM32CubeIDE MPU Linker Script File Generator" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.782
+!MESSAGE "STM32CubeIDE MCU Thread Safe Project Resources" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.782
+!MESSAGE "EMF Common" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.782
+!MESSAGE "Batik utility library" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.782
+!MESSAGE "STM32CubeIDE MPU Linux Project Creation" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.782
+!MESSAGE "STM32CubeIDE Project Creation UI" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.782
+!MESSAGE "Batik CSS engine" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.782
+!MESSAGE "Apache HttpClient5 Win32 Support" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.782
+!MESSAGE "STM32CubeIDE Project Creation" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.782
+!MESSAGE "STM32CubeIDE Build" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.782
+!MESSAGE "STM32CubeIDE MCU Extended Project Resources" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.782
+!MESSAGE "STM32CubeIDE JRE" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.782
+!MESSAGE "STM32CubeIDE MCU External Tools CMake Utilities" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.782
+!MESSAGE "STM32CubeIDE MCU External Tools OpenOCD" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.782
+!MESSAGE "STM32CubeIDE C/C++ Embedded Development Tools for MPU Linux" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.782
+!MESSAGE "EMF - Eclipse Modeling Framework Core Runtime" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.782
+!MESSAGE "STM32CubeIDE FreeRTOS Kernel Aware Debugging" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.782
+!MESSAGE "STM32CubeIDE MPU Project Natures" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.782
+!MESSAGE "Apache XML Graphics Commons" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.782
+!MESSAGE "STM32CubeIDE MPU Product Database for Debug" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.782
+!MESSAGE "STM32CubeIDE Common Preferences" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.782
+!MESSAGE "STM32CubeIDE ST-LINK" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.782
+!MESSAGE "STM32CubeIDE Linker Script File Editor" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.782
+!MESSAGE "STM32CubeIDE Documentation" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.783
+!MESSAGE "STM32CubeIDE MCU Common Project Resources" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.783
+!MESSAGE "Serial Connector for Eclipse Terminal" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.783
+!MESSAGE "Jakarta Annotations API" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.783
+!MESSAGE "STM32CubeIDE Build Analyzer" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.783
+!MESSAGE "Apache Commons IO" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.783
+!MESSAGE "Batik constants library" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.783
+!MESSAGE "ASM Core" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.783
+!MESSAGE "STM32CubeIDE Common Logger" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.783
+!MESSAGE "STM32CubeIDE MPU Target Adapter" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.783
+!MESSAGE "Apache HttpClient" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.783
+!MESSAGE "STM32CubeIDE MPU Product Database" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.783
+!MESSAGE "asm-util" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.783
+!MESSAGE "STM32CubeIDE ARM Toolchain Definition" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.783
+!MESSAGE "Apache HttpComponents Core HTTP/2" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.783
+!MESSAGE "STM32CubeIDE MPU Common Project Resources" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.783
+!MESSAGE "ICU4J" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.783
+!MESSAGE "STM32CubeIDE Common STM32CubeMX Services" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.783
+!MESSAGE "JSch" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.783
+!MESSAGE "STM32CubeIDE Live Expression" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.783
+!MESSAGE "STM32CubeIDE MCU External Tools Make Utilities" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.783
+!MESSAGE "ASM Tree" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.783
+!MESSAGE "Java Native Access" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.784
+!MESSAGE "STM32CubeIDE Target Adapter" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.784
+!MESSAGE "XZ for Java" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.784
+!MESSAGE "Java Native Access Platform" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.784
+!MESSAGE "STM32CubeIDE MPU SSH" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.784
+!MESSAGE "STM32CubeIDE SEGGER J-Link" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.784
+!MESSAGE "Extended XML APIs" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.784
+!MESSAGE "STM32CubeIDE MPU Debug" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.784
+!MESSAGE "STM32CubeIDE Build UI" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.784
+!MESSAGE "STM32CubeIDE MCU External Tools" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.784
+!MESSAGE "STM32CubeIDE SFR view" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.784
+!MESSAGE "STM32CubeIDE P2 Utils" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.784
+!MESSAGE "STM32CubeIDE MCU Product Debug Database" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.784
+!MESSAGE "STM32CubeIDE Common UI" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.784
+!MESSAGE "Apache HttpComponents Core5 HTTP/1.1" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.784
+!MESSAGE "Eclipse e4 Progress View" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2026-07-20 13:50:23.784
+!MESSAGE "STM32CubeIDE Common Logger UI" will be ignored because a newer version is already installed. 
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 1 2026-07-20 13:50:23.784
+!MESSAGE Cannot complete the install because some dependencies are not satisfiable
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2026-07-20 13:50:23.784
+!MESSAGE org.eclipse.equinox.p2.iu; org.eclipse.linuxtools.perf.feature.feature.group [8.21.0.202512022002,8.21.0.202512022002] cannot be installed in this environment because its filter is not applicable.
+
+!ENTRY com.st.stm32cube.ide.mcu.sfr 4 0 2026-07-20 13:51:47.258
+!MESSAGE Failed to get SVD info for project P/CAN_Driver
+
+!ENTRY com.st.stm32cube.ide.mcu.sfr 4 0 2026-07-20 13:51:47.259
+!MESSAGE Failed to get SVD info for project P/CAN_Driver
+
+!ENTRY com.st.stm32cube.ide.mcu.sfr 1 0 2026-07-20 13:51:47.260
+!MESSAGE No valid SVD data file found for project: CAN_Driver
+!STACK 0
+java.lang.Exception: No valid SVD data file found for project: CAN_Driver
+	at com.st.stm32cube.ide.mcu.sfr.model.SfrRegisterModel.loadDeviceFile(SfrRegisterModel.java:1056)
+	at com.st.stm32cube.ide.mcu.sfr.model.SfrRegisterModel.initRegisterModel(SfrRegisterModel.java:130)
+	at com.st.stm32cube.ide.mcu.sfr.model.SfrRegisterModel.refresh(SfrRegisterModel.java:1209)
+	at com.st.stm32cube.ide.mcu.sfr.model.SfrRegisterModel.refresh(SfrRegisterModel.java:1198)
+	at com.st.stm32cube.ide.mcu.sfr.model.SfrRegisterModel.selectionChanged(SfrRegisterModel.java:1163)
+	at org.eclipse.ui.internal.e4.compatibility.SelectionService.notifyListeners(SelectionService.java:264)
+	at org.eclipse.ui.internal.e4.compatibility.SelectionService.handleSelectionChanged(SelectionService.java:98)
+	at org.eclipse.ui.internal.e4.compatibility.SelectionService.lambda$0(SelectionService.java:72)
+	at org.eclipse.e4.ui.internal.workbench.SelectionAggregator$1.run(SelectionAggregator.java:122)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.e4.ui.internal.workbench.SelectionAggregator.notifyListeners(SelectionAggregator.java:119)
+	at org.eclipse.e4.ui.internal.workbench.SelectionAggregator$5.lambda$0(SelectionAggregator.java:219)
+	at org.eclipse.e4.core.contexts.RunAndTrack.runExternalCode(RunAndTrack.java:59)
+	at org.eclipse.e4.ui.internal.workbench.SelectionAggregator$5.changed(SelectionAggregator.java:219)
+	at org.eclipse.e4.core.internal.contexts.TrackableComputationExt.update(TrackableComputationExt.java:109)
+	at org.eclipse.e4.core.internal.contexts.EclipseContext.processScheduled(EclipseContext.java:371)
+	at org.eclipse.e4.core.internal.contexts.EclipseContext.set(EclipseContext.java:387)
+	at org.eclipse.e4.ui.internal.workbench.SelectionServiceImpl.setSelection(SelectionServiceImpl.java:34)
+	at org.eclipse.ui.internal.e4.compatibility.CompatibilityPart.selectionChanged(CompatibilityPart.java:473)
+	at org.eclipse.jface.viewers.Viewer$1.run(Viewer.java:151)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.jface.util.SafeRunnable.run(SafeRunnable.java:169)
+	at org.eclipse.jface.viewers.Viewer.fireSelectionChanged(Viewer.java:148)
+	at org.eclipse.jface.viewers.StructuredViewer.updateSelection(StructuredViewer.java:2132)
+	at org.eclipse.jface.viewers.ColumnViewer.updateSelection(ColumnViewer.java:1044)
+	at org.eclipse.jface.viewers.StructuredViewer.setSelection(StructuredViewer.java:1667)
+	at org.eclipse.jface.viewers.TreeViewer.setSelection(TreeViewer.java:1093)
+	at org.eclipse.ui.navigator.CommonViewer.setSelection(CommonViewer.java:389)
+	at org.eclipse.ui.navigator.CommonNavigator.selectReveal(CommonNavigator.java:387)
+	at org.eclipse.ui.wizards.newresource.BasicNewResourceWizard.lambda$0(BasicNewResourceWizard.java:170)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:132)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4137)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3753)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1147)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1038)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:153)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:677)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:583)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:173)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:185)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:219)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:149)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:115)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:467)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:298)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:615)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:563)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1415)
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-07-20 13:51:48.728
+!MESSAGE Indexed 'CAN_Driver' (0 sources, 0 headers) in 0.003 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY com.st.stm32cube.ide.mcu.sfr 4 0 2026-07-20 13:52:05.601
+!MESSAGE Failed to get SVD info for project P/CAN_Driver
+
+!ENTRY com.st.stm32cube.ide.mcu.sfr 4 0 2026-07-20 13:52:05.601
+!MESSAGE Failed to get SVD info for project P/CAN_Driver
+
+!ENTRY com.st.stm32cube.ide.mcu.sfr 1 0 2026-07-20 13:52:05.602
+!MESSAGE No valid SVD data file found for project: CAN_Driver
+!STACK 0
+java.lang.Exception: No valid SVD data file found for project: CAN_Driver
+	at com.st.stm32cube.ide.mcu.sfr.model.SfrRegisterModel.loadDeviceFile(SfrRegisterModel.java:1056)
+	at com.st.stm32cube.ide.mcu.sfr.model.SfrRegisterModel.initRegisterModel(SfrRegisterModel.java:130)
+	at com.st.stm32cube.ide.mcu.sfr.model.SfrRegisterModel.refresh(SfrRegisterModel.java:1209)
+	at com.st.stm32cube.ide.mcu.sfr.model.SfrRegisterModel.refresh(SfrRegisterModel.java:1198)
+	at com.st.stm32cube.ide.mcu.sfr.model.SfrRegisterModel.selectionChanged(SfrRegisterModel.java:1163)
+	at org.eclipse.ui.internal.e4.compatibility.SelectionService.notifyListeners(SelectionService.java:264)
+	at org.eclipse.ui.internal.e4.compatibility.SelectionService.handleSelectionChanged(SelectionService.java:98)
+	at org.eclipse.ui.internal.e4.compatibility.SelectionService.lambda$0(SelectionService.java:72)
+	at org.eclipse.e4.ui.internal.workbench.SelectionAggregator$1.run(SelectionAggregator.java:122)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.e4.ui.internal.workbench.SelectionAggregator.notifyListeners(SelectionAggregator.java:119)
+	at org.eclipse.e4.ui.internal.workbench.SelectionAggregator$5.lambda$0(SelectionAggregator.java:219)
+	at org.eclipse.e4.core.contexts.RunAndTrack.runExternalCode(RunAndTrack.java:59)
+	at org.eclipse.e4.ui.internal.workbench.SelectionAggregator$5.changed(SelectionAggregator.java:219)
+	at org.eclipse.e4.core.internal.contexts.TrackableComputationExt.update(TrackableComputationExt.java:109)
+	at org.eclipse.e4.core.internal.contexts.EclipseContext.processScheduled(EclipseContext.java:371)
+	at org.eclipse.e4.core.internal.contexts.EclipseContext.set(EclipseContext.java:387)
+	at org.eclipse.e4.ui.internal.workbench.SelectionServiceImpl.setSelection(SelectionServiceImpl.java:34)
+	at org.eclipse.ui.internal.e4.compatibility.CompatibilityPart.selectionChanged(CompatibilityPart.java:473)
+	at org.eclipse.jface.viewers.Viewer$1.run(Viewer.java:151)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.jface.util.SafeRunnable.run(SafeRunnable.java:169)
+	at org.eclipse.jface.viewers.Viewer.fireSelectionChanged(Viewer.java:148)
+	at org.eclipse.jface.viewers.StructuredViewer.updateSelection(StructuredViewer.java:2132)
+	at org.eclipse.jface.viewers.ColumnViewer.updateSelection(ColumnViewer.java:1044)
+	at org.eclipse.jface.viewers.StructuredViewer.handleSelect(StructuredViewer.java:1173)
+	at org.eclipse.ui.navigator.CommonViewer.handleSelect(CommonViewer.java:482)
+	at org.eclipse.jface.viewers.StructuredViewer$4.widgetSelected(StructuredViewer.java:1202)
+	at org.eclipse.jface.util.OpenStrategy.fireSelectionEvent(OpenStrategy.java:262)
+	at org.eclipse.jface.util.OpenStrategy$1.handleEvent(OpenStrategy.java:420)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:91)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4364)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1217)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4162)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3750)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1147)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1038)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:153)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:677)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:583)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:173)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:185)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:219)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:149)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:115)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:467)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:298)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:615)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:563)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1415)
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-07-20 13:54:40.339
+!MESSAGE Indexed 'CAN_Driver' (0 sources, 0 headers) in 0.003 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-07-20 13:59:21.795
+!MESSAGE Indexed 'CAN_Driver' (3 sources, 53 headers) in 1.37 sec: 1,954 declarations; 2,867 references; 0 unresolved inclusions; 2 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.ui 4 4 2026-07-20 14:55:08.938
+!MESSAGE Error
+!STACK 1
+org.eclipse.core.runtime.CoreException: can not create a source entry for individual file
+	at org.eclipse.cdt.internal.core.settings.model.ExceptionFactory.createCoreException(ExceptionFactory.java:25)
+	at org.eclipse.cdt.core.settings.model.util.CDataUtil.setExcluded(CDataUtil.java:849)
+	at org.eclipse.cdt.core.settings.model.util.CDataUtil.setExcluded(CDataUtil.java:795)
+	at org.eclipse.cdt.internal.ui.actions.ExcludeFromBuildHandler.setExclude(ExcludeFromBuildHandler.java:174)
+	at org.eclipse.cdt.internal.ui.actions.ExcludeFromBuildHandler.openDialog(ExcludeFromBuildHandler.java:252)
+	at org.eclipse.cdt.internal.ui.actions.ExcludeFromBuildHandler.execute(ExcludeFromBuildHandler.java:184)
+	at org.eclipse.ui.internal.handlers.HandlerProxy.execute(HandlerProxy.java:277)
+	at org.eclipse.ui.internal.handlers.E4HandlerProxy.execute(E4HandlerProxy.java:98)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:58)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.invokeUsingClass(InjectorImpl.java:305)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.invoke(InjectorImpl.java:237)
+	at org.eclipse.e4.core.contexts.ContextInjectionFactory.invoke(ContextInjectionFactory.java:174)
+	at org.eclipse.e4.core.commands.internal.HandlerServiceHandler.execute(HandlerServiceHandler.java:165)
+	at org.eclipse.core.commands.Command.executeWithChecks(Command.java:488)
+	at org.eclipse.core.commands.ParameterizedCommand.executeWithChecks(ParameterizedCommand.java:484)
+	at org.eclipse.e4.core.commands.internal.HandlerServiceImpl.executeHandler(HandlerServiceImpl.java:204)
+	at org.eclipse.e4.ui.workbench.renderers.swt.HandledContributionItem.executeItem(HandledContributionItem.java:446)
+	at org.eclipse.e4.ui.workbench.renderers.swt.AbstractContributionItem.handleWidgetSelection(AbstractContributionItem.java:471)
+	at org.eclipse.e4.ui.workbench.renderers.swt.AbstractContributionItem.lambda$2(AbstractContributionItem.java:493)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:91)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4364)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1217)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4162)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3750)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1147)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1038)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:153)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:677)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:583)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:173)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:185)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:219)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:149)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:115)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:467)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:298)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:615)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:563)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1415)
+!SUBENTRY 1 org.eclipse.cdt.core 4 0 2026-07-20 14:55:08.942
+!MESSAGE can not create a source entry for individual file
+
+!ENTRY org.eclipse.cdt.ui 4 4 2026-07-20 14:55:17.557
+!MESSAGE Error
+!STACK 1
+org.eclipse.core.runtime.CoreException: can not create a source entry for individual file
+	at org.eclipse.cdt.internal.core.settings.model.ExceptionFactory.createCoreException(ExceptionFactory.java:25)
+	at org.eclipse.cdt.core.settings.model.util.CDataUtil.setExcluded(CDataUtil.java:849)
+	at org.eclipse.cdt.core.settings.model.util.CDataUtil.setExcluded(CDataUtil.java:795)
+	at org.eclipse.cdt.internal.ui.actions.ExcludeFromBuildHandler.setExclude(ExcludeFromBuildHandler.java:174)
+	at org.eclipse.cdt.internal.ui.actions.ExcludeFromBuildHandler.openDialog(ExcludeFromBuildHandler.java:252)
+	at org.eclipse.cdt.internal.ui.actions.ExcludeFromBuildHandler.execute(ExcludeFromBuildHandler.java:184)
+	at org.eclipse.ui.internal.handlers.HandlerProxy.execute(HandlerProxy.java:277)
+	at org.eclipse.ui.internal.handlers.E4HandlerProxy.execute(E4HandlerProxy.java:98)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:58)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.invokeUsingClass(InjectorImpl.java:305)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.invoke(InjectorImpl.java:237)
+	at org.eclipse.e4.core.contexts.ContextInjectionFactory.invoke(ContextInjectionFactory.java:174)
+	at org.eclipse.e4.core.commands.internal.HandlerServiceHandler.execute(HandlerServiceHandler.java:165)
+	at org.eclipse.core.commands.Command.executeWithChecks(Command.java:488)
+	at org.eclipse.core.commands.ParameterizedCommand.executeWithChecks(ParameterizedCommand.java:484)
+	at org.eclipse.e4.core.commands.internal.HandlerServiceImpl.executeHandler(HandlerServiceImpl.java:204)
+	at org.eclipse.e4.ui.workbench.renderers.swt.HandledContributionItem.executeItem(HandledContributionItem.java:446)
+	at org.eclipse.e4.ui.workbench.renderers.swt.AbstractContributionItem.handleWidgetSelection(AbstractContributionItem.java:471)
+	at org.eclipse.e4.ui.workbench.renderers.swt.AbstractContributionItem.lambda$2(AbstractContributionItem.java:493)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:91)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4364)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1217)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4162)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3750)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1147)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1038)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:153)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:677)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:583)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:173)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:185)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:219)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:149)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:115)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:467)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:298)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:615)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:563)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1415)
+!SUBENTRY 1 org.eclipse.cdt.core 4 0 2026-07-20 14:55:17.557
+!MESSAGE can not create a source entry for individual file
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-07-20 15:06:43.750
+!MESSAGE Executed PowerShell command powershell.exe -Command "Get-CimInstance -ClassName Win32_SerialPort | Select-Object -ExpandProperty DeviceID":
+COM6
+
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-07-20 15:06:43.750
+!MESSAGE port: COM6
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-07-20 15:09:44.468
+!MESSAGE Executed PowerShell command powershell.exe -Command "Get-CimInstance -ClassName Win32_SerialPort | Select-Object -ExpandProperty DeviceID":
+
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-07-20 15:09:44.469
+!MESSAGE port: 
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-07-20 15:12:36.953
+!MESSAGE Executed PowerShell command powershell.exe -Command "Get-CimInstance -ClassName Win32_SerialPort | Select-Object -ExpandProperty DeviceID":
+COM6
+
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-07-20 15:12:36.955
+!MESSAGE port: COM6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 1 1 2026-07-20 15:27:45.020
+!MESSAGE SWV configuration; base: 36000000; minDiv: 18; maxDiv: 65535; maxSWO: 2000000; limit: 2000000 => SWO: 2000000; CPU: 16000000; div: 8
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-07-20 15:46:31.943
+!MESSAGE Executed PowerShell command powershell.exe -Command "Get-CimInstance -ClassName Win32_SerialPort | Select-Object -ExpandProperty DeviceID":
+
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-07-20 15:46:31.946
+!MESSAGE port: 
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-07-20 16:02:34.502
+!MESSAGE Executed PowerShell command powershell.exe -Command "Get-CimInstance -ClassName Win32_SerialPort | Select-Object -ExpandProperty DeviceID":
+COM6
+
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-07-20 16:02:34.502
+!MESSAGE port: COM6
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 4 4 2026-07-20 16:06:02.057
+!MESSAGE Failed to set --frequency option: 
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2026-07-20 16:06:43.807
+!MESSAGE Error in final launch sequence:
+
+Device debug script
+!STACK 1
+org.eclipse.core.runtime.CoreException: Device debug script
+	at org.eclipse.cdt.dsf.concurrent.Query.get(Query.java:112)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugSession(GdbLaunchDelegate.java:254)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugger(GdbLaunchDelegate.java:111)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launch(GdbLaunchDelegate.java:99)
+	at com.st.stm32cube.ide.mcu.debug.launch.DSFDelegate.launch(DSFDelegate.java:337)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:778)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:689)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1052)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$1.run(DebugUIPlugin.java:1254)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Contains: Device debug script
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 0 2026-07-20 16:06:43.808
+!MESSAGE Device debug script
+!SUBENTRY 2 com.st.stm32cube.ide.mcu.debug.launch 4 0 2026-07-20 16:06:43.808
+!MESSAGE Device debug script
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 1 1 2026-07-20 16:07:36.099
+!MESSAGE SWV configuration; base: 36000000; minDiv: 18; maxDiv: 65535; maxSWO: 2000000; limit: 2000000 => SWO: 2000000; CPU: 16000000; div: 8
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 4 2026-07-20 16:07:55.368
+!MESSAGE NullPointerException while trying to calculated source lookup path. This can be ignored if it occurs while terminating a debug session. See Bug 500988.
+!STACK 0
+java.lang.NullPointerException: Cannot read the array length because "containers" is null
+	at org.eclipse.cdt.dsf.gdb.launching.GdbSourceLookupDirector.collectSubstitutionsPaths(GdbSourceLookupDirector.java:102)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbSourceLookupDirector.collectSubstitutionsPaths(GdbSourceLookupDirector.java:146)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbSourceLookupDirector.getSubstitutionsPaths(GdbSourceLookupDirector.java:72)
+	at org.eclipse.cdt.dsf.gdb.service.GDBSourceLookup.getSubstitutionsPaths(GDBSourceLookup.java:124)
+	at org.eclipse.cdt.dsf.gdb.service.GDBSourceLookup.sourceContainersChanged(GDBSourceLookup.java:139)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbSourceLookupParticipant.sourceContainersChangedOnDispatchThread(GdbSourceLookupParticipant.java:120)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbSourceLookupParticipant$1.run(GdbSourceLookupParticipant.java:85)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2026-07-20 16:08:06.731
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.debug.ui.actions.DsfResumeCommand$4$1@1a57a2b): Status ERROR: org.eclipse.cdt.dsf.gdb code=10004 Failed to execute MI command:
+-exec-continue
+Error message from debugger back end:
+Cannot execute this command while the selected thread is running. java.lang.Exception: Cannot execute this command while the selected thread is running.' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2026-07-20 16:08:06.732
+!MESSAGE Failed to execute MI command:
+-exec-continue
+Error message from debugger back end:
+Cannot execute this command while the selected thread is running.
+!STACK 0
+java.lang.Exception: Cannot execute this command while the selected thread is running.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:1024)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:853)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 1 1 2026-07-20 16:08:54.446
+!MESSAGE SWV configuration; base: 36000000; minDiv: 18; maxDiv: 65535; maxSWO: 2000000; limit: 2000000 => SWO: 2000000; CPU: 16000000; div: 8
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2026-07-20 16:09:22.964
+!MESSAGE Error in final launch sequence:
+
+Device debug script
+!STACK 1
+org.eclipse.core.runtime.CoreException: Device debug script
+	at org.eclipse.cdt.dsf.concurrent.Query.get(Query.java:112)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugSession(GdbLaunchDelegate.java:254)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugger(GdbLaunchDelegate.java:111)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launch(GdbLaunchDelegate.java:99)
+	at com.st.stm32cube.ide.mcu.debug.launch.DSFDelegate.launch(DSFDelegate.java:337)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:778)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:689)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1052)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$1.run(DebugUIPlugin.java:1254)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Contains: Device debug script
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 0 2026-07-20 16:09:22.964
+!MESSAGE Device debug script
+!SUBENTRY 2 com.st.stm32cube.ide.mcu.debug.launch 4 0 2026-07-20 16:09:22.964
+!MESSAGE Device debug script
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 1 1 2026-07-20 16:09:52.074
+!MESSAGE SWV configuration; base: 36000000; minDiv: 18; maxDiv: 65535; maxSWO: 2000000; limit: 2000000 => SWO: 2000000; CPU: 16000000; div: 8
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 4 2026-07-20 16:10:17.205
+!MESSAGE NullPointerException while trying to calculated source lookup path. This can be ignored if it occurs while terminating a debug session. See Bug 500988.
+!STACK 0
+java.lang.NullPointerException: Cannot read the array length because "containers" is null
+	at org.eclipse.cdt.dsf.gdb.launching.GdbSourceLookupDirector.collectSubstitutionsPaths(GdbSourceLookupDirector.java:102)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbSourceLookupDirector.collectSubstitutionsPaths(GdbSourceLookupDirector.java:146)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbSourceLookupDirector.getSubstitutionsPaths(GdbSourceLookupDirector.java:72)
+	at org.eclipse.cdt.dsf.gdb.service.GDBSourceLookup.getSubstitutionsPaths(GDBSourceLookup.java:124)
+	at org.eclipse.cdt.dsf.gdb.service.GDBSourceLookup.sourceContainersChanged(GDBSourceLookup.java:139)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbSourceLookupParticipant.sourceContainersChangedOnDispatchThread(GdbSourceLookupParticipant.java:120)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbSourceLookupParticipant$1.run(GdbSourceLookupParticipant.java:85)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 1 1 2026-07-20 16:10:28.672
+!MESSAGE SWV configuration; base: 36000000; minDiv: 18; maxDiv: 65535; maxSWO: 2000000; limit: 2000000 => SWO: 2000000; CPU: 16000000; div: 8
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 1 1 2026-07-20 16:11:09.837
+!MESSAGE SWV configuration; base: 36000000; minDiv: 18; maxDiv: 65535; maxSWO: 2000000; limit: 2000000 => SWO: 2000000; CPU: 16000000; div: 8

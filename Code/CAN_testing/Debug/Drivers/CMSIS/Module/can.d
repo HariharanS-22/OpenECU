@@ -1,4 +1,5 @@
-Module/can.o: ../Module/can.c ../Module/can.h ../Core/Inc/main.h \
+Drivers/CMSIS/Module/can.o: ../Drivers/CMSIS/Module/can.c \
+ ../Drivers/CMSIS/Module/can.h ../Core/Inc/main.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
  ../Core/Inc/stm32f4xx_hal_conf.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h \
@@ -27,7 +28,7 @@ Module/can.o: ../Module/can.c ../Module/can.h ../Core/Inc/main.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
  ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f446xx.h
-../Module/can.h:
+../Drivers/CMSIS/Module/can.h:
 ../Core/Inc/main.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
 ../Core/Inc/stm32f4xx_hal_conf.h:
