@@ -1,5 +1,0 @@
-../Drivers/CMSIS/Include/core_cm4.h:1684:22:__NVIC_EnableIRQ	2
-../Drivers/CMSIS/Module/can.c:19:6:CAN1_Init	3
-../Drivers/CMSIS/Module/can.c:84:6:CAN1_TxMsg	3
-../Drivers/CMSIS/Module/can.c:106:6:CAN1_LoopBack	2
-../Drivers/CMSIS/Module/can.c:126:6:CAN1_RX0_IRQHandler	1
