@@ -5,16 +5,16 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../Module/lin.c \
-../Module/sysTick.c 
+../Module/sysTick.c \
+../Module/uart_LIN.c 
 
 OBJS += \
-./Module/lin.o \
-./Module/sysTick.o 
+./Module/sysTick.o \
+./Module/uart_LIN.o 
 
 C_DEPS += \
-./Module/lin.d \
-./Module/sysTick.d 
+./Module/sysTick.d \
+./Module/uart_LIN.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
@@ -24,7 +24,7 @@ Module/%.o Module/%.su Module/%.cyclo: ../Module/%.c Module/subdir.mk
 clean: clean-Module
 
 clean-Module:
-	-$(RM) ./Module/lin.cyclo ./Module/lin.d ./Module/lin.o ./Module/lin.su ./Module/sysTick.cyclo ./Module/sysTick.d ./Module/sysTick.o ./Module/sysTick.su
+	-$(RM) ./Module/sysTick.cyclo ./Module/sysTick.d ./Module/sysTick.o ./Module/sysTick.su ./Module/uart_LIN.cyclo ./Module/uart_LIN.d ./Module/uart_LIN.o ./Module/uart_LIN.su
 
 .PHONY: clean-Module
 

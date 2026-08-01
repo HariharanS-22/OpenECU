@@ -22,31 +22,23 @@
 #include <string.h>
 
 #include "sysTick.h"
-#include "lin.h"
-
-uint16_t receivedID;
-uint8_t  receivedDLC;
-uint16_t receivedTimeStamp;
-uint64_t receivedMsg;
-
-uint8_t flag_msgReceived = 0;
+#include "uart_LIN.h"
 
 int main(void)
 {
 	//Initialization
 	SysTick_config();
-	CAN1_Init();
-	//CAN1_LoopBack();
+	LIN_Init();
 
 	uint32_t now = 0;
 
-	char *MSG = "OpenECU1";
+	char *MSG = "ECU1";
 	uint8_t len = strlen(MSG);
-	uint8_t buf[9] = {0};
 
 	while(1){
 		if((sysTick - now) >= 1000){
-			CAN1_TxMsg((uint8_t *)MSG, len);
+
+			LIN_Transmit(0x01,(uint8_t *)MSG, len);
 			now = sysTick;
 		}
 

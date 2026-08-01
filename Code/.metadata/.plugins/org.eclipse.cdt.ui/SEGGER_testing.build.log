@@ -1,4 +1,4 @@
-18:46:39 **** Build of configuration Debug for project SEGGER_testing ****
+22:02:03 **** Build of configuration Debug for project SEGGER_testing ****
 make -j12 all 
 arm-none-eabi-gcc "../ThirdParty/SEGGER/SEGGER/Syscalls/SEGGER_RTT_Syscalls_GCC.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"H:/OpenECU/Code/SEGGER_testing/ThirdParty/FreeRTOS" -I"H:/OpenECU/Code/SEGGER_testing/ThirdParty/FreeRTOS/include" -I"H:/OpenECU/Code/SEGGER_testing/ThirdParty/FreeRTOS/portable/GCC/ARM_CM4F" -I"H:/OpenECU/Code/SEGGER_testing/ThirdParty/SEGGER/OS" -I"H:/OpenECU/Code/SEGGER_testing/ThirdParty/SEGGER/SEGGER" -I"H:/OpenECU/Code/SEGGER_testing/ThirdParty/SEGGER/Config" -I"H:/OpenECU/Code/SEGGER_testing/ThirdParty/SEGGER" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"ThirdParty/SEGGER/SEGGER/Syscalls/SEGGER_RTT_Syscalls_GCC.d" -MT"ThirdParty/SEGGER/SEGGER/Syscalls/SEGGER_RTT_Syscalls_GCC.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "ThirdParty/SEGGER/SEGGER/Syscalls/SEGGER_RTT_Syscalls_GCC.o"
 arm-none-eabi-gcc "../ThirdParty/SEGGER/SEGGER/SEGGER_RTT.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"H:/OpenECU/Code/SEGGER_testing/ThirdParty/FreeRTOS" -I"H:/OpenECU/Code/SEGGER_testing/ThirdParty/FreeRTOS/include" -I"H:/OpenECU/Code/SEGGER_testing/ThirdParty/FreeRTOS/portable/GCC/ARM_CM4F" -I"H:/OpenECU/Code/SEGGER_testing/ThirdParty/SEGGER/OS" -I"H:/OpenECU/Code/SEGGER_testing/ThirdParty/SEGGER/SEGGER" -I"H:/OpenECU/Code/SEGGER_testing/ThirdParty/SEGGER/Config" -I"H:/OpenECU/Code/SEGGER_testing/ThirdParty/SEGGER" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"ThirdParty/SEGGER/SEGGER/SEGGER_RTT.d" -MT"ThirdParty/SEGGER/SEGGER/SEGGER_RTT.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "ThirdParty/SEGGER/SEGGER/SEGGER_RTT.o"
@@ -45,11 +45,11 @@ Finished building target: SEGGER_testing.elf
 arm-none-eabi-size  SEGGER_testing.elf 
 arm-none-eabi-objdump -h -S SEGGER_testing.elf  > "SEGGER_testing.list"
    text	   data	    bss	    dec	    hex	filename
-  25724	     16	  84632	 110372	  1af24	SEGGER_testing.elf
+  25708	     16	  84632	 110356	  1af14	SEGGER_testing.elf
 Finished building: default.size.stdout
  
 Finished building: SEGGER_testing.list
  
 
-18:46:49 Build Finished. 0 errors, 0 warnings. (took 9s.921ms)
+22:02:10 Build Finished. 0 errors, 0 warnings. (took 7s.536ms)
 
