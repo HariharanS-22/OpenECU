@@ -24,6 +24,9 @@
 #include "sysTick.h"
 #include "uart_LIN.h"
 
+uint8_t flag_msgReceived;
+uint8_t RxBuf[11] = {};
+
 int main(void)
 {
 	//Initialization
@@ -43,9 +46,14 @@ int main(void)
 		}
 
 		if(flag_msgReceived){
-			memcpy(buf, &receivedMsg, receivedDLC);
-			buf[receivedDLC] = '\0';
-			printf("Received : %s @ %ld\n\r",buf,sysTick);
+
+			for(int i=0;i<11;i++){
+				RxBuf[i]=LIN_Receive();
+
+				printf("RCVD [%d]: %d", i, RxBuf[i]);
+			}
+
+
 			flag_msgReceived = 0;
 		}
 	}

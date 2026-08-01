@@ -7,6 +7,8 @@
 
 #include "uart_LIN.h"
 
+extern uint8_t flag_msgReceived;
+
 static void UART_SetBaudRate(USART_TypeDef *USART, uint32_t PeriphClk, uint32_t BaudRate){
 	uint16_t BaudRate_div = ((PeriphClk + (BaudRate)/2) / BaudRate);
 
@@ -34,8 +36,6 @@ void UART1_Init(void){
 	/* Configure the Transfer Direction - No parity*/
 	USART1->CR1 = (CR1_TE | CR1_RE);
 
-	/* Enable USART */
-	USART1->CR1 |= CR1_UE;
 }
 
 void UART1_Write(int ch){
@@ -55,7 +55,7 @@ uint8_t UART1_Read(void){
 	//Make sure the Received Data Register is not empty
 	while (!(USART1->SR & SR_RXNE)){}
 
-	return (uint8_t)USART1->DR;
+	return (uint8_t)(USART1->DR);
 }
 
 void LIN_Init(void){
@@ -67,7 +67,7 @@ void LIN_Init(void){
 	/* Enable 11-bit break detection (LIN - 13 bit) */
 	USART1->CR2 |= CR2_LBDL;
 
-	USART1->CR2 &= (uint32_t)~(0x7 << 11);
+	USART1->CR2 &= ~(0x7 << 11);
 
 	/* Clear LIN Break flag */
 	USART1->SR &= ~SR_LBD;
@@ -79,6 +79,9 @@ void LIN_Init(void){
 
 	/* Enable USART Interrupt */
 	NVIC_EnableIRQ(USART1_IRQn);
+
+	/* Enable USART */
+	USART1->CR1 |= CR1_UE;
 }
 
 uint8_t LIN_Receive(void){
@@ -88,7 +91,7 @@ uint8_t LIN_Receive(void){
 	return USART1->DR;
 }
 
-void LIN_SendBreak(void)
+static void LIN_Sendbreak(void)
 {
     /* Transmit Break */
     USART1->CR1 |= CR1_SBK;
@@ -102,7 +105,7 @@ void LIN_Transmit(uint8_t ID, uint8_t* data, uint8_t size){
 
 	LIN_Sendbreak();
 
-	UART1_Write(SyncByte);
+	UART1_Write(0x55);
 
 	uint8_t PID = LIN_PIDCal(ID);
 	UART1_Write(PID);
@@ -119,7 +122,7 @@ uint8_t LIN_PIDCal(uint8_t ID){
 	ID &= 0x3F;		//Error Check
 
 	uint8_t ID_buf[8];
-	for(uint8_t i=0; i<8 ; i++){
+	for(uint8_t i=0; i<6 ; i++){
 		ID_buf[i] = (ID >> i) & 0x1 ;
 	}
 
@@ -148,13 +151,8 @@ void USART1_IRQHandler(void)
     if(USART1->SR & SR_LBD)
     {
         USART1->SR &= ~SR_LBD;
-    }
 
-    /* Receive byte */
-    if(USART1->SR & SR_RXNE)
-    {
-        RxBuf[count++] = UART1_Read();
-        count %= 10;
+        flag_msgReceived=1;
     }
 
 }

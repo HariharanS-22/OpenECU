@@ -47,17 +47,11 @@
 //    uint8_t Checksum;
 //}LIN_Frame;
 
-uint8_t SyncByte = 0x55;
-uint8_t DeviceID = 0x34;
-
-uint8_t RxBuf[15] = {0};
-static uint8_t count = 0;
-
 void UART1_Init(void);
 void UART1_Write(int ch);
 uint8_t UART1_Read(void);
 
-void LIN_Init(void)
+void LIN_Init(void);
 uint8_t LIN_Receive(void);
 void LIN_Transmit(uint8_t ID, uint8_t* data, uint8_t size);
 uint8_t LIN_PIDCal(uint8_t ID);
