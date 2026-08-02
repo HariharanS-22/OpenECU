@@ -99,6 +99,9 @@ static void LIN_Sendbreak(void)
     /* Wait until Break transmission completes */
     while(!(USART1->SR & USART_SR_TC));
 
+    USART1->CR1 &= ~CR1_SBK;
+
+
 }
 
 void LIN_Transmit(uint8_t ID, uint8_t* data, uint8_t size){
@@ -110,7 +113,7 @@ void LIN_Transmit(uint8_t ID, uint8_t* data, uint8_t size){
 	uint8_t PID = LIN_PIDCal(ID);
 	UART1_Write(PID);
 
-	for(uint8_t i=0 ; i<size ; i++){
+	for(uint8_t i=0 ; i<8 ; i++){
 		UART1_Write(data[i]);
 	}
 
@@ -153,7 +156,9 @@ void USART1_IRQHandler(void)
         USART1->SR &= ~SR_LBD;
 
         flag_msgReceived=1;
+
     }
+
 
 }
 

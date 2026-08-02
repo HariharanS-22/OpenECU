@@ -35,13 +35,14 @@ int main(void)
 
 	uint32_t now = 0;
 
-	char *MSG = "ECU1";
-	uint8_t len = strlen(MSG);
+	uint8_t MSG[8] = "ROCKHARD";
+	uint8_t len = sizeof(MSG);
 
+//	LIN_Transmit(0x01,MSG, len);
 	while(1){
 		if((sysTick - now) >= 1000){
 
-			LIN_Transmit(0x01,(uint8_t *)MSG, len);
+			LIN_Transmit(0x01,MSG, len);
 			now = sysTick;
 		}
 
@@ -53,8 +54,8 @@ int main(void)
 				printf("RCVD [%d]: %d", i, RxBuf[i]);
 			}
 
-
 			flag_msgReceived = 0;
+
 		}
 	}
 }
