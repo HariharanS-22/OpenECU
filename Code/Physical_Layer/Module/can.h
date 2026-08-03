@@ -44,7 +44,10 @@
 #define FMR_CANSB		(011011U << 8)		//28 CAN1
 
 #define TSR_TME0		(1U << 26)
-
+#define TSR_ABRQ0		(1U << 7)
+#define TSR_TERR0		(1U << 3)
+#define TSR_TXOK0		(1U << 1)
+#define TSR_RQCP0		(1U << 0)
 
 void CAN1_Init(void);
 void CAN1_TxMsg(uint8_t *msg, uint8_t DLC);

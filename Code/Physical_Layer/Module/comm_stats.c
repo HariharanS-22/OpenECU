@@ -17,18 +17,22 @@ void CommStats_Init(void)
 {
     LIN_Stats.MinLatency=0xFFFFFFFF;
     CAN_Stats.MinLatency=0xFFFFFFFF;
+
+    DWT->CTRL |= (1U << 0);
+    DWT->CYCCNT = 0;
+
 }
 
 void CommStats_StartTimer(CommStats_t *stats)
 {
-    stats->StartTick=sysTick;
+    stats->StartTick=DWT->CYCCNT;
 }
 
 void CommStats_StopTimer(CommStats_t *stats)
 {
-    stats->EndTick=sysTick;
+    stats->EndTick=DWT->CYCCNT;
 
-    stats->CurrentLatency = stats->EndTick - stats->StartTick;
+    stats->CurrentLatency = (stats->EndTick - stats->StartTick);
 
     stats->TotalLatency += stats->CurrentLatency;
 
@@ -40,8 +44,8 @@ void CommStats_StopTimer(CommStats_t *stats)
 
         stats->MinLatency = stats->CurrentLatency;
 
-    if(stats->RxPackets)
-        stats->AverageLatency = stats->TotalLatency/stats->RxPackets;
+    if(stats->TxPackets)
+        stats->AverageLatency = stats->TotalLatency/stats->TxPackets;
 }
 
 void CommStats_Print(CommStats_t *stats,char *name)
@@ -55,30 +59,19 @@ void CommStats_Print(CommStats_t *stats,char *name)
     printf("Tx Bytes        : %lu\n",stats->TxBytes);
     printf("Rx Bytes        : %lu\n",stats->RxBytes);
 
-    printf("Tx Errors       : %lu\n",stats->TxErrors);
-    printf("Rx Errors       : %lu\n",stats->RxErrors);
-
-    printf("Checksum Errors : %lu\n",stats->ChecksumErrors);
-
-    printf("PID Errors      : %lu\n",stats->PIDErrors);
-
-    printf("Timeout Errors  : %lu\n",stats->TimeoutErrors);
-
-    printf("CRC Errors      : %lu\n",stats->CRCErrors);
-
-    printf("ACK Errors      : %lu\n",stats->ACKErrors);
+    printf("Tx Errors       : %lu\n",stats->TransmissionError + stats->ArbitrationLost);
 
     printf("ArbitrationLost : %lu\n",stats->ArbitrationLost);
 
-    printf("Frame Errors    : %lu\n",stats->FrameErrors);
+    printf("TransmissionOk   : %lu\n",stats->TransmissionOk);
 
-    printf("Parity Errors   : %lu\n",stats->ParityErrors);
+    printf("TransmissonError : %lu\n",stats->TransmissionError);
 
-    printf("Avg Latency(ms) : %lu\n",stats->AverageLatency);
+    printf("Avg Latency : %lu\n",stats->AverageLatency);
 
-    printf("Min Latency(ms) : %lu\n",stats->MinLatency);
+    printf("Min Latency : %lu\n",stats->MinLatency);
 
-    printf("Max Latency(ms) : %lu\n",stats->MaxLatency);
+    printf("Max Latency : %lu\n",stats->MaxLatency);
 
     printf("============================\n");
 }

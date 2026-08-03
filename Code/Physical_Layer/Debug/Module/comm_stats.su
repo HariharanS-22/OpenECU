@@ -1,4 +1,4 @@
 ../Module/comm_stats.c:16:6:CommStats_Init	4	static
-../Module/comm_stats.c:22:6:CommStats_StartTimer	16	static
-../Module/comm_stats.c:27:6:CommStats_StopTimer	16	static
-../Module/comm_stats.c:47:6:CommStats_Print	16	static
+../Module/comm_stats.c:26:6:CommStats_StartTimer	16	static
+../Module/comm_stats.c:31:6:CommStats_StopTimer	16	static
+../Module/comm_stats.c:51:6:CommStats_Print	16	static

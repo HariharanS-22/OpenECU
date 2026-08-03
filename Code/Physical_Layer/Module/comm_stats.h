@@ -19,30 +19,14 @@ typedef struct
     uint32_t TxBytes;
     uint32_t RxBytes;
 
-    /* Error Statistics */
-    uint32_t TxErrors;
-    uint32_t RxErrors;
-
-    uint32_t TimeoutErrors;
-
-    uint32_t ChecksumErrors;
-
-    uint32_t PIDErrors;
-
-    uint32_t CRCErrors;
-
-    uint32_t ACKErrors;
-
+    uint32_t TransmissionError;
+    uint32_t TransmissionOk;
     uint32_t ArbitrationLost;
 
-    uint32_t FrameErrors;
-
-    uint32_t ParityErrors;
-
     /* Timing */
-    uint32_t StartTick;
+    uint64_t StartTick;
 
-    uint32_t EndTick;
+    uint64_t EndTick;
 
     uint32_t CurrentLatency;
 
@@ -55,6 +39,8 @@ typedef struct
     uint32_t MinLatency;
 
 }CommStats_t;
+
+#define DWT_CTRL (*(volatile uint32_t *)(0xE0001000))
 
 void CommStats_Init(void);
 

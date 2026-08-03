@@ -17,6 +17,8 @@ uint16_t receivedTimeStamp;
 uint64_t receivedMsg;
 uint8_t CAN_msgReceived = 0;
 
+static void Update_Stats(void);
+
 void CAN1_Init(){
 	//Enable clock access to CAN1
 	RCC->APB1ENR |= RCC_CAN1EN;
@@ -38,7 +40,6 @@ void CAN1_Init(){
 	CAN1->MCR &= ~MCR_SLEEP;
 	//Wait for hardware to change
 	while((CAN1->MSR & MSR_SLAK)) {}
-
 
 	//Interrupt Enable Register
 	CAN1->IER |= IER_FMPIE0;
@@ -107,6 +108,8 @@ void CAN1_TxMsg(uint8_t* tx_msg, uint8_t DLC){
 	CAN1->sTxMailBox->TIR  |= (1U << 0);		// TXRQ - bit 1
 
 	CommStats_StopTimer(&CAN_Stats);
+
+	Update_Stats();
 }
 
 void CAN1_LoopBack(){
@@ -132,6 +135,7 @@ void CAN1_LoopBack(){
 void CAN1_RX0_IRQHandler(void){
 
 	CAN_msgReceived = 1;
+	CAN_Stats.RxPackets++;
 
 	receivedID = (uint16_t)((CAN1->sFIFOMailBox[0].RIR & 0xFFE00000)>>21);
 	receivedDLC = (uint8_t)(CAN1->sFIFOMailBox[0].RDTR & 0xF);
@@ -139,8 +143,23 @@ void CAN1_RX0_IRQHandler(void){
 	receivedMsg = (((uint64_t)CAN1->sFIFOMailBox[0].RDHR << 32) | (uint64_t)CAN1->sFIFOMailBox[0].RDLR );
 
 	CAN1->RF0R |= RF0R_RFOM0;
+	CAN_Stats.RxBytes += receivedDLC;
 }
 
+static void Update_Stats(void){
+	if(CAN1->TSR & TSR_ABRQ0)
+		CAN_Stats.ArbitrationLost++;
+
+	if(CAN1->TSR & TSR_TERR0)
+		CAN_Stats.TransmissionError++;
+
+	if(CAN1->TSR & TSR_TXOK0)
+		CAN_Stats.TransmissionOk++;
+
+
+
+	CAN1->TSR |= TSR_RQCP0;
+}
 //void CAN1_RX1_IRQHandler(void){
 //
 //	flag_msgReceived = 1;

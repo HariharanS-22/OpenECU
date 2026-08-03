@@ -1,5 +1,6 @@
 H:/OpenECU/Code/Physical_Layer/CMSIS/Include/core_cm4.h:1684:22:__NVIC_EnableIRQ	2
-../Module/can.c:20:6:CAN1_Init	3
-../Module/can.c:85:6:CAN1_TxMsg	3
-../Module/can.c:112:6:CAN1_LoopBack	2
-../Module/can.c:132:6:CAN1_RX0_IRQHandler	1
+../Module/can.c:22:6:CAN1_Init	3
+../Module/can.c:86:6:CAN1_TxMsg	3
+../Module/can.c:115:6:CAN1_LoopBack	2
+../Module/can.c:135:6:CAN1_RX0_IRQHandler	1
+../Module/can.c:149:13:Update_Stats	4
