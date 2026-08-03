@@ -218,3 +218,149 @@ Finished building: default.size.stdout
  
 Finished building: LIN_Driver.list
  
+22:03:58 **** Incremental Build of configuration Debug for project LIN_Driver ****
+make -j12 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -c -I../Inc -I"H:/OpenECU/Code/LIN_Driver/Module" -I"H:/OpenECU/Code/LIN_Driver/CMSIS" -I"H:/OpenECU/Code/LIN_Driver/CMSIS/Device/ST/STM32F4xx/Include" -I"H:/OpenECU/Code/LIN_Driver/CMSIS/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+../Src/main.c: In function 'main':
+../Src/main.c:36:18: warning: unused variable 'now' [-Wunused-variable]
+   36 |         uint32_t now = 0;
+      |                  ^~~
+arm-none-eabi-gcc -o "LIN_Driver.elf" @"objects.list"   -mcpu=cortex-m4 -T"H:\OpenECU\Code\LIN_Driver\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LIN_Driver.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LIN_Driver.elf
+ 
+arm-none-eabi-size  LIN_Driver.elf 
+arm-none-eabi-objdump -h -S LIN_Driver.elf  > "LIN_Driver.list"
+   text	   data	    bss	    dec	    hex	filename
+   1756	      0	   1576	   3332	    d04	LIN_Driver.elf
+Finished building: default.size.stdout
+ 
+Finished building: LIN_Driver.list
+ 
+22:08:13 **** Incremental Build of configuration Debug for project LIN_Driver ****
+make -j12 all 
+arm-none-eabi-gcc "../Module/uart_LIN.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -c -I../Inc -I"H:/OpenECU/Code/LIN_Driver/Module" -I"H:/OpenECU/Code/LIN_Driver/CMSIS" -I"H:/OpenECU/Code/LIN_Driver/CMSIS/Device/ST/STM32F4xx/Include" -I"H:/OpenECU/Code/LIN_Driver/CMSIS/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Module/uart_LIN.d" -MT"Module/uart_LIN.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Module/uart_LIN.o"
+arm-none-eabi-gcc -o "LIN_Driver.elf" @"objects.list"   -mcpu=cortex-m4 -T"H:\OpenECU\Code\LIN_Driver\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LIN_Driver.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LIN_Driver.elf
+ 
+arm-none-eabi-size  LIN_Driver.elf 
+arm-none-eabi-objdump -h -S LIN_Driver.elf  > "LIN_Driver.list"
+   text	   data	    bss	    dec	    hex	filename
+   1780	      0	   1576	   3356	    d1c	LIN_Driver.elf
+Finished building: default.size.stdout
+ 
+Finished building: LIN_Driver.list
+ 
+22:14:07 **** Incremental Build of configuration Debug for project LIN_Driver ****
+make -j12 all 
+arm-none-eabi-size  LIN_Driver.elf 
+   text	   data	    bss	    dec	    hex	filename
+   1780	      0	   1576	   3356	    d1c	LIN_Driver.elf
+Finished building: default.size.stdout
+ 
+22:16:20 **** Incremental Build of configuration Debug for project LIN_Driver ****
+make -j12 all 
+arm-none-eabi-size  LIN_Driver.elf 
+   text	   data	    bss	    dec	    hex	filename
+   1780	      0	   1576	   3356	    d1c	LIN_Driver.elf
+Finished building: default.size.stdout
+ 
+22:18:07 **** Incremental Build of configuration Debug for project LIN_Driver ****
+make -j12 all 
+arm-none-eabi-size  LIN_Driver.elf 
+   text	   data	    bss	    dec	    hex	filename
+   1780	      0	   1576	   3356	    d1c	LIN_Driver.elf
+Finished building: default.size.stdout
+ 
+22:22:27 **** Incremental Build of configuration Debug for project LIN_Driver ****
+make -j12 all 
+arm-none-eabi-gcc "../Module/uart_LIN.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -c -I../Inc -I"H:/OpenECU/Code/LIN_Driver/Module" -I"H:/OpenECU/Code/LIN_Driver/CMSIS" -I"H:/OpenECU/Code/LIN_Driver/CMSIS/Device/ST/STM32F4xx/Include" -I"H:/OpenECU/Code/LIN_Driver/CMSIS/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Module/uart_LIN.d" -MT"Module/uart_LIN.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Module/uart_LIN.o"
+arm-none-eabi-gcc -o "LIN_Driver.elf" @"objects.list"   -mcpu=cortex-m4 -T"H:\OpenECU\Code\LIN_Driver\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LIN_Driver.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LIN_Driver.elf
+ 
+arm-none-eabi-size  LIN_Driver.elf 
+arm-none-eabi-objdump -h -S LIN_Driver.elf  > "LIN_Driver.list"
+   text	   data	    bss	    dec	    hex	filename
+   1780	      0	   1576	   3356	    d1c	LIN_Driver.elf
+Finished building: default.size.stdout
+ 
+Finished building: LIN_Driver.list
+ 
+22:23:22 **** Incremental Build of configuration Debug for project LIN_Driver ****
+make -j12 all 
+arm-none-eabi-size  LIN_Driver.elf 
+   text	   data	    bss	    dec	    hex	filename
+   1780	      0	   1576	   3356	    d1c	LIN_Driver.elf
+Finished building: default.size.stdout
+ 
+22:36:57 **** Incremental Build of configuration Debug for project LIN_Driver ****
+make -j12 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -c -I../Inc -I"H:/OpenECU/Code/LIN_Driver/Module" -I"H:/OpenECU/Code/LIN_Driver/CMSIS" -I"H:/OpenECU/Code/LIN_Driver/CMSIS/Device/ST/STM32F4xx/Include" -I"H:/OpenECU/Code/LIN_Driver/CMSIS/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc "../Module/uart_LIN.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -c -I../Inc -I"H:/OpenECU/Code/LIN_Driver/Module" -I"H:/OpenECU/Code/LIN_Driver/CMSIS" -I"H:/OpenECU/Code/LIN_Driver/CMSIS/Device/ST/STM32F4xx/Include" -I"H:/OpenECU/Code/LIN_Driver/CMSIS/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Module/uart_LIN.d" -MT"Module/uart_LIN.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Module/uart_LIN.o"
+../Src/main.c: In function 'main':
+../Src/main.c:36:18: warning: unused variable 'now' [-Wunused-variable]
+   36 |         uint32_t now = 0;
+      |                  ^~~
+arm-none-eabi-gcc -o "LIN_Driver.elf" @"objects.list"   -mcpu=cortex-m4 -T"H:\OpenECU\Code\LIN_Driver\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LIN_Driver.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LIN_Driver.elf
+ 
+arm-none-eabi-size  LIN_Driver.elf 
+arm-none-eabi-objdump -h -S LIN_Driver.elf  > "LIN_Driver.list"
+   text	   data	    bss	    dec	    hex	filename
+   1756	      0	   1576	   3332	    d04	LIN_Driver.elf
+Finished building: default.size.stdout
+Finished building: LIN_Driver.list
+ 
+ 
+22:39:11 **** Incremental Build of configuration Debug for project LIN_Driver ****
+make -j12 all 
+arm-none-eabi-gcc "../Module/uart_LIN.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -c -I../Inc -I"H:/OpenECU/Code/LIN_Driver/Module" -I"H:/OpenECU/Code/LIN_Driver/CMSIS" -I"H:/OpenECU/Code/LIN_Driver/CMSIS/Device/ST/STM32F4xx/Include" -I"H:/OpenECU/Code/LIN_Driver/CMSIS/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Module/uart_LIN.d" -MT"Module/uart_LIN.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Module/uart_LIN.o"
+../Module/uart_LIN.c: In function 'UART1_Write':
+../Module/uart_LIN.c:51:19: warning: format '%d' expects argument of type 'int', but argument 2 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+   51 |         printf(" %d \r\n",USART1->DR);
+      |                  ~^
+      |                   |
+      |                   int
+      |                  %ld
+arm-none-eabi-gcc -o "LIN_Driver.elf" @"objects.list"   -mcpu=cortex-m4 -T"H:\OpenECU\Code\LIN_Driver\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LIN_Driver.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LIN_Driver.elf
+ 
+arm-none-eabi-size  LIN_Driver.elf 
+arm-none-eabi-objdump -h -S LIN_Driver.elf  > "LIN_Driver.list"
+   text	   data	    bss	    dec	    hex	filename
+   6004	     92	   1908	   8004	   1f44	LIN_Driver.elf
+Finished building: default.size.stdout
+ 
+Finished building: LIN_Driver.list
+ 
+22:43:35 **** Incremental Build of configuration Debug for project LIN_Driver ****
+make -j12 all 
+arm-none-eabi-size  LIN_Driver.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6004	     92	   1908	   8004	   1f44	LIN_Driver.elf
+Finished building: default.size.stdout
+ 
+22:47:26 **** Incremental Build of configuration Debug for project LIN_Driver ****
+make -j12 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -c -I../Inc -I"H:/OpenECU/Code/LIN_Driver/Module" -I"H:/OpenECU/Code/LIN_Driver/CMSIS" -I"H:/OpenECU/Code/LIN_Driver/CMSIS/Device/ST/STM32F4xx/Include" -I"H:/OpenECU/Code/LIN_Driver/CMSIS/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+../Src/main.c: In function 'main':
+../Src/main.c:36:18: warning: unused variable 'now' [-Wunused-variable]
+   36 |         uint32_t now = 0;
+      |                  ^~~
+arm-none-eabi-gcc -o "LIN_Driver.elf" @"objects.list"   -mcpu=cortex-m4 -T"H:\OpenECU\Code\LIN_Driver\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LIN_Driver.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LIN_Driver.elf
+ 
+arm-none-eabi-size  LIN_Driver.elf 
+arm-none-eabi-objdump -h -S LIN_Driver.elf  > "LIN_Driver.list"
+   text	   data	    bss	    dec	    hex	filename
+   6004	     92	   1908	   8004	   1f44	LIN_Driver.elf
+Finished building: default.size.stdout
+ 
+Finished building: LIN_Driver.list
+ 
+22:56:09 **** Incremental Build of configuration Debug for project LIN_Driver ****
+make -j12 all 
+arm-none-eabi-size  LIN_Driver.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6004	     92	   1908	   8004	   1f44	LIN_Driver.elf
+Finished building: default.size.stdout
+ 
