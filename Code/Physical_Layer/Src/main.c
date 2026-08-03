@@ -23,8 +23,19 @@
 
 #include "sysTick.h"
 #include "uart_LIN.h"
+#include "can.h"
+#include "comm_stats.h"
 
-uint8_t flag_msgReceived;
+extern uint16_t receivedID;
+extern uint8_t  receivedDLC;
+extern uint16_t receivedTimeStamp;
+extern uint64_t receivedMsg;
+extern uint8_t CAN_msgReceived;
+
+extern CommStats_t LIN_Stats;
+extern CommStats_t CAN_Stats;
+
+extern uint8_t LIN_msgReceived;
 uint8_t RxBuf[11] = {};
 
 int main(void)
@@ -33,30 +44,62 @@ int main(void)
 	SysTick_config();
 	LIN_Init();
 
+	CAN1_Init();
+	//CAN1_LoopBack();
+
 	uint32_t now = 0;
 
-	uint8_t MSG[8] = "ROCKHARD";
-	uint8_t len = sizeof(MSG);
+	char *CAN_MSG = "OpenECU1";
+	uint8_t size = strlen(CAN_MSG);
+	uint8_t buf[9] = {0};
 
-	LIN_Transmit(0x01, MSG, len);
+	uint8_t LIN_MSG[8] = "ROCKHARD";
+	uint8_t len = sizeof(LIN_MSG);
+
+//	LIN_Transmit(0x01, LIN_MSG, len);
 
 	while(1){
-//		if((sysTick - now) >= 1000){
-//
-//			LIN_Transmit(0x01,MSG, len);
-//			now = sysTick;
-//		}
+		//CAN Transmission
+		if((sysTick - now) >= 1000){
+			CAN1_TxMsg((uint8_t *)CAN_MSG, size);
+			now = sysTick;
+		}
 
-//		if(flag_msgReceived){
-//
-//			for(int i=0;i<11;i++){
-//				RxBuf[i]=LIN_Receive();
-//
-//				printf("RCVD [%d]: %d", i, RxBuf[i]);
-//			}
-//
-//			flag_msgReceived = 0;
-//
-//		}
+		if(CAN_msgReceived){
+			memcpy(buf, &receivedMsg, receivedDLC);
+			buf[receivedDLC] = '\0';
+			printf("Received : %s @ %ld\n\r",buf,sysTick);
+			CAN_msgReceived = 0;
+		}
+		//LIN Transmission
+		if((sysTick - now) >= 1000){
+
+			LIN_Transmit(0x01,LIN_MSG, len);
+			now = sysTick;
+		}
+
+		if(LIN_msgReceived){
+
+			for(int i=0;i<11;i++){
+				RxBuf[i]=LIN_Receive();
+
+				printf("RCVD [%d]: %d", i, RxBuf[i]);
+			}
+			LIN_msgReceived = 0;
+		}
+
+		// Stats
+		if(LIN_Stats.TxPackets==1000)
+		{
+		    CommStats_Print(&LIN_Stats,"LIN");
+		}
+
+		if(CAN_Stats.TxPackets==1000)
+		{
+		    CommStats_Print(&CAN_Stats,"CAN");
+		}
+
 	}
 }
+
+

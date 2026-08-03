@@ -11,6 +11,7 @@
 #include "stm32f446xx.h"
 #include <stdint.h>
 #include <stdio.h>
+#include "comm_stats.h"
 
 #define GPIOA_EN	(1U << 0)
 #define UART1_EN 	(1U << 4)

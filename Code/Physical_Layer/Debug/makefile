@@ -34,34 +34,34 @@ $(wildcard ../makefile.init) \
 $(wildcard ../makefile.targets) \
 
 
-BUILD_ARTIFACT_NAME := LIN_Driver
+BUILD_ARTIFACT_NAME := Physical_Layer
 BUILD_ARTIFACT_EXTENSION := elf
 BUILD_ARTIFACT_PREFIX :=
 BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXECUTABLES += \
-LIN_Driver.elf \
+Physical_Layer.elf \
 
 MAP_FILES += \
-LIN_Driver.map \
+Physical_Layer.map \
 
 SIZE_OUTPUT += \
 default.size.stdout \
 
 OBJDUMP_LIST += \
-LIN_Driver.list \
+Physical_Layer.list \
 
 
 # All Target
 all: main-build
 
 # Main-build Target
-main-build: LIN_Driver.elf secondary-outputs
+main-build: Physical_Layer.elf secondary-outputs
 
 # Tool invocations
-LIN_Driver.elf LIN_Driver.map: $(OBJS) $(USER_OBJS) H:\OpenECU\Code\LIN_Driver\STM32F446RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "LIN_Driver.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"H:\OpenECU\Code\LIN_Driver\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LIN_Driver.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Physical_Layer.elf Physical_Layer.map: $(OBJS) $(USER_OBJS) H:\OpenECU\Code\Physical_Layer\STM32F446RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "Physical_Layer.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"H:\OpenECU\Code\Physical_Layer\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Physical_Layer.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -70,14 +70,14 @@ default.size.stdout: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-LIN_Driver.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "LIN_Driver.list"
+Physical_Layer.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "Physical_Layer.list"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) LIN_Driver.elf LIN_Driver.list LIN_Driver.map default.size.stdout
+	-$(RM) Physical_Layer.elf Physical_Layer.list Physical_Layer.map default.size.stdout
 	-@echo ' '
 
 secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)

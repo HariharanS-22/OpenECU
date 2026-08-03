@@ -9,13 +9,13 @@
 #include "can.h"
 #include "sysTick.h"
 
-extern uint16_t receivedID;
-extern uint8_t receivedDLC;
-extern uint16_t receivedTimeStamp;
-extern uint64_t receivedMsg;
+CommStats_t CAN_Stats = {0};
 
-extern uint8_t flag_msgReceived;
-
+uint16_t receivedID;
+uint8_t  receivedDLC;
+uint16_t receivedTimeStamp;
+uint64_t receivedMsg;
+uint8_t CAN_msgReceived = 0;
 
 void CAN1_Init(){
 	//Enable clock access to CAN1
@@ -86,6 +86,10 @@ void CAN1_TxMsg(uint8_t* tx_msg, uint8_t DLC){
 	uint64_t msg = {0} ;
 	uint16_t timeStamp = (uint16_t) sysTick;
 
+	CommStats_StartTimer(&CAN_Stats);
+	CAN_Stats.TxPackets++;
+	CAN_Stats.TxBytes+=DLC;
+
 	for(int i=0 ; i<DLC ; i++){
 		msg |= (uint64_t) (tx_msg[i]) << (i*8);
 	}
@@ -102,6 +106,7 @@ void CAN1_TxMsg(uint8_t* tx_msg, uint8_t DLC){
 
 	CAN1->sTxMailBox->TIR  |= (1U << 0);		// TXRQ - bit 1
 
+	CommStats_StopTimer(&CAN_Stats);
 }
 
 void CAN1_LoopBack(){
@@ -126,7 +131,7 @@ void CAN1_LoopBack(){
 
 void CAN1_RX0_IRQHandler(void){
 
-	flag_msgReceived = 1;
+	CAN_msgReceived = 1;
 
 	receivedID = (uint16_t)((CAN1->sFIFOMailBox[0].RIR & 0xFFE00000)>>21);
 	receivedDLC = (uint8_t)(CAN1->sFIFOMailBox[0].RDTR & 0xF);

@@ -12,8 +12,10 @@
 #include "main.h"
 #include "stm32f446xx.h"
 
-#define ECU1_CAN_ID 			(0x01)		//11bit
-#define ECU2_CAN_ID  			(0x02)
+#include "comm_stats.h"
+
+#define ECU1_CAN_ID 		(0x01)		//11bit
+#define ECU2_CAN_ID  		(0x02)
 
 #define PA11_AF			(10U << 22)
 #define PA12_AF			(10U << 24)
@@ -39,9 +41,10 @@
 #define BTR_LBKM		(1U << 30)
 
 #define FMR_FINIT		(1U << 0)
-#define FMR_CANSB		(011011U << 8)	//28 CAN1
+#define FMR_CANSB		(011011U << 8)		//28 CAN1
 
 #define TSR_TME0		(1U << 26)
+
 
 void CAN1_Init(void);
 void CAN1_TxMsg(uint8_t *msg, uint8_t DLC);

@@ -1,3 +1,5 @@
+"./Module/can.o"
+"./Module/comm_stats.o"
 "./Module/sysTick.o"
 "./Module/uart_LIN.o"
 "./Src/main.o"

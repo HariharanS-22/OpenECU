@@ -1,0 +1,4 @@
+../Module/comm_stats.c:16:6:CommStats_Init	1
+../Module/comm_stats.c:22:6:CommStats_StartTimer	1
+../Module/comm_stats.c:27:6:CommStats_StopTimer	4
+../Module/comm_stats.c:47:6:CommStats_Print	1

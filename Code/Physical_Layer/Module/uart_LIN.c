@@ -7,7 +7,8 @@
 
 #include "uart_LIN.h"
 
-extern uint8_t flag_msgReceived;
+uint8_t LIN_msgReceived = 0;
+CommStats_t LIN_Stats = {0};
 
 static void UART_SetBaudRate(USART_TypeDef *USART, uint32_t PeriphClk, uint32_t BaudRate){
 	uint16_t BaudRate_div = ((PeriphClk + (BaudRate)/2) / BaudRate);
@@ -48,8 +49,8 @@ void UART1_Write(int ch){
 
 	USART1->DR = (ch & 0xFF);    //8 bit
 
-	printf(" %d \r\n",USART1->DR);
 	while(!(USART1->SR & SR_TC));
+
 }
 
 uint8_t UART1_Read(void){
@@ -102,10 +103,11 @@ static void LIN_Sendbreak(void)
 
     USART1->CR1 &= ~CR1_SBK;
 
-
 }
 
 void LIN_Transmit(uint8_t ID, uint8_t* data, uint8_t size){
+
+	CommStats_StartTimer(&LIN_Stats);
 
 	LIN_Sendbreak();
 
@@ -119,6 +121,10 @@ void LIN_Transmit(uint8_t ID, uint8_t* data, uint8_t size){
 	}
 
 	UART1_Write(LIN_ChecksumCal(PID, data, size));
+
+	CommStats_StopTimer(&LIN_Stats);
+	LIN_Stats.TxPackets++;
+	LIN_Stats.TxBytes+=size;
 }
 
 uint8_t LIN_PIDCal(uint8_t ID){
@@ -156,11 +162,8 @@ void USART1_IRQHandler(void)
     {
         USART1->SR &= ~SR_LBD;
 
-        flag_msgReceived=1;
-
+        LIN_msgReceived=1;
     }
-
-
 }
 
 
