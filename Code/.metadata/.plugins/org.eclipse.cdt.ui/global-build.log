@@ -1,67 +1,14 @@
-23:35:18 **** Incremental Build of configuration Debug for project Physical_Layer ****
+10:08:07 **** Incremental Build of configuration Debug for project ECU_CoolantSystem ****
 make -j12 all 
-arm-none-eabi-gcc "../Module/can.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -c -I../Inc -I"H:/OpenECU/Code/Physical_Layer/Module" -I"H:/OpenECU/Code/Physical_Layer/CMSIS" -I"H:/OpenECU/Code/Physical_Layer/CMSIS/Device/ST/STM32F4xx/Include" -I"H:/OpenECU/Code/Physical_Layer/CMSIS/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Module/can.d" -MT"Module/can.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Module/can.o"
-arm-none-eabi-gcc -o "Physical_Layer.elf" @"objects.list"   -mcpu=cortex-m4 -T"H:\OpenECU\Code\Physical_Layer\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Physical_Layer.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: Physical_Layer.elf
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -c -I../Inc -I"H:/OpenECU/Code/ECU_CoolantSystem/Module" -I"H:/OpenECU/Code/ECU_CoolantSystem/CMSIS" -I"H:/OpenECU/Code/ECU_CoolantSystem/CMSIS/Device/ST/STM32F4xx/Include" -I"H:/OpenECU/Code/ECU_CoolantSystem/CMSIS/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "ECU_CoolantSystem.elf" @"objects.list"   -mcpu=cortex-m4 -T"H:\OpenECU\Code\ECU_CoolantSystem\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ECU_CoolantSystem.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ECU_CoolantSystem.elf
  
-arm-none-eabi-size  Physical_Layer.elf 
-arm-none-eabi-objdump -h -S Physical_Layer.elf  > "Physical_Layer.list"
+arm-none-eabi-size  ECU_CoolantSystem.elf 
+arm-none-eabi-objdump -h -S ECU_CoolantSystem.elf  > "ECU_CoolantSystem.list"
    text	   data	    bss	    dec	    hex	filename
-  26568	    456	   2096	  29120	   71c0	Physical_Layer.elf
+   2744	      0	   1592	   4336	   10f0	ECU_CoolantSystem.elf
 Finished building: default.size.stdout
  
-Finished building: Physical_Layer.list
- 
-23:37:36 **** Incremental Build of configuration Debug for project Physical_Layer ****
-make -j12 all 
-arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -c -I../Inc -I"H:/OpenECU/Code/Physical_Layer/Module" -I"H:/OpenECU/Code/Physical_Layer/CMSIS" -I"H:/OpenECU/Code/Physical_Layer/CMSIS/Device/ST/STM32F4xx/Include" -I"H:/OpenECU/Code/Physical_Layer/CMSIS/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
-../Src/main.c: In function 'main':
-../Src/main.c:62:17: warning: unused variable 'len' [-Wunused-variable]
-   62 |         uint8_t len = sizeof(LIN_MSG);
-      |                 ^~~
-arm-none-eabi-gcc -o "Physical_Layer.elf" @"objects.list"   -mcpu=cortex-m4 -T"H:\OpenECU\Code\Physical_Layer\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Physical_Layer.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: Physical_Layer.elf
- 
-arm-none-eabi-size  Physical_Layer.elf 
-arm-none-eabi-objdump -h -S Physical_Layer.elf  > "Physical_Layer.list"
-   text	   data	    bss	    dec	    hex	filename
-  26024	    456	   2096	  28576	   6fa0	Physical_Layer.elf
-Finished building: default.size.stdout
- 
-Finished building: Physical_Layer.list
- 
-23:45:48 **** Incremental Build of configuration Debug for project Physical_Layer ****
-make -j12 all 
-arm-none-eabi-gcc "../Module/can.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -c -I../Inc -I"H:/OpenECU/Code/Physical_Layer/Module" -I"H:/OpenECU/Code/Physical_Layer/CMSIS" -I"H:/OpenECU/Code/Physical_Layer/CMSIS/Device/ST/STM32F4xx/Include" -I"H:/OpenECU/Code/Physical_Layer/CMSIS/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Module/can.d" -MT"Module/can.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Module/can.o"
-arm-none-eabi-gcc -o "Physical_Layer.elf" @"objects.list"   -mcpu=cortex-m4 -T"H:\OpenECU\Code\Physical_Layer\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Physical_Layer.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: Physical_Layer.elf
- 
-arm-none-eabi-size  Physical_Layer.elf 
-arm-none-eabi-objdump -h -S Physical_Layer.elf  > "Physical_Layer.list"
-   text	   data	    bss	    dec	    hex	filename
-  26048	    456	   2096	  28600	   6fb8	Physical_Layer.elf
-Finished building: default.size.stdout
- 
-Finished building: Physical_Layer.list
- 
-23:49:25 **** Incremental Build of configuration Debug for project Physical_Layer ****
-make -j12 all 
-arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -c -I../Inc -I"H:/OpenECU/Code/Physical_Layer/Module" -I"H:/OpenECU/Code/Physical_Layer/CMSIS" -I"H:/OpenECU/Code/Physical_Layer/CMSIS/Device/ST/STM32F4xx/Include" -I"H:/OpenECU/Code/Physical_Layer/CMSIS/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
-arm-none-eabi-gcc "../Module/can.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -c -I../Inc -I"H:/OpenECU/Code/Physical_Layer/Module" -I"H:/OpenECU/Code/Physical_Layer/CMSIS" -I"H:/OpenECU/Code/Physical_Layer/CMSIS/Device/ST/STM32F4xx/Include" -I"H:/OpenECU/Code/Physical_Layer/CMSIS/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Module/can.d" -MT"Module/can.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Module/can.o"
-arm-none-eabi-gcc "../Module/comm_stats.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -c -I../Inc -I"H:/OpenECU/Code/Physical_Layer/Module" -I"H:/OpenECU/Code/Physical_Layer/CMSIS" -I"H:/OpenECU/Code/Physical_Layer/CMSIS/Device/ST/STM32F4xx/Include" -I"H:/OpenECU/Code/Physical_Layer/CMSIS/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Module/comm_stats.d" -MT"Module/comm_stats.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Module/comm_stats.o"
-arm-none-eabi-gcc "../Module/uart_LIN.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -c -I../Inc -I"H:/OpenECU/Code/Physical_Layer/Module" -I"H:/OpenECU/Code/Physical_Layer/CMSIS" -I"H:/OpenECU/Code/Physical_Layer/CMSIS/Device/ST/STM32F4xx/Include" -I"H:/OpenECU/Code/Physical_Layer/CMSIS/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Module/uart_LIN.d" -MT"Module/uart_LIN.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Module/uart_LIN.o"
-../Src/main.c: In function 'main':
-../Src/main.c:62:17: warning: unused variable 'len' [-Wunused-variable]
-   62 |         uint8_t len = sizeof(LIN_MSG);
-      |                 ^~~
-arm-none-eabi-gcc -o "Physical_Layer.elf" @"objects.list"   -mcpu=cortex-m4 -T"H:\OpenECU\Code\Physical_Layer\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Physical_Layer.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: Physical_Layer.elf
- 
-arm-none-eabi-size  Physical_Layer.elf 
-arm-none-eabi-objdump -h -S Physical_Layer.elf  > "Physical_Layer.list"
-   text	   data	    bss	    dec	    hex	filename
-  26016	    456	   2080	  28552	   6f88	Physical_Layer.elf
-Finished building: default.size.stdout
- 
-Finished building: Physical_Layer.list
+Finished building: ECU_CoolantSystem.list
  

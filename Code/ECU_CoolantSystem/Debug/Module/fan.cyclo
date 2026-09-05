@@ -1,0 +1,3 @@
+../Module/fan.c:18:6:Fan_Init	1
+../Module/fan.c:84:6:Fan_SetSpeed	2
+../Module/fan.c:102:6:Fan_Stop	1

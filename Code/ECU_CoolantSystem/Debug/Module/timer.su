@@ -1,0 +1,3 @@
+../Module/timer.c:11:6:Timer_Init	4	static
+../Module/timer.c:26:6:TimerDelay_us	24	static
+../Module/timer.c:37:6:TimerDelay_ms	16	static
