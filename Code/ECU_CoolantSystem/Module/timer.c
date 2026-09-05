@@ -18,6 +18,9 @@ void Timer_Init(void)
 
     TIM2->ARR = 0xFFFFFFFFU;
 
+    //Clear counter
+    TIM2->CNT = 0 ;
+
     //Start timer
     TIM2->CR1 |= TIM_CR1_CEN;
 }
@@ -27,12 +30,8 @@ void TimerDelay_us(uint32_t us)
 {
     uint32_t start = TIM2->CNT;
 
-    while ((uint32_t)(TIM2->CNT - start) < us)
-    {
-        /* wait */
-    }
+    while ((uint32_t)(TIM2->CNT - start) < us) {}
 }
-
 
 void TimerDelay_ms(uint32_t ms)
 {

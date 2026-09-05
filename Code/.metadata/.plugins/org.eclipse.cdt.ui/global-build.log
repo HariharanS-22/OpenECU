@@ -1,4 +1,4 @@
-10:08:07 **** Incremental Build of configuration Debug for project ECU_CoolantSystem ****
+11:35:05 **** Incremental Build of configuration Debug for project ECU_CoolantSystem ****
 make -j12 all 
 arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -c -I../Inc -I"H:/OpenECU/Code/ECU_CoolantSystem/Module" -I"H:/OpenECU/Code/ECU_CoolantSystem/CMSIS" -I"H:/OpenECU/Code/ECU_CoolantSystem/CMSIS/Device/ST/STM32F4xx/Include" -I"H:/OpenECU/Code/ECU_CoolantSystem/CMSIS/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
 arm-none-eabi-gcc -o "ECU_CoolantSystem.elf" @"objects.list"   -mcpu=cortex-m4 -T"H:\OpenECU\Code\ECU_CoolantSystem\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ECU_CoolantSystem.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
@@ -7,8 +7,15 @@ Finished building target: ECU_CoolantSystem.elf
 arm-none-eabi-size  ECU_CoolantSystem.elf 
 arm-none-eabi-objdump -h -S ECU_CoolantSystem.elf  > "ECU_CoolantSystem.list"
    text	   data	    bss	    dec	    hex	filename
-   2744	      0	   1592	   4336	   10f0	ECU_CoolantSystem.elf
+   7076	     92	   1928	   9096	   2388	ECU_CoolantSystem.elf
 Finished building: default.size.stdout
  
 Finished building: ECU_CoolantSystem.list
+ 
+11:35:24 **** Incremental Build of configuration Debug for project ECU_CoolantSystem ****
+make -j12 all 
+arm-none-eabi-size  ECU_CoolantSystem.elf 
+   text	   data	    bss	    dec	    hex	filename
+   7076	     92	   1928	   9096	   2388	ECU_CoolantSystem.elf
+Finished building: default.size.stdout
  

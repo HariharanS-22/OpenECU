@@ -50,23 +50,23 @@ void Cooler_control(void){
 
 	temperature_x100 = temperature;
 
-	if (temperature < 4000)
+	if (temperature < 2000)
 	{
 		fanSpeed = 0U;
 	}
-	else if (temperature < 5000)
+	else if (temperature < 3000)
 	{
 		fanSpeed = 30U;
 	}
-	else if (temperature < 6000)
+	else if (temperature < 3500)
 	{
 		fanSpeed = 50U;
 	}
-	else if (temperature < 7000)
+	else if (temperature < 4000)
 	{
 		fanSpeed = 70U;
 	}
-	else if (temperature < 8000)
+	else if (temperature < 4500)
 	{
 		fanSpeed = 85U;
 	}
@@ -84,8 +84,10 @@ int main(void)
 	SysTick_config();
 	CAN1_Init();
 
+	Timer_Init();
     DS18B20_Init();
     Fan_Init();
+
 	//CAN1_LoopBack();
 
 
@@ -99,7 +101,9 @@ int main(void)
 	while(1){
 
 		if((sysTick - now) >= 1000){
+			printf("T : %d\r\n",DS18B20_ReadTemperature());
 			Cooler_control();
+			//Fan_SetSpeed(80);
 //			CAN1_TxMsg((uint8_t *)MSG, len);
 			now = sysTick;
 		}
