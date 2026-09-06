@@ -42,6 +42,7 @@
 ../ThirdParty/FreeRTOS/tasks.c:3722:10:vTaskGetInfo	7
 ../ThirdParty/FreeRTOS/tasks.c:3821:24:prvListTasksWithinSingleList	5
 ../ThirdParty/FreeRTOS/tasks.c:3856:35:prvTaskCheckFreeStackSpace	2
+../ThirdParty/FreeRTOS/tasks.c:3916:17:uxTaskGetStackHighWaterMark	2
 ../ThirdParty/FreeRTOS/tasks.c:3943:11:pxTaskGetStackStart	2
 ../ThirdParty/FreeRTOS/tasks.c:3958:17:prvDeleteTCB	1
 ../ThirdParty/FreeRTOS/tasks.c:4014:13:prvResetNextTaskUnblockTime	2

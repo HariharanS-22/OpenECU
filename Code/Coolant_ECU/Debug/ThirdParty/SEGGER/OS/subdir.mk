@@ -1,6 +1,6 @@
 ################################################################################
 # Automatically-generated file. Do not edit!
-# Toolchain: GNU Tools for STM32 (14.3.rel1)
+# Toolchain: GNU Tools for STM32 (13.3.rel1)
 ################################################################################
 
 # Add inputs and outputs from these tool invocations to the build variables 
@@ -16,7 +16,7 @@ C_DEPS += \
 
 # Each subdirectory must supply rules for building sources it contributes
 ThirdParty/SEGGER/OS/%.o ThirdParty/SEGGER/OS/%.su ThirdParty/SEGGER/OS/%.cyclo: ../ThirdParty/SEGGER/OS/%.c ThirdParty/SEGGER/OS/subdir.mk
-	arm-none-eabi-gcc "$<" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"H:/OpenECU/Code/Coolant_ECU/ThirdParty/FreeRTOS" -I"H:/OpenECU/Code/Coolant_ECU/ThirdParty/FreeRTOS/include" -I"H:/OpenECU/Code/Coolant_ECU/ThirdParty/FreeRTOS/portable/GCC/ARM_CM4F" -I"H:/OpenECU/Code/Coolant_ECU/ThirdParty/SEGGER/OS" -I"H:/OpenECU/Code/Coolant_ECU/ThirdParty/SEGGER/SEGGER" -I"H:/OpenECU/Code/Coolant_ECU/ThirdParty/SEGGER/Config" -I"H:/OpenECU/Code/Coolant_ECU/ThirdParty/SEGGER" -I"H:/OpenECU/Code/Coolant_ECU/Module" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "$@"
+	arm-none-eabi-gcc "$<" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"C:/Users/Jagakishan/Mini-AUTOSAR/OpenECU/Code/Coolant_ECU/ThirdParty/FreeRTOS" -I"C:/Users/Jagakishan/Mini-AUTOSAR/OpenECU/Code/Coolant_ECU/ThirdParty/FreeRTOS/include" -I"C:/Users/Jagakishan/Mini-AUTOSAR/OpenECU/Code/Coolant_ECU/ThirdParty/FreeRTOS/portable/GCC/ARM_CM4F" -I"C:/Users/Jagakishan/Mini-AUTOSAR/OpenECU/Code/Coolant_ECU/ThirdParty/SEGGER/OS" -I"C:/Users/Jagakishan/Mini-AUTOSAR/OpenECU/Code/Coolant_ECU/ThirdParty/SEGGER/SEGGER" -I"C:/Users/Jagakishan/Mini-AUTOSAR/OpenECU/Code/Coolant_ECU/ThirdParty/SEGGER/Config" -I"C:/Users/Jagakishan/Mini-AUTOSAR/OpenECU/Code/Coolant_ECU/ThirdParty/SEGGER" -I"C:/Users/Jagakishan/Mini-AUTOSAR/OpenECU/Code/Coolant_ECU/Module" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "$@"
 
 clean: clean-ThirdParty-2f-SEGGER-2f-OS
 

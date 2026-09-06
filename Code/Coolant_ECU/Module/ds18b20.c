@@ -199,3 +199,4 @@ int16_t DS18B20_ReadTemperature(void)
 
     return (int16_t) (((int32_t)rawTemperature * 625) / 100);
 }
+

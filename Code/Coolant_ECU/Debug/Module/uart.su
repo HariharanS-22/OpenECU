@@ -1,0 +1,6 @@
+../Module/uart.c:24:13:UART_SetBaudRate	32	static
+../Module/uart.c:31:6:UART2_RxTxInit	8	static
+../Module/uart.c:69:6:UART2_Read	4	static
+../Module/uart.c:76:6:UART2_Write	16	static
+../Module/uart.c:97:5:_read	32	static
+../Module/uart.c:123:6:customPrint	24	static
