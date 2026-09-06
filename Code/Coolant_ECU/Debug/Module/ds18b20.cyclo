@@ -1,0 +1,12 @@
+../Module/ds18b20.c:14:13:DS18B20_PinOutput	1
+../Module/ds18b20.c:24:13:DS18B20_PinInput	1
+../Module/ds18b20.c:29:13:DS18B20_Low	1
+../Module/ds18b20.c:36:13:DS18B20_Release	1
+../Module/ds18b20.c:42:16:DS18B20_ReadPin	1
+../Module/ds18b20.c:48:6:DS18B20_Init	1
+../Module/ds18b20.c:60:16:DS18B20_Reset	1
+../Module/ds18b20.c:86:13:DS18B20_WriteBit	2
+../Module/ds18b20.c:111:16:DS18B20_ReadBit	1
+../Module/ds18b20.c:130:13:DS18B20_WriteByte	2
+../Module/ds18b20.c:140:16:DS18B20_ReadByte	3
+../Module/ds18b20.c:157:9:DS18B20_ReadTemperature	3

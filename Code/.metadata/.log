@@ -5399,3 +5399,640 @@ COM16
 
 !ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-05 11:43:34.691
 !MESSAGE port: COM16
+
+!ENTRY org.eclipse.jface 4 2 2026-09-06 09:58:50.252
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.jface".
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "org.eclipse.cdt.managedbuilder.internal.ui.compilationdatabase.Configuration.metadata()" because "this.configuration" is null
+	at org.eclipse.cdt.managedbuilder.internal.ui.compilationdatabase.CompilationDatabaseGeneratorBlock.getConfigurationArea(CompilationDatabaseGeneratorBlock.java:157)
+	at org.eclipse.cdt.managedbuilder.internal.ui.compilationdatabase.CompilationDatabaseGeneratorBlock.createPreferenceContent(CompilationDatabaseGeneratorBlock.java:165)
+	at org.eclipse.cdt.managedbuilder.internal.ui.compilationdatabase.CompilationDatabaseGeneratorBlock.createContents(CompilationDatabaseGeneratorBlock.java:146)
+	at org.eclipse.jface.preference.PreferencePage.createControl(PreferencePage.java:244)
+	at org.eclipse.jface.preference.PreferenceDialog.createPageControl(PreferenceDialog.java:1429)
+	at org.eclipse.jface.preference.PreferenceDialog$8.run(PreferenceDialog.java:1192)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.jface.util.SafeRunnable.run(SafeRunnable.java:169)
+	at org.eclipse.jface.preference.PreferenceDialog.showPage(PreferenceDialog.java:1184)
+	at org.eclipse.ui.internal.dialogs.FilteredPreferenceDialog.showPage(FilteredPreferenceDialog.java:616)
+	at org.eclipse.jface.preference.PreferenceDialog$5.lambda$0(PreferenceDialog.java:660)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:67)
+	at org.eclipse.jface.preference.PreferenceDialog$5.selectionChanged(PreferenceDialog.java:657)
+	at org.eclipse.jface.viewers.StructuredViewer$3.run(StructuredViewer.java:822)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.jface.util.SafeRunnable.run(SafeRunnable.java:169)
+	at org.eclipse.jface.viewers.StructuredViewer.firePostSelectionChanged(StructuredViewer.java:819)
+	at org.eclipse.jface.viewers.ColumnViewer.firePostSelectionChanged(ColumnViewer.java:1054)
+	at org.eclipse.jface.viewers.StructuredViewer.handlePostSelect(StructuredViewer.java:1188)
+	at org.eclipse.swt.events.SelectionListener$1.widgetSelected(SelectionListener.java:83)
+	at org.eclipse.jface.util.OpenStrategy.firePostSelectionEvent(OpenStrategy.java:283)
+	at org.eclipse.jface.util.OpenStrategy$1.lambda$1(OpenStrategy.java:437)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:132)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4137)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3753)
+	at org.eclipse.jface.window.Window.runEventLoop(Window.java:824)
+	at org.eclipse.jface.window.Window.open(Window.java:804)
+	at org.eclipse.ui.dialogs.PropertyDialogAction.run(PropertyDialogAction.java:154)
+	at org.eclipse.ui.internal.ide.actions.ProjectPropertyDialogAction.run(ProjectPropertyDialogAction.java:81)
+	at org.eclipse.jface.action.Action.runWithEvent(Action.java:474)
+	at org.eclipse.jface.action.ActionContributionItem.handleWidgetSelection(ActionContributionItem.java:581)
+	at org.eclipse.jface.action.ActionContributionItem.lambda$4(ActionContributionItem.java:415)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:91)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4364)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1217)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4162)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3750)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1147)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1038)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:153)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:677)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:583)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:173)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:185)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:219)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:149)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:115)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:467)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:298)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:615)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:563)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1415)
+
+!ENTRY org.eclipse.jface 4 0 2026-09-06 09:59:37.526
+!MESSAGE java.lang.NullPointerException: Cannot invoke "org.eclipse.cdt.managedbuilder.internal.ui.compilationdatabase.Configuration.qualifier()" because "this.configuration" is null
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "org.eclipse.cdt.managedbuilder.internal.ui.compilationdatabase.Configuration.qualifier()" because "this.configuration" is null
+	at org.eclipse.cdt.managedbuilder.internal.ui.compilationdatabase.CompilationDatabaseGeneratorBlock.performOk(CompilationDatabaseGeneratorBlock.java:200)
+	at org.eclipse.jface.preference.PreferenceDialog$7.run(PreferenceDialog.java:905)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.jface.util.SafeRunnable.run(SafeRunnable.java:169)
+	at org.eclipse.jface.preference.PreferenceDialog.okPressed(PreferenceDialog.java:889)
+	at org.eclipse.ui.internal.dialogs.FilteredPreferenceDialog.okPressed(FilteredPreferenceDialog.java:448)
+	at org.eclipse.jface.preference.PreferenceDialog.buttonPressed(PreferenceDialog.java:232)
+	at org.eclipse.jface.dialogs.Dialog.lambda$0(Dialog.java:617)
+	at org.eclipse.swt.events.SelectionListener$1.widgetSelected(SelectionListener.java:83)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:290)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:91)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4364)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1217)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4162)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3750)
+	at org.eclipse.jface.window.Window.runEventLoop(Window.java:824)
+	at org.eclipse.jface.window.Window.open(Window.java:804)
+	at org.eclipse.ui.dialogs.PropertyDialogAction.run(PropertyDialogAction.java:154)
+	at org.eclipse.ui.internal.ide.actions.ProjectPropertyDialogAction.run(ProjectPropertyDialogAction.java:81)
+	at org.eclipse.jface.action.Action.runWithEvent(Action.java:474)
+	at org.eclipse.jface.action.ActionContributionItem.handleWidgetSelection(ActionContributionItem.java:581)
+	at org.eclipse.jface.action.ActionContributionItem.lambda$4(ActionContributionItem.java:415)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:91)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4364)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1217)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4162)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3750)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1147)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1038)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:153)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:677)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:583)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:173)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:185)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:219)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:149)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:115)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:467)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:298)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:615)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:563)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1415)
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-09-06 10:00:23.580
+!MESSAGE Indexed 'ECU_CoolantSystem' (8 sources, 84 headers) in 0.899 sec: 4,204 declarations; 8,060 references; 0 unresolved inclusions; 2 syntax errors; 30 unresolved names (0.24%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-09-06 10:01:23.425
+!MESSAGE Indexed 'ECU_CoolantSystem' (8 sources, 84 headers) in 0.893 sec: 4,204 declarations; 8,060 references; 0 unresolved inclusions; 2 syntax errors; 30 unresolved names (0.24%)
+
+!ENTRY com.st.stm32cube.ide.mcu.build 4 4 2026-09-06 10:38:49.071
+!MESSAGE Failed to check relative, returning possibly relative path: H:\OpenECU\Code\ECU_CoolantSystem\Release/"" literal was "${workspace_loc:/${ProjName}/FreeRTOS-Kernel}"
+
+!ENTRY com.st.stm32cube.ide.mcu.build 4 4 2026-09-06 10:38:49.080
+!MESSAGE Failed to check relative, returning possibly relative path: H:\OpenECU\Code\ECU_CoolantSystem\Release/"" literal was "${workspace_loc:/${ProjName}/FreeRTOS-Kernel/include}"
+
+!ENTRY com.st.stm32cube.ide.mcu.build 4 4 2026-09-06 10:38:49.085
+!MESSAGE Failed to check relative, returning possibly relative path: H:\OpenECU\Code\ECU_CoolantSystem\Release/"" literal was "${workspace_loc:/${ProjName}/FreeRTOS-Kernel}"
+
+!ENTRY com.st.stm32cube.ide.mcu.build 4 4 2026-09-06 10:38:49.086
+!MESSAGE Failed to check relative, returning possibly relative path: H:\OpenECU\Code\ECU_CoolantSystem\Release/"" literal was "${workspace_loc:/${ProjName}/FreeRTOS-Kernel/include}"
+
+!ENTRY com.st.stm32cube.ide.mcu.build 4 4 2026-09-06 10:38:49.087
+!MESSAGE Failed to check relative, returning possibly relative path: H:\OpenECU\Code\ECU_CoolantSystem\Debug/"" literal was "${workspace_loc:/${ProjName}/FreeRTOS-Kernel}"
+
+!ENTRY com.st.stm32cube.ide.mcu.build 4 4 2026-09-06 10:38:49.088
+!MESSAGE Failed to check relative, returning possibly relative path: H:\OpenECU\Code\ECU_CoolantSystem\Debug/"" literal was "${workspace_loc:/${ProjName}/FreeRTOS-Kernel/include}"
+
+!ENTRY com.st.stm32cube.ide.mcu.build 4 4 2026-09-06 10:38:49.090
+!MESSAGE Failed to check relative, returning possibly relative path: H:\OpenECU\Code\ECU_CoolantSystem\Debug/"" literal was "${workspace_loc:/${ProjName}/FreeRTOS-Kernel}"
+
+!ENTRY com.st.stm32cube.ide.mcu.build 4 4 2026-09-06 10:38:49.092
+!MESSAGE Failed to check relative, returning possibly relative path: H:\OpenECU\Code\ECU_CoolantSystem\Debug/"" literal was "${workspace_loc:/${ProjName}/FreeRTOS-Kernel/include}"
+
+!ENTRY com.st.stm32cube.ide.mcu.build 4 4 2026-09-06 10:41:41.280
+!MESSAGE Failed to check relative, returning possibly relative path: H:\OpenECU\Code\ECU_CoolantSystem\Release/"" literal was "${workspace_loc:/${ProjName}/FreeRTOS-Kernel}"
+
+!ENTRY com.st.stm32cube.ide.mcu.build 4 4 2026-09-06 10:41:41.282
+!MESSAGE Failed to check relative, returning possibly relative path: H:\OpenECU\Code\ECU_CoolantSystem\Release/"" literal was "${workspace_loc:/${ProjName}/FreeRTOS-Kernel/include}"
+
+!ENTRY com.st.stm32cube.ide.mcu.build 4 4 2026-09-06 10:41:41.284
+!MESSAGE Failed to check relative, returning possibly relative path: H:\OpenECU\Code\ECU_CoolantSystem\Release/"" literal was "${workspace_loc:/${ProjName}/FreeRTOS-Kernel}"
+
+!ENTRY com.st.stm32cube.ide.mcu.build 4 4 2026-09-06 10:41:41.284
+!MESSAGE Failed to check relative, returning possibly relative path: H:\OpenECU\Code\ECU_CoolantSystem\Release/"" literal was "${workspace_loc:/${ProjName}/FreeRTOS-Kernel/include}"
+
+!ENTRY com.st.stm32cube.ide.mcu.build 4 4 2026-09-06 10:41:41.286
+!MESSAGE Failed to check relative, returning possibly relative path: H:\OpenECU\Code\ECU_CoolantSystem\Debug/"" literal was "${workspace_loc:/${ProjName}/FreeRTOS-Kernel}"
+
+!ENTRY com.st.stm32cube.ide.mcu.build 4 4 2026-09-06 10:41:41.288
+!MESSAGE Failed to check relative, returning possibly relative path: H:\OpenECU\Code\ECU_CoolantSystem\Debug/"" literal was "${workspace_loc:/${ProjName}/FreeRTOS-Kernel/include}"
+
+!ENTRY com.st.stm32cube.ide.mcu.build 4 4 2026-09-06 10:41:41.291
+!MESSAGE Failed to check relative, returning possibly relative path: H:\OpenECU\Code\ECU_CoolantSystem\Debug/"" literal was "${workspace_loc:/${ProjName}/FreeRTOS-Kernel}"
+
+!ENTRY com.st.stm32cube.ide.mcu.build 4 4 2026-09-06 10:41:41.292
+!MESSAGE Failed to check relative, returning possibly relative path: H:\OpenECU\Code\ECU_CoolantSystem\Debug/"" literal was "${workspace_loc:/${ProjName}/FreeRTOS-Kernel/include}"
+
+!ENTRY com.st.stm32cube.ide.mcu.build 4 4 2026-09-06 10:43:20.888
+!MESSAGE Failed to check relative, returning possibly relative path: H:\OpenECU\Code\ECU_CoolantSystem\Release/"" literal was "${workspace_loc:/${ProjName}/FreeRTOS-Kernel}"
+
+!ENTRY com.st.stm32cube.ide.mcu.build 4 4 2026-09-06 10:43:20.889
+!MESSAGE Failed to check relative, returning possibly relative path: H:\OpenECU\Code\ECU_CoolantSystem\Release/"" literal was "${workspace_loc:/${ProjName}/FreeRTOS-Kernel/include}"
+
+!ENTRY com.st.stm32cube.ide.mcu.build 4 4 2026-09-06 10:43:20.891
+!MESSAGE Failed to check relative, returning possibly relative path: H:\OpenECU\Code\ECU_CoolantSystem\Release/"" literal was "${workspace_loc:/${ProjName}/FreeRTOS-Kernel}"
+
+!ENTRY com.st.stm32cube.ide.mcu.build 4 4 2026-09-06 10:43:20.892
+!MESSAGE Failed to check relative, returning possibly relative path: H:\OpenECU\Code\ECU_CoolantSystem\Release/"" literal was "${workspace_loc:/${ProjName}/FreeRTOS-Kernel/include}"
+
+!ENTRY com.st.stm32cube.ide.mcu.build 4 4 2026-09-06 10:43:20.893
+!MESSAGE Failed to check relative, returning possibly relative path: H:\OpenECU\Code\ECU_CoolantSystem\Debug/"" literal was "${workspace_loc:/${ProjName}/FreeRTOS-Kernel}"
+
+!ENTRY com.st.stm32cube.ide.mcu.build 4 4 2026-09-06 10:43:20.894
+!MESSAGE Failed to check relative, returning possibly relative path: H:\OpenECU\Code\ECU_CoolantSystem\Debug/"" literal was "${workspace_loc:/${ProjName}/FreeRTOS-Kernel/include}"
+
+!ENTRY com.st.stm32cube.ide.mcu.build 4 4 2026-09-06 10:43:20.894
+!MESSAGE Failed to check relative, returning possibly relative path: H:\OpenECU\Code\ECU_CoolantSystem\Debug/"" literal was "${workspace_loc:/${ProjName}/FreeRTOS-Kernel}"
+
+!ENTRY com.st.stm32cube.ide.mcu.build 4 4 2026-09-06 10:43:20.894
+!MESSAGE Failed to check relative, returning possibly relative path: H:\OpenECU\Code\ECU_CoolantSystem\Debug/"" literal was "${workspace_loc:/${ProjName}/FreeRTOS-Kernel/include}"
+
+!ENTRY com.st.stm32cube.ide.mcu.build 4 4 2026-09-06 10:43:26.842
+!MESSAGE Failed to check relative, returning possibly relative path: H:\OpenECU\Code\ECU_CoolantSystem\Release/"" literal was "${workspace_loc:/${ProjName}/FreeRTOS-Kernel}"
+
+!ENTRY com.st.stm32cube.ide.mcu.build 4 4 2026-09-06 10:43:26.844
+!MESSAGE Failed to check relative, returning possibly relative path: H:\OpenECU\Code\ECU_CoolantSystem\Release/"" literal was "${workspace_loc:/${ProjName}/FreeRTOS-Kernel/include}"
+
+!ENTRY com.st.stm32cube.ide.mcu.build 4 4 2026-09-06 10:43:26.846
+!MESSAGE Failed to check relative, returning possibly relative path: H:\OpenECU\Code\ECU_CoolantSystem\Release/"" literal was "${workspace_loc:/${ProjName}/FreeRTOS-Kernel}"
+
+!ENTRY com.st.stm32cube.ide.mcu.build 4 4 2026-09-06 10:43:26.847
+!MESSAGE Failed to check relative, returning possibly relative path: H:\OpenECU\Code\ECU_CoolantSystem\Release/"" literal was "${workspace_loc:/${ProjName}/FreeRTOS-Kernel/include}"
+
+!ENTRY com.st.stm32cube.ide.mcu.build 4 4 2026-09-06 10:43:26.849
+!MESSAGE Failed to check relative, returning possibly relative path: H:\OpenECU\Code\ECU_CoolantSystem\Debug/"" literal was "${workspace_loc:/${ProjName}/FreeRTOS-Kernel}"
+
+!ENTRY com.st.stm32cube.ide.mcu.build 4 4 2026-09-06 10:43:26.850
+!MESSAGE Failed to check relative, returning possibly relative path: H:\OpenECU\Code\ECU_CoolantSystem\Debug/"" literal was "${workspace_loc:/${ProjName}/FreeRTOS-Kernel/include}"
+
+!ENTRY com.st.stm32cube.ide.mcu.build 4 4 2026-09-06 10:43:26.850
+!MESSAGE Failed to check relative, returning possibly relative path: H:\OpenECU\Code\ECU_CoolantSystem\Debug/"" literal was "${workspace_loc:/${ProjName}/FreeRTOS-Kernel}"
+
+!ENTRY com.st.stm32cube.ide.mcu.build 4 4 2026-09-06 10:43:26.851
+!MESSAGE Failed to check relative, returning possibly relative path: H:\OpenECU\Code\ECU_CoolantSystem\Debug/"" literal was "${workspace_loc:/${ProjName}/FreeRTOS-Kernel/include}"
+
+!ENTRY com.st.stm32cube.ide.mcu.build 4 4 2026-09-06 10:44:07.631
+!MESSAGE Failed to check relative, returning possibly relative path: H:\OpenECU\Code\ECU_CoolantSystem\Release/"" literal was "${workspace_loc:/${ProjName}/FreeRTOS-Kernel}"
+
+!ENTRY com.st.stm32cube.ide.mcu.build 4 4 2026-09-06 10:44:07.632
+!MESSAGE Failed to check relative, returning possibly relative path: H:\OpenECU\Code\ECU_CoolantSystem\Release/"" literal was "${workspace_loc:/${ProjName}/FreeRTOS-Kernel/include}"
+
+!ENTRY com.st.stm32cube.ide.mcu.build 4 4 2026-09-06 10:44:07.633
+!MESSAGE Failed to check relative, returning possibly relative path: H:\OpenECU\Code\ECU_CoolantSystem\Release/"" literal was "${workspace_loc:/${ProjName}/FreeRTOS-Kernel}"
+
+!ENTRY com.st.stm32cube.ide.mcu.build 4 4 2026-09-06 10:44:07.634
+!MESSAGE Failed to check relative, returning possibly relative path: H:\OpenECU\Code\ECU_CoolantSystem\Release/"" literal was "${workspace_loc:/${ProjName}/FreeRTOS-Kernel/include}"
+
+!ENTRY com.st.stm32cube.ide.mcu.build 4 4 2026-09-06 10:44:07.635
+!MESSAGE Failed to check relative, returning possibly relative path: H:\OpenECU\Code\ECU_CoolantSystem\Debug/"" literal was "${workspace_loc:/${ProjName}/FreeRTOS-Kernel}"
+
+!ENTRY com.st.stm32cube.ide.mcu.build 4 4 2026-09-06 10:44:07.635
+!MESSAGE Failed to check relative, returning possibly relative path: H:\OpenECU\Code\ECU_CoolantSystem\Debug/"" literal was "${workspace_loc:/${ProjName}/FreeRTOS-Kernel/include}"
+
+!ENTRY com.st.stm32cube.ide.mcu.build 4 4 2026-09-06 10:44:07.637
+!MESSAGE Failed to check relative, returning possibly relative path: H:\OpenECU\Code\ECU_CoolantSystem\Debug/"" literal was "${workspace_loc:/${ProjName}/FreeRTOS-Kernel}"
+
+!ENTRY com.st.stm32cube.ide.mcu.build 4 4 2026-09-06 10:44:07.638
+!MESSAGE Failed to check relative, returning possibly relative path: H:\OpenECU\Code\ECU_CoolantSystem\Debug/"" literal was "${workspace_loc:/${ProjName}/FreeRTOS-Kernel/include}"
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-09-06 10:45:13.748
+!MESSAGE Indexed 'ECU_CoolantSystem' (7 sources, 91 headers) in 0.77 sec: 4,687 declarations; 7,703 references; 0 unresolved inclusions; 1 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-09-06 10:52:29.081
+!MESSAGE Indexed 'ECU_CoolantSystem' (3 sources, 92 headers) in 0.923 sec: 4,645 declarations; 7,082 references; 0 unresolved inclusions; 1 syntax errors; 0 unresolved names (0%)
+
+!ENTRY com.st.stm32cube.common.logger 4 0 2026-09-06 10:55:22.434
+!MESSAGE There is no handler to execute for command org.eclipse.ui.file.refresh
+!STACK 0
+org.eclipse.core.commands.NotHandledException: There is no handler to execute for command org.eclipse.ui.file.refresh
+	at org.eclipse.core.commands.Command.executeWithChecks(Command.java:501)
+	at org.eclipse.core.commands.ParameterizedCommand.executeWithChecks(ParameterizedCommand.java:484)
+	at org.eclipse.e4.core.commands.internal.HandlerServiceImpl.executeHandler(HandlerServiceImpl.java:204)
+	at org.eclipse.ui.internal.handlers.LegacyHandlerService.executeCommand(LegacyHandlerService.java:386)
+	at org.eclipse.ui.internal.handlers.LegacyHandlerService.executeCommand(LegacyHandlerService.java:363)
+	at com.st.stm32cube.ide.mcu.build.ui.decorator.BoldDecorator.handleEvent(BoldDecorator.java:104)
+	at org.eclipse.cdt.internal.core.settings.model.CProjectDescriptionManager.notifyListeners(CProjectDescriptionManager.java:2190)
+	at org.eclipse.cdt.internal.core.settings.model.SetCProjectDescriptionOperation.executeOperation(SetCProjectDescriptionOperation.java:155)
+	at org.eclipse.cdt.internal.core.model.CModelOperation.execute(CModelOperation.java:346)
+	at org.eclipse.cdt.internal.core.model.CModelOperation.run(CModelOperation.java:613)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2505)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2533)
+	at org.eclipse.cdt.internal.core.model.CModelOperation.runOperation(CModelOperation.java:644)
+	at org.eclipse.cdt.internal.core.settings.model.AbstractCProjectDescriptionStorage.setProjectDescription(AbstractCProjectDescriptionStorage.java:209)
+	at org.eclipse.cdt.internal.core.settings.model.CProjectDescriptionStorageManager.setProjectDescription(CProjectDescriptionStorageManager.java:153)
+	at org.eclipse.cdt.internal.core.settings.model.CProjectDescriptionManager.setProjectDescription(CProjectDescriptionManager.java:866)
+	at org.eclipse.cdt.internal.core.settings.model.CProjectDescriptionManager.setProjectDescription(CProjectDescriptionManager.java:816)
+	at org.eclipse.cdt.internal.core.settings.model.CProjectDescriptionManager.setProjectDescription(CProjectDescriptionManager.java:809)
+	at org.eclipse.cdt.core.model.CoreModel.setProjectDescription(CoreModel.java:1400)
+	at org.eclipse.cdt.ui.newui.CDTPropertyManager.performOkForced(CDTPropertyManager.java:146)
+	at org.eclipse.cdt.ui.newui.CDTPropertyManager.performOk(CDTPropertyManager.java:111)
+	at org.eclipse.cdt.ui.actions.ChangeConfigAction.run(ChangeConfigAction.java:62)
+	at org.eclipse.cdt.ui.actions.BuildConfigAction.run(BuildConfigAction.java:46)
+	at org.eclipse.jface.action.Action.runWithEvent(Action.java:474)
+	at org.eclipse.jface.action.ActionContributionItem.handleWidgetSelection(ActionContributionItem.java:581)
+	at org.eclipse.jface.action.ActionContributionItem.lambda$4(ActionContributionItem.java:415)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:91)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4364)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1217)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4162)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3750)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1147)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1038)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:153)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:677)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:583)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:173)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:185)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:219)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:149)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:115)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:467)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:298)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:615)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:563)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1415)
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-09-06 10:55:23.226
+!MESSAGE Indexed 'ECU_CoolantSystem' (7 sources, 91 headers) in 0.759 sec: 4,687 declarations; 7,703 references; 0 unresolved inclusions; 1 syntax errors; 0 unresolved names (0%)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.launch 2 0 2026-09-06 10:57:20.204
+!MESSAGE Won't launch debug session since we failed to locate the binary.
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-06 10:58:41.276
+!MESSAGE Executed PowerShell command powershell.exe -Command "Get-CimInstance -ClassName Win32_SerialPort | Select-Object -ExpandProperty DeviceID":
+COM3
+COM4
+COM7
+COM8
+COM9
+COM10
+COM11
+COM12
+COM13
+COM14
+COM15
+COM16
+COM6
+
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-06 10:58:41.277
+!MESSAGE port: COM3
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-06 10:58:41.277
+!MESSAGE port: COM4
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-06 10:58:41.278
+!MESSAGE port: COM7
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-06 10:58:41.278
+!MESSAGE port: COM8
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-06 10:58:41.278
+!MESSAGE port: COM9
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-06 10:58:41.279
+!MESSAGE port: COM10
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-06 10:58:41.279
+!MESSAGE port: COM11
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-06 10:58:41.279
+!MESSAGE port: COM12
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-06 10:58:41.280
+!MESSAGE port: COM13
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-06 10:58:41.281
+!MESSAGE port: COM14
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-06 10:58:41.281
+!MESSAGE port: COM15
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-06 10:58:41.281
+!MESSAGE port: COM16
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-06 10:58:41.282
+!MESSAGE port: COM6
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-09-06 11:00:45.492
+!MESSAGE Indexed 'Coolant_ECU' (37 sources, 155 headers) in 2.73 sec: 16,450 declarations; 75,865 references; 1 unresolved inclusions; 200 syntax errors; 249 unresolved names (0.27%)
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-06 11:07:17.152
+!MESSAGE Executed PowerShell command powershell.exe -Command "Get-CimInstance -ClassName Win32_SerialPort | Select-Object -ExpandProperty DeviceID":
+COM3
+COM4
+COM7
+COM8
+COM9
+COM10
+COM11
+COM12
+COM13
+COM14
+COM15
+COM16
+
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-06 11:07:17.161
+!MESSAGE port: COM3
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-06 11:07:17.162
+!MESSAGE port: COM4
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-06 11:07:17.163
+!MESSAGE port: COM7
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-06 11:07:17.164
+!MESSAGE port: COM8
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-06 11:07:17.165
+!MESSAGE port: COM9
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-06 11:07:17.167
+!MESSAGE port: COM10
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-06 11:07:17.168
+!MESSAGE port: COM11
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-06 11:07:17.168
+!MESSAGE port: COM12
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-06 11:07:17.170
+!MESSAGE port: COM13
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-06 11:07:17.170
+!MESSAGE port: COM14
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-06 11:07:17.172
+!MESSAGE port: COM15
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-06 11:07:17.174
+!MESSAGE port: COM16
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-06 11:17:20.434
+!MESSAGE Executed PowerShell command powershell.exe -Command "Get-CimInstance -ClassName Win32_SerialPort | Select-Object -ExpandProperty DeviceID":
+COM3
+COM4
+COM7
+COM8
+COM9
+COM10
+COM11
+COM12
+COM13
+COM14
+COM15
+COM16
+COM6
+
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-06 11:17:20.438
+!MESSAGE port: COM3
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-06 11:17:20.439
+!MESSAGE port: COM4
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-06 11:17:20.439
+!MESSAGE port: COM7
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-06 11:17:20.440
+!MESSAGE port: COM8
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-06 11:17:20.441
+!MESSAGE port: COM9
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-06 11:17:20.442
+!MESSAGE port: COM10
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-06 11:17:20.444
+!MESSAGE port: COM11
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-06 11:17:20.444
+!MESSAGE port: COM12
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-06 11:17:20.445
+!MESSAGE port: COM13
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-06 11:17:20.446
+!MESSAGE port: COM14
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-06 11:17:20.447
+!MESSAGE port: COM15
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-06 11:17:20.448
+!MESSAGE port: COM16
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-06 11:17:20.448
+!MESSAGE port: COM6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 1 1 2026-09-06 11:17:44.931
+!MESSAGE SWV configuration; base: 36000000; minDiv: 18; maxDiv: 65535; maxSWO: 2000000; limit: 2000000 => SWO: 2000000; CPU: 16000000; div: 8
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 4 2026-09-06 11:18:29.188
+!MESSAGE NullPointerException while trying to calculated source lookup path. This can be ignored if it occurs while terminating a debug session. See Bug 500988.
+!STACK 0
+java.lang.NullPointerException: Cannot read the array length because "containers" is null
+	at org.eclipse.cdt.dsf.gdb.launching.GdbSourceLookupDirector.collectSubstitutionsPaths(GdbSourceLookupDirector.java:102)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbSourceLookupDirector.collectSubstitutionsPaths(GdbSourceLookupDirector.java:146)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbSourceLookupDirector.getSubstitutionsPaths(GdbSourceLookupDirector.java:72)
+	at org.eclipse.cdt.dsf.gdb.service.GDBSourceLookup.getSubstitutionsPaths(GDBSourceLookup.java:124)
+	at org.eclipse.cdt.dsf.gdb.service.GDBSourceLookup.sourceContainersChanged(GDBSourceLookup.java:139)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbSourceLookupParticipant.sourceContainersChangedOnDispatchThread(GdbSourceLookupParticipant.java:120)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbSourceLookupParticipant$1.run(GdbSourceLookupParticipant.java:85)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 1 1 2026-09-06 11:21:38.688
+!MESSAGE SWV configuration; base: 36000000; minDiv: 18; maxDiv: 65535; maxSWO: 2000000; limit: 2000000 => SWO: 2000000; CPU: 16000000; div: 8
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2026-09-06 11:22:38.910
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.DataRequestMonitor@cac0989): Status ERROR: org.eclipse.cdt.dsf.gdb code=10001 Connection is shut down' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10001 2026-09-06 11:22:38.910
+!MESSAGE Connection is shut down
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2026-09-06 11:22:38.912
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.debug.ui.actions.DsfResumeCommand$4$1@1a5eee): Status ERROR: org.eclipse.cdt.dsf.gdb code=10001 Connection is shut down' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10001 2026-09-06 11:22:38.912
+!MESSAGE Connection is shut down
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 1 1 2026-09-06 11:22:52.753
+!MESSAGE SWV configuration; base: 36000000; minDiv: 18; maxDiv: 65535; maxSWO: 2000000; limit: 2000000 => SWO: 2000000; CPU: 16000000; div: 8
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 4 2026-09-06 11:24:13.628
+!MESSAGE NullPointerException while trying to calculated source lookup path. This can be ignored if it occurs while terminating a debug session. See Bug 500988.
+!STACK 0
+java.lang.NullPointerException: Cannot read the array length because "containers" is null
+	at org.eclipse.cdt.dsf.gdb.launching.GdbSourceLookupDirector.collectSubstitutionsPaths(GdbSourceLookupDirector.java:102)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbSourceLookupDirector.collectSubstitutionsPaths(GdbSourceLookupDirector.java:146)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbSourceLookupDirector.getSubstitutionsPaths(GdbSourceLookupDirector.java:72)
+	at org.eclipse.cdt.dsf.gdb.service.GDBSourceLookup.getSubstitutionsPaths(GDBSourceLookup.java:124)
+	at org.eclipse.cdt.dsf.gdb.service.GDBSourceLookup.sourceContainersChanged(GDBSourceLookup.java:139)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbSourceLookupParticipant.sourceContainersChangedOnDispatchThread(GdbSourceLookupParticipant.java:120)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbSourceLookupParticipant$1.run(GdbSourceLookupParticipant.java:85)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 4 0 2026-09-06 11:26:57.023
+!MESSAGE SWVConfigureSequence.writeRegister() : 3758099968 : KO
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 4 0 2026-09-06 11:26:57.024
+!MESSAGE SWVConfigureSequence.writeRegister() : 3758157308 : KO
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 4 0 2026-09-06 11:26:57.024
+!MESSAGE SWVConfigureSequence.writeRegister() : 3758099968 : KO
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 4 0 2026-09-06 11:26:57.025
+!MESSAGE SWVConfigureSequence.writeRegister() : 3758157308 : KO
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 4 0 2026-09-06 11:26:57.026
+!MESSAGE SWVConfigureSequence.writeRegister() : 3758099968 : KO
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2026-09-06 11:26:57.027
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.DataRequestMonitor@191e824d): Status ERROR: org.eclipse.cdt.dsf.gdb code=10001 Connection is shut down' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10001 2026-09-06 11:26:57.027
+!MESSAGE Connection is shut down
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2026-09-06 11:26:57.028
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.debug.ui.actions.DsfResumeCommand$4$1@36586729): Status ERROR: org.eclipse.cdt.dsf.gdb code=10001 Connection is shut down' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10001 2026-09-06 11:26:57.028
+!MESSAGE Connection is shut down
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 4 0 2026-09-06 11:26:57.029
+!MESSAGE SWVConfigureSequence.writeRegister() : 3758157308 : KO
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 4 0 2026-09-06 11:26:57.030
+!MESSAGE SWVConfigureSequence.writeRegister() : 3758099968 : KO
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 4 0 2026-09-06 11:26:57.030
+!MESSAGE SWVConfigureSequence.writeRegister() : 3758157308 : KO
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 4 0 2026-09-06 11:26:57.031
+!MESSAGE SWVConfigureSequence.writeRegister() : 3758099968 : KO
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 4 0 2026-09-06 11:26:57.032
+!MESSAGE SWVConfigureSequence.writeRegister() : 3758157308 : KO
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 4 0 2026-09-06 11:26:57.032
+!MESSAGE SWVConfigureSequence.writeRegister() : 3758099968 : KO
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 4 0 2026-09-06 11:26:57.033
+!MESSAGE SWVConfigureSequence.writeRegister() : 3758157308 : KO
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2026-09-06 11:26:57.045
+!MESSAGE Request for monitor: 'RequestMonitor (com.st.stm32cube.ide.mcu.debug.swv.core.ui.StartTraceHandler$1@1a729a45): Status ERROR: org.eclipse.cdt.dsf code=10001  children=[Status ERROR: org.eclipse.cdt.dsf.gdb code=10001 Connection is shut down Status ERROR: org.eclipse.cdt.dsf.gdb code=10001 Connection is shut down]' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10001 2026-09-06 11:26:57.045
+!MESSAGE Connection is shut down
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10001 2026-09-06 11:26:57.045
+!MESSAGE Connection is shut down
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 4 4 2026-09-06 11:26:57.048
+!MESSAGE StartTraceHandler, configuration failure: false
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2026-09-06 11:26:57.050
+!MESSAGE Request for monitor: 'RequestMonitor (com.st.stm32cube.ide.mcu.debug.swv.core.ui.StartTraceHandler$1@3f9f875): Status ERROR: org.eclipse.cdt.dsf code=10001  children=[Status ERROR: org.eclipse.cdt.dsf.gdb code=10001 Connection is shut down Status ERROR: org.eclipse.cdt.dsf.gdb code=10001 Connection is shut down]' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10001 2026-09-06 11:26:57.050
+!MESSAGE Connection is shut down
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10001 2026-09-06 11:26:57.050
+!MESSAGE Connection is shut down
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 4 4 2026-09-06 11:26:57.051
+!MESSAGE StartTraceHandler, configuration failure: false
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2026-09-06 11:26:57.053
+!MESSAGE Request for monitor: 'RequestMonitor (com.st.stm32cube.ide.mcu.debug.swv.core.ui.StartTraceHandler$1@97df3cb): Status ERROR: org.eclipse.cdt.dsf code=10001  children=[Status ERROR: org.eclipse.cdt.dsf.gdb code=10001 Connection is shut down Status ERROR: org.eclipse.cdt.dsf.gdb code=10001 Connection is shut down]' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10001 2026-09-06 11:26:57.053
+!MESSAGE Connection is shut down
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10001 2026-09-06 11:26:57.053
+!MESSAGE Connection is shut down
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 4 4 2026-09-06 11:26:57.053
+!MESSAGE StartTraceHandler, configuration failure: false
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2026-09-06 11:26:57.054
+!MESSAGE Request for monitor: 'RequestMonitor (com.st.stm32cube.ide.mcu.debug.swv.core.ui.StartTraceHandler$1@5eeb6e82): Status ERROR: org.eclipse.cdt.dsf code=10001  children=[Status ERROR: org.eclipse.cdt.dsf.gdb code=10001 Connection is shut down Status ERROR: org.eclipse.cdt.dsf.gdb code=10001 Connection is shut down]' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10001 2026-09-06 11:26:57.054
+!MESSAGE Connection is shut down
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10001 2026-09-06 11:26:57.054
+!MESSAGE Connection is shut down
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 4 4 2026-09-06 11:26:57.055
+!MESSAGE StartTraceHandler, configuration failure: false
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2026-09-06 11:26:57.056
+!MESSAGE Request for monitor: 'RequestMonitor (com.st.stm32cube.ide.mcu.debug.swv.core.ui.StartTraceHandler$1@590457a7): Status ERROR: org.eclipse.cdt.dsf code=10001  children=[Status ERROR: org.eclipse.cdt.dsf.gdb code=10001 Connection is shut down Status ERROR: org.eclipse.cdt.dsf.gdb code=10001 Connection is shut down]' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10001 2026-09-06 11:26:57.056
+!MESSAGE Connection is shut down
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10001 2026-09-06 11:26:57.056
+!MESSAGE Connection is shut down
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 4 4 2026-09-06 11:26:57.057
+!MESSAGE StartTraceHandler, configuration failure: false
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2026-09-06 11:26:57.058
+!MESSAGE Request for monitor: 'RequestMonitor (com.st.stm32cube.ide.mcu.debug.swv.core.ui.StartTraceHandler$1@67a30834): Status ERROR: org.eclipse.cdt.dsf code=10001  children=[Status ERROR: org.eclipse.cdt.dsf.gdb code=10001 Connection is shut down Status ERROR: org.eclipse.cdt.dsf.gdb code=10001 Connection is shut down]' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10001 2026-09-06 11:26:57.058
+!MESSAGE Connection is shut down
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10001 2026-09-06 11:26:57.058
+!MESSAGE Connection is shut down
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 4 4 2026-09-06 11:26:57.058
+!MESSAGE StartTraceHandler, configuration failure: false
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 1 1 2026-09-06 11:27:11.304
+!MESSAGE SWV configuration; base: 36000000; minDiv: 18; maxDiv: 65535; maxSWO: 2000000; limit: 2000000 => SWO: 2000000; CPU: 16000000; div: 8

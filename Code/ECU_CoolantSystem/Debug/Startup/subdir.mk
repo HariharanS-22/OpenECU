@@ -16,7 +16,7 @@ S_DEPS += \
 
 # Each subdirectory must supply rules for building sources it contributes
 Startup/%.o: ../Startup/%.s Startup/subdir.mk
-	arm-none-eabi-gcc -mcpu=cortex-m4 -g3 -DDEBUG -c -I"H:/OpenECU/Code/ECU_CoolantSystem/Module" -I"H:/OpenECU/Code/ECU_CoolantSystem/CMSIS" -I"H:/OpenECU/Code/ECU_CoolantSystem/Inc" -I"H:/OpenECU/Code/ECU_CoolantSystem/CMSIS/Device/ST/STM32F4xx/Include" -I"H:/OpenECU/Code/ECU_CoolantSystem/CMSIS/Include" -x assembler-with-cpp -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "$@" "$<"
+	arm-none-eabi-gcc -mcpu=cortex-m4 -g3 -DDEBUG -c -I"H:/OpenECU/Code/ECU_CoolantSystem/Module" -I"H:/OpenECU/Code/FreeRTOS/FreeRTOS-Kernel/include" -I"H:/OpenECU/Code/FreeRTOS/" -I"H:/OpenECU/Code/ECU_CoolantSystem/CMSIS" -I"H:/OpenECU/Code/ECU_CoolantSystem/Inc" -I"H:/OpenECU/Code/ECU_CoolantSystem/CMSIS/Device/ST/STM32F4xx/Include" -I"H:/OpenECU/Code/ECU_CoolantSystem/CMSIS/Include" -I"H:/OpenECU/Code/ECU_CoolantSystem/Src" -I"H:/OpenECU/Code/ECU_CoolantSystem/ThirdParty/FreeRTOS/include" -I"H:/OpenECU/Code/ECU_CoolantSystem/ThirdParty/SEGGER/SEGGER" -I"H:/OpenECU/Code/ECU_CoolantSystem/ThirdParty/SEGGER/OS" -I"H:/OpenECU/Code/ECU_CoolantSystem/ThirdParty/SEGGER/Config" -I"H:/OpenECU/Code/ECU_CoolantSystem/ThirdParty/FreeRTOS/portable/GCC/ARM_CM4F" -x assembler-with-cpp -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "$@" "$<"
 
 clean: clean-Startup
 

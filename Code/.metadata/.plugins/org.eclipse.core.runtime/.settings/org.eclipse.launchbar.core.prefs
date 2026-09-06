@@ -1,13 +1,14 @@
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/arch=x86_64
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/name=Local
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/os=win32
-configDescList=org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:LIN_Driver Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:LIN_Driver,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:SEGGER_testing Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Physical_Layer,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Physical_Layer Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Physical_Layer Debug (1),org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:CAN_Driver,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:ECU_CoolantSystem Debug
+configDescList=org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:LIN_Driver Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:LIN_Driver,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Physical_Layer,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Physical_Layer Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Physical_Layer Debug (1),org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:CAN_Driver (1),org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:ECU_CoolantSystem Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:SEGGER_testing Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Coolant_ECU Debug
 eclipse.preferences.version=1
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:CAN_Driver/activeLaunchMode=debug
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:CAN_Driver/activeLaunchTarget=null\:---
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:CAN_testing\ Debug/activeLaunchMode=debug
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:CAN_testing\ Debug/activeLaunchTarget=null\:---
-org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:ECU_CoolantSystem\ Debug/activeLaunchMode=debug
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Coolant_ECU\ Debug/activeLaunchMode=debug
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:ECU_CoolantSystem\ Debug/activeLaunchMode=run
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:LIN_Driver\ Debug/activeLaunchMode=debug
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:LIN_Driver/activeLaunchMode=run
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:LIN_Driver/activeLaunchTarget=null\:---
