@@ -14,7 +14,6 @@
 
 #define FAN_PWM_PERIOD     999U
 
-
 void Fan_Init(void)
 {
 	//Enable GPIOA and GPIOB clocks
@@ -26,27 +25,14 @@ void Fan_Init(void)
     GPIOA->MODER &= ~(3U << (FAN_PWM_PIN * 2U));
     GPIOA->MODER |=  (2U << (FAN_PWM_PIN * 2U));
 
-    /*
-     * AF2 = TIM3
-     */
+    //AF2 = TIM3
     GPIOA->AFR[0] &= ~(0xFU << (FAN_PWM_PIN * 4U));
     GPIOA->AFR[0] |=  (2U   << (FAN_PWM_PIN * 4U));
 
-    /*
-     * --------------------------------------------------
-     * PB0 / PB1 -> L298N IN1 / IN2
-     * --------------------------------------------------
-     */
+    //PB0 / PB1 -> L298N IN1 / IN2
+    GPIOB->MODER &= ~( (3U << (FAN_IN1_PIN * 2U)) | (3U << (FAN_IN2_PIN * 2U)) );
 
-    GPIOB->MODER &= ~(
-        (3U << (FAN_IN1_PIN * 2U)) |
-        (3U << (FAN_IN2_PIN * 2U))
-    );
-
-    GPIOB->MODER |= (
-        (1U << (FAN_IN1_PIN * 2U)) |
-        (1U << (FAN_IN2_PIN * 2U))
-    );
+    GPIOB->MODER |= ( (1U << (FAN_IN1_PIN * 2U)) | (1U << (FAN_IN2_PIN * 2U)) );
 
     //Forward direction
     GPIOB->ODR |=  (1U << FAN_IN1_PIN);
@@ -80,24 +66,15 @@ void Fan_Init(void)
     TIM3->CR1 |= TIM_CR1_CEN;
 }
 
-
 void Fan_SetSpeed(uint8_t duty)
 {
     if (duty > 100U)
     {
         duty = 100U;
     }
-
-    /*
-     * Convert:
-     *
-     * 0%   -> 0
-     * 50%  -> 500
-     * 100% -> 999
-     */
+    // 0% - 0 | 100% - 999
     TIM3->CCR1 = ((uint32_t)duty * FAN_PWM_PERIOD) / 100U;
 }
-
 
 void Fan_Stop(void)
 {

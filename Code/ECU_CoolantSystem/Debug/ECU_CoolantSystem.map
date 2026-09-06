@@ -1382,16 +1382,16 @@ LOAD C:/ST/STM32CubeIDE_1.17.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
  .debug_macro   0x0001aafe      0x116 ./Src/sysmem.o
  .debug_macro   0x0001ac14      0x23c ./Src/sysmem.o
 
-.debug_line     0x00000000     0x35c5
+.debug_line     0x00000000     0x35c3
  .debug_line    0x00000000      0x779 ./Module/can.o
  .debug_line    0x00000779      0x706 ./Module/ds18b20.o
- .debug_line    0x00000e7f      0x5e2 ./Module/fan.o
- .debug_line    0x00001461      0x576 ./Module/sysTick.o
- .debug_line    0x000019d7      0x585 ./Module/timer.o
- .debug_line    0x00001f5c      0x771 ./Src/main.o
- .debug_line    0x000026cd      0x8f0 ./Src/syscalls.o
- .debug_line    0x00002fbd      0x58d ./Src/sysmem.o
- .debug_line    0x0000354a       0x7b ./Startup/startup_stm32f446retx.o
+ .debug_line    0x00000e7f      0x5e0 ./Module/fan.o
+ .debug_line    0x0000145f      0x576 ./Module/sysTick.o
+ .debug_line    0x000019d5      0x585 ./Module/timer.o
+ .debug_line    0x00001f5a      0x771 ./Src/main.o
+ .debug_line    0x000026cb      0x8f0 ./Src/syscalls.o
+ .debug_line    0x00002fbb      0x58d ./Src/sysmem.o
+ .debug_line    0x00003548       0x7b ./Startup/startup_stm32f446retx.o
 
 .debug_str      0x00000000    0x919b3
  .debug_str     0x00000000    0x919b3 ./Module/can.o
