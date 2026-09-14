@@ -9294,3 +9294,6 @@ java.io.IOException: Unable to resolve plug-in "com.st.stm32cube.common.mx".
 
 !ENTRY com.st.stm32cube.ide.mcu.build 4 4 2026-09-14 14:41:43.451
 !MESSAGE Failed to check relative, returning possibly relative path: H:\OpenECU\Code\ECU_VibrationMonitor\Release/"" literal was "${workspace_loc:/${ProjName}/FreeRTOS-Kernel/include}"
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-09-14 15:12:20.889
+!MESSAGE Indexed 'VibrationMonitor_ECU' (46 sources, 217 headers) in 5.25 sec: 19,689 declarations; 81,227 references; 17 unresolved inclusions; 233 syntax errors; 1,417 unresolved names (1.4%)

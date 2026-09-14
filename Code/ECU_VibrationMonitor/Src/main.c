@@ -23,7 +23,6 @@
 
 #include "sysTick.h"
 #include "can.h"
-#include "ds18b20.h"
 #include "timer.h"
 #include "fan.h"
 

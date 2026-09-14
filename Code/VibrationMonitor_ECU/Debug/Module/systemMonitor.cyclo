@@ -1,0 +1,2 @@
+../Module/systemMonitor.c:19:6:SystemMonitor_Init	1
+../Module/systemMonitor.c:32:6:SystemMonitorTask	1

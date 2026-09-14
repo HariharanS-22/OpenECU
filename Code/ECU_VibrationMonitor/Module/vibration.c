@@ -1,5 +1,4 @@
 
-
 #include "vibration.h"
 #include "adxl345.h"
 
@@ -17,7 +16,6 @@
 
 extern TaskHandle_t FFTTaskHandle;
 
-
 static VibrationSample_t vibBuf_A[VIBRATION_BUFFER_SIZE];
 static VibrationSample_t vibBuf_B[VIBRATION_BUFFER_SIZE];
 
@@ -31,12 +29,8 @@ VibrationResult_t vibrationResult;
 
 volatile uint32_t vibrationTaskHeartbeat = 0U;
 
-
-
 static void Vibration_StoreSample(float x, float y, float z);
-
 static float Vibration_GetMagnitude(const VibrationSample_t *sample);
-
 
 void Vibration_Init(void)
 {
