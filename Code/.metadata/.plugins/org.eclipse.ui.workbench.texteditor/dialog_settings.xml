@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="java.lang.Class">
+		<item key="replaceBarOpen" value="true"/>
 		<list key="findhistory">
+			<item value="vibrationBufferA"/>
+			<item value="vibrationBufferB"/>
 			<item value="_write"/>
+		</list>
+		<list key="replacehistory">
+			<item value="vibBuf_A"/>
+			<item value="vibBuf_B"/>
 		</list>
 	</section>
 </section>

@@ -15,7 +15,6 @@ RM := rm -rf
 -include ThirdParty/SEGGER/OS/subdir.mk
 -include ThirdParty/SEGGER/Config/subdir.mk
 -include ThirdParty/FreeRTOS/portable/MemMang/subdir.mk
--include ThirdParty/FreeRTOS/portable/GCC/ARM_CM4F/subdir.mk
 -include ThirdParty/FreeRTOS/subdir.mk
 -include Module/subdir.mk
 -include Drivers/STM32F4xx_HAL_Driver/Src/subdir.mk
@@ -70,7 +69,7 @@ main-build: VibrationMonitor_ECU.elf secondary-outputs
 
 # Tool invocations
 VibrationMonitor_ECU.elf VibrationMonitor_ECU.map: $(OBJS) $(USER_OBJS) H:\OpenECU\Code\VibrationMonitor_ECU\STM32F446RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "VibrationMonitor_ECU.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"H:\OpenECU\Code\VibrationMonitor_ECU\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="VibrationMonitor_ECU.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+	arm-none-eabi-gcc -o "VibrationMonitor_ECU.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"H:\OpenECU\Code\VibrationMonitor_ECU\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="VibrationMonitor_ECU.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

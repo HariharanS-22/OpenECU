@@ -16,7 +16,7 @@ S_DEPS += \
 
 # Each subdirectory must supply rules for building sources it contributes
 Core/Startup/%.o: ../Core/Startup/%.s Core/Startup/subdir.mk
-	arm-none-eabi-gcc -mcpu=cortex-m4 -g3 -DDEBUG -c -I"H:/OpenECU/Code/VibrationMonitor_ECU/ThirdParty/SEGGER/SEGGER" -I"H:/OpenECU/Code/VibrationMonitor_ECU/ThirdParty/SEGGER/Config" -I"H:/OpenECU/Code/VibrationMonitor_ECU/ThirdParty/SEGGER/OS" -I"H:/OpenECU/Code/VibrationMonitor_ECU/Module" -I"H:/OpenECU/Code/VibrationMonitor_ECU/CMSIS-DSP-1.17.1/Include" -I"H:/OpenECU/Code/VibrationMonitor_ECU/CMSIS-DSP-1.17.1/Include/dsp" -x assembler-with-cpp -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "$@" "$<"
+	arm-none-eabi-gcc -mcpu=cortex-m4 -g3 -DDEBUG -c -I"H:/OpenECU/Code/VibrationMonitor_ECU/ThirdParty/SEGGER/SEGGER" -I"H:/OpenECU/Code/VibrationMonitor_ECU/ThirdParty/SEGGER/Config" -I"H:/OpenECU/Code/VibrationMonitor_ECU/ThirdParty/SEGGER/OS" -I"H:/OpenECU/Code/VibrationMonitor_ECU/Module" -I"H:/OpenECU/Code/VibrationMonitor_ECU/CMSIS-DSP-1.17.1/Include" -I"H:/OpenECU/Code/VibrationMonitor_ECU/CMSIS-DSP-1.17.1/Include/dsp" -I"H:/OpenECU/Code/VibrationMonitor_ECU/ThirdParty/FreeRTOS/portable/GCC/ARM_CM4F" -x assembler-with-cpp -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "$@" "$<"
 
 clean: clean-Core-2f-Startup
 
