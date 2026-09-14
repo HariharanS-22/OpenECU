@@ -18,3 +18,8 @@
 2026-09-14 16:57:35,811 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] StartTraceHandler.execute(), success : Collect=true
 2026-09-14 17:10:56,384 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] StartTraceHandler.execute(), success : Collect=true
 2026-09-14 17:39:12,796 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 
+2026-09-14 17:40:41,848 [INFO] Activator:177 - 
+
+
+2026-09-14 17:40:41,848 [INFO] Activator:178 - !SESSION log4j initialized
+2026-09-14 17:40:52,384 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
