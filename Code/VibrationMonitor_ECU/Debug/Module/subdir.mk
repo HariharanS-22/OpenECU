@@ -7,6 +7,7 @@
 C_SRCS += \
 ../Module/adxl345.c \
 ../Module/can.c \
+../Module/fft.c \
 ../Module/hallEffect_a3144.c \
 ../Module/iwdg.c \
 ../Module/sysTick.c \
@@ -18,6 +19,7 @@ C_SRCS += \
 OBJS += \
 ./Module/adxl345.o \
 ./Module/can.o \
+./Module/fft.o \
 ./Module/hallEffect_a3144.o \
 ./Module/iwdg.o \
 ./Module/sysTick.o \
@@ -29,6 +31,7 @@ OBJS += \
 C_DEPS += \
 ./Module/adxl345.d \
 ./Module/can.d \
+./Module/fft.d \
 ./Module/hallEffect_a3144.d \
 ./Module/iwdg.d \
 ./Module/sysTick.d \
@@ -45,7 +48,7 @@ Module/%.o Module/%.su Module/%.cyclo: ../Module/%.c Module/subdir.mk
 clean: clean-Module
 
 clean-Module:
-	-$(RM) ./Module/adxl345.cyclo ./Module/adxl345.d ./Module/adxl345.o ./Module/adxl345.su ./Module/can.cyclo ./Module/can.d ./Module/can.o ./Module/can.su ./Module/hallEffect_a3144.cyclo ./Module/hallEffect_a3144.d ./Module/hallEffect_a3144.o ./Module/hallEffect_a3144.su ./Module/iwdg.cyclo ./Module/iwdg.d ./Module/iwdg.o ./Module/iwdg.su ./Module/sysTick.cyclo ./Module/sysTick.d ./Module/sysTick.o ./Module/sysTick.su ./Module/systemMonitor.cyclo ./Module/systemMonitor.d ./Module/systemMonitor.o ./Module/systemMonitor.su ./Module/timer.cyclo ./Module/timer.d ./Module/timer.o ./Module/timer.su ./Module/uart.cyclo ./Module/uart.d ./Module/uart.o ./Module/uart.su ./Module/vibration.cyclo ./Module/vibration.d ./Module/vibration.o ./Module/vibration.su
+	-$(RM) ./Module/adxl345.cyclo ./Module/adxl345.d ./Module/adxl345.o ./Module/adxl345.su ./Module/can.cyclo ./Module/can.d ./Module/can.o ./Module/can.su ./Module/fft.cyclo ./Module/fft.d ./Module/fft.o ./Module/fft.su ./Module/hallEffect_a3144.cyclo ./Module/hallEffect_a3144.d ./Module/hallEffect_a3144.o ./Module/hallEffect_a3144.su ./Module/iwdg.cyclo ./Module/iwdg.d ./Module/iwdg.o ./Module/iwdg.su ./Module/sysTick.cyclo ./Module/sysTick.d ./Module/sysTick.o ./Module/sysTick.su ./Module/systemMonitor.cyclo ./Module/systemMonitor.d ./Module/systemMonitor.o ./Module/systemMonitor.su ./Module/timer.cyclo ./Module/timer.d ./Module/timer.o ./Module/timer.su ./Module/uart.cyclo ./Module/uart.d ./Module/uart.o ./Module/uart.su ./Module/vibration.cyclo ./Module/vibration.d ./Module/vibration.o ./Module/vibration.su
 
 .PHONY: clean-Module
 

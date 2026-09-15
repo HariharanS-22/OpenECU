@@ -26,6 +26,7 @@
 
 #include "adxl345.h"
 #include "vibration.h"
+#include "fft.h"
 #include "hallEffect_a3144.h"
 
 uint16_t receivedID;
@@ -34,6 +35,8 @@ uint16_t receivedTimeStamp;
 uint64_t receivedMsg;
 
 uint8_t flag_msgReceived = 0;
+
+arm_status FFT_status;
 
 static void Enable_FPU(void){
 	SCB->CPACR |= (3UL << 20) | (3UL << 22);
@@ -53,9 +56,12 @@ int main(void)
 //	ADXL345_Init();
 	A3144_Init();
 	Vibration_Init();
+	FFT_status = FFT_Init();
 	//CAN1_LoopBack();
 
 	VibrationSamplingTask();
+
+	FFT_Process(const VibrationSample_t *input,  VibrationFFTResult_t *result)
 //    uint8_t now = 0;
 //    ADXL345_RawData_t data;
 //    uint32_t period = 0;

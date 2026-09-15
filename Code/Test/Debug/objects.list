@@ -1,5 +1,6 @@
 "./Module/adxl345.o"
 "./Module/can.o"
+"./Module/fft.o"
 "./Module/hallEffect_a3144.o"
 "./Module/sysTick.o"
 "./Module/vibration.o"

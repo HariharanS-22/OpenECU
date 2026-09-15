@@ -8,8 +8,6 @@
 #ifndef VIBRATION_H_
 #define VIBRATION_H_
 
-
-#define FFT_SIZE       256
 #define SAMPLE_RATE    800.0f
 
 typedef struct
@@ -32,5 +30,6 @@ extern VibrationResult_t vibration_result;
 
 void Vibration_Init(void);
 void VibrationSamplingTask(void);
+VibrationSample_t* Vibration_GetCompletedBuffer();
 
 #endif /* VIBRATION_H_ */

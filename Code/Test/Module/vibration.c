@@ -30,7 +30,6 @@ static float Vibration_CalculateRMS( VibrationSample_t *buffer);
 static float Vibration_CalculatePeak( VibrationSample_t *buffer);
 static float Vibration_CalculateCrestFactor( float peak,  float rms);
 
-static VibrationSample_t* Vibration_GetCompletedBuffer();
 static void Vibration_ProcessTimeDomain(void);
 static void Vibration_PrintResult(void);
 
@@ -148,7 +147,7 @@ static void Vibration_StoreSample( float x, float y, float z){
     }
 }
 
-static VibrationSample_t* Vibration_GetCompletedBuffer()
+VibrationSample_t* Vibration_GetCompletedBuffer()
 {
     if (completedBuffer == 0U)
     {
