@@ -44,7 +44,8 @@ Src/main.o: ../Src/main.c ../Inc/main.h \
  H:/OpenECU/Code/Test/CMSIS-DSP-1.17.1/Include/dsp/support_functions.h \
  H:/OpenECU/Code/Test/CMSIS-DSP-1.17.1/Include/dsp/quaternion_math_functions.h \
  H:/OpenECU/Code/Test/CMSIS-DSP-1.17.1/Include/dsp/window_functions.h \
- H:/OpenECU/Code/Test/Module/vibration.h \
+ H:/OpenECU/Code/Test/Module/vibrationFFT.h \
+ H:/OpenECU/Code/Test/Module/fft.h \
  H:/OpenECU/Code/Test/Module/hallEffect_a3144.h
 ../Inc/main.h:
 H:/OpenECU/Code/Test/CMSIS/Device/ST/STM32F4xx/Include/stm32f446xx.h:
@@ -93,5 +94,6 @@ H:/OpenECU/Code/Test/CMSIS-DSP-1.17.1/Include/dsp/filtering_functions.h:
 H:/OpenECU/Code/Test/CMSIS-DSP-1.17.1/Include/dsp/support_functions.h:
 H:/OpenECU/Code/Test/CMSIS-DSP-1.17.1/Include/dsp/quaternion_math_functions.h:
 H:/OpenECU/Code/Test/CMSIS-DSP-1.17.1/Include/dsp/window_functions.h:
-H:/OpenECU/Code/Test/Module/vibration.h:
+H:/OpenECU/Code/Test/Module/vibrationFFT.h:
+H:/OpenECU/Code/Test/Module/fft.h:
 H:/OpenECU/Code/Test/Module/hallEffect_a3144.h:

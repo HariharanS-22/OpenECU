@@ -32,7 +32,7 @@ Module/fft.o: ../Module/fft.c ../Module/fft.h \
  H:/OpenECU/Code/Test/CMSIS-DSP-1.17.1/Include/dsp/support_functions.h \
  H:/OpenECU/Code/Test/CMSIS-DSP-1.17.1/Include/dsp/quaternion_math_functions.h \
  H:/OpenECU/Code/Test/CMSIS-DSP-1.17.1/Include/dsp/window_functions.h \
- ../Module/vibration.h
+ ../Module/vibrationFFT.h
 ../Module/fft.h:
 H:/OpenECU/Code/Test/CMSIS-DSP-1.17.1/Include/arm_math.h:
 H:/OpenECU/Code/Test/CMSIS-DSP-1.17.1/Include/arm_math_types.h:
@@ -67,4 +67,4 @@ H:/OpenECU/Code/Test/CMSIS-DSP-1.17.1/Include/dsp/filtering_functions.h:
 H:/OpenECU/Code/Test/CMSIS-DSP-1.17.1/Include/dsp/support_functions.h:
 H:/OpenECU/Code/Test/CMSIS-DSP-1.17.1/Include/dsp/quaternion_math_functions.h:
 H:/OpenECU/Code/Test/CMSIS-DSP-1.17.1/Include/dsp/window_functions.h:
-../Module/vibration.h:
+../Module/vibrationFFT.h:

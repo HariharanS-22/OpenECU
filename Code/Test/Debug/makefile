@@ -12,6 +12,7 @@ RM := rm -rf
 -include Startup/subdir.mk
 -include Src/subdir.mk
 -include Module/subdir.mk
+-include CMSIS_DSP/Source/subdir.mk
 -include objects.mk
 
 ifneq ($(MAKECMDGOALS),clean)

@@ -19,6 +19,14 @@
 
 typedef struct
 {
+    float x;
+    float y;
+    float z;
+
+} VibrationSample_t;
+
+typedef struct
+{
     float frequency;
     float magnitude;
     uint32_t bin;

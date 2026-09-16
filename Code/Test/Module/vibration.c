@@ -21,7 +21,10 @@ static volatile uint16_t bufferIndex = 0U;
 // 0 -> Buffer A | 1 -> Buffer B
 static volatile uint8_t completedBuffer = 0U;
 
-VibrationResult_t vibrationResult;
+VibrationResult_t vibrationResult_time;
+
+VibrationSample_t *inputBuf;
+VibrationFFTResult_t FFTResult;
 
 static void Vibration_StoreSample(float x, float y, float z);
 
@@ -31,6 +34,7 @@ static float Vibration_CalculatePeak( VibrationSample_t *buffer);
 static float Vibration_CalculateCrestFactor( float peak,  float rms);
 
 static void Vibration_ProcessTimeDomain(void);
+static void Vibration_ProcessFreqDomain(void);
 static void Vibration_PrintResult(void);
 
 void Vibration_Init(void)
@@ -55,9 +59,9 @@ void Vibration_Init(void)
     completedBuffer = 0U;
 
     //Reset results
-    vibrationResult.rms = 0.0f;
-    vibrationResult.peak = 0.0f;
-    vibrationResult.crest_factor = 0.0f;
+    vibrationResult_time.rms = 0.0f;
+    vibrationResult_time.peak = 0.0f;
+    vibrationResult_time.crest_factor = 0.0f;
 
     //Initialize ADXL345
     ADXL345_Init();
@@ -79,14 +83,27 @@ static void Vibration_ProcessTimeDomain(void)
 
     crest = Vibration_CalculateCrestFactor( peak, rms );
 
-    vibrationResult.rms = rms;
-    vibrationResult.peak = peak;
-    vibrationResult.crest_factor = crest;
+    vibrationResult_time.rms = rms;
+    vibrationResult_time.peak = peak;
+    vibrationResult_time.crest_factor = crest;
+}
+
+static void Vibration_ProcessFreqDomain(void){
+	inputBuf = Vibration_GetCompletedBuffer();
+
+	FFT_Process((VibrationSample_t *)inputBuf, &FFTResult);
+
 }
 
 static void Vibration_PrintResult(void)
 {
-    printf("Vibration Result:\nRMS : %f\nPeak : %f\nCrest : %f\n\r",vibrationResult.rms,vibrationResult.peak,vibrationResult.crest_factor);
+    printf("Vibration Time Result:\nRMS : %f\nPeak : %f\nCrest : %f\n\r",vibrationResult_time.rms,vibrationResult_time.peak,vibrationResult_time.crest_factor);
+
+    printf("\nVibration Freq Result:\nX Component\nFreq : %f\nMag : %f\nBin : %lu\n\r",FFTResult.x.frequency, FFTResult.x.magnitude, FFTResult.x.bin);
+
+    printf("\nY Component\nFreq : %f\nMag : %f\nBin : %lu\n\r",FFTResult.y.frequency, FFTResult.y.magnitude, FFTResult.y.bin);
+
+    printf("\nZ Component\nFreq : %f\nMag : %f\nBin : %lu\n\r",FFTResult.z.frequency, FFTResult.z.magnitude, FFTResult.z.bin);
 }
 
 void VibrationSamplingTask(void)
@@ -140,7 +157,9 @@ static void Vibration_StoreSample( float x, float y, float z){
 
         //Start writing at beginning of new buffer.
         bufferIndex = 0U;
+        printf("Data:\n x: %f  y: %f z: %f\n\r",x, y, z);
         Vibration_ProcessTimeDomain();
+        Vibration_ProcessFreqDomain();
 
         Vibration_PrintResult();
 

@@ -8,15 +8,10 @@
 #ifndef VIBRATION_H_
 #define VIBRATION_H_
 
+#include "fft.h"
+#include "vibrationFFT.h"
+
 #define SAMPLE_RATE    800.0f
-
-typedef struct
-{
-    float x;
-    float y;
-    float z;
-
-} VibrationSample_t;
 
 typedef struct
 {
