@@ -1,6 +1,9 @@
 
 #include "vibration.h"
 #include "adxl345.h"
+#include "uart.h"
+#include "FreeRTOS.h"
+#include "queue.h"
 
 #include <math.h>
 #include <stdint.h>
@@ -12,8 +15,13 @@
 
 #define VIBRATION_G_SCALE              0.0039f
 
-static VibrationSample_t vibBuf_A[VIBRATION_BUFFER_SIZE];
-static VibrationSample_t vibBuf_B[VIBRATION_BUFFER_SIZE];
+extern QueueHandle_t TDtoCANQueueHandle;
+extern QueueHandle_t FDtoCANQueueHandle;
+
+char tempBuf[256];
+
+VibrationSample_t vibBuf_A[VIBRATION_BUFFER_SIZE];
+VibrationSample_t vibBuf_B[VIBRATION_BUFFER_SIZE];
 
 static volatile uint8_t activeBuffer = 0U;
 static volatile uint16_t bufferIndex = 0U;
@@ -21,7 +29,10 @@ static volatile uint16_t bufferIndex = 0U;
 // 0 -> Buffer A | 1 -> Buffer B
 static volatile uint8_t completedBuffer = 0U;
 
-VibrationResult_t vibrationResult;
+VibrationResult_t vibrationResult_time;
+
+VibrationSample_t *inputBuf;
+VibrationFFTResult_t FFTResult;
 
 static void Vibration_StoreSample(float x, float y, float z);
 
@@ -30,9 +41,9 @@ static float Vibration_CalculateRMS( VibrationSample_t *buffer);
 static float Vibration_CalculatePeak( VibrationSample_t *buffer);
 static float Vibration_CalculateCrestFactor( float peak,  float rms);
 
-static VibrationSample_t* Vibration_GetCompletedBuffer();
-static void Vibration_ProcessTimeDomain(void);
-static void Vibration_PrintResult(void);
+void Vibration_ProcessTimeDomain(void);
+void Vibration_ProcessFreqDomain(void);
+void Vibration_PrintResult(void);
 
 void Vibration_Init(void)
 {
@@ -56,15 +67,15 @@ void Vibration_Init(void)
     completedBuffer = 0U;
 
     //Reset results
-    vibrationResult.rms = 0.0f;
-    vibrationResult.peak = 0.0f;
-    vibrationResult.crest_factor = 0.0f;
+    vibrationResult_time.rms = 0.0f;
+    vibrationResult_time.peak = 0.0f;
+    vibrationResult_time.crest_factor = 0.0f;
 
     //Initialize ADXL345
     ADXL345_Init();
 }
 
-static void Vibration_ProcessTimeDomain(void)
+void Vibration_ProcessTimeDomain(void)
 {
     VibrationSample_t *buffer;
 
@@ -80,14 +91,42 @@ static void Vibration_ProcessTimeDomain(void)
 
     crest = Vibration_CalculateCrestFactor( peak, rms );
 
-    vibrationResult.rms = rms;
-    vibrationResult.peak = peak;
-    vibrationResult.crest_factor = crest;
+    vibrationResult_time.rms = rms;
+    vibrationResult_time.peak = peak;
+    vibrationResult_time.crest_factor = crest;
+//
+//    xQueueSend(TDtoCANQueueHandle, &vibrationResult_time, 0);
+
 }
 
-static void Vibration_PrintResult(void)
+void Vibration_ProcessFreqDomain(void){
+	inputBuf = Vibration_GetCompletedBuffer();
+
+	FFT_Process((VibrationSample_t *)inputBuf, &FFTResult);
+
+//	xQueueSend(FDtoCANQueueHandle, &FFTResult.x, 0);
+//	xQueueSend(FDtoCANQueueHandle, &FFTResult.y, 0);
+//	xQueueSend(FDtoCANQueueHandle, &FFTResult.z, 0);
+
+}
+
+void Vibration_PrintResult(void)
 {
-    printf("Vibration Result:\nRMS : %f\nPeak : %f\nCrest : %f\n\r",vibrationResult.rms,vibrationResult.peak,vibrationResult.crest_factor);
+	vTaskSuspendAll();
+
+    sprintf(tempBuf, "Vibration Time Result:\r\nRMS : %f\r\nPeak : %f\r\nCrest : %f\r\n",vibrationResult_time.rms,vibrationResult_time.peak,vibrationResult_time.crest_factor);
+    customPrint(tempBuf,strlen(tempBuf));
+
+    sprintf(tempBuf, "\r\nVibration Freq Result:\r\nX Component\r\nFreq : %f\r\nMag : %f\r\nBin : %lu\r\n",FFTResult.x.frequency, FFTResult.x.magnitude, FFTResult.x.bin);
+    customPrint(tempBuf,strlen(tempBuf));
+
+    sprintf(tempBuf, "\r\nY Component\r\nFreq : %f\r\nMag : %f\r\nBin : %lu\r\n",FFTResult.y.frequency, FFTResult.y.magnitude, FFTResult.y.bin);
+    customPrint(tempBuf,strlen(tempBuf));
+
+    sprintf(tempBuf, "\r\nZ Component\r\nFreq : %f\r\nMag : %f\r\nBin : %lu\r\n",FFTResult.z.frequency, FFTResult.z.magnitude, FFTResult.z.bin);
+    customPrint(tempBuf,strlen(tempBuf));
+
+    xTaskResumeAll();
 }
 
 void VibrationSamplingTask(void)
@@ -98,22 +137,16 @@ void VibrationSamplingTask(void)
     float y;
     float z;
 
+	// Read ADXL345
+	ADXL345_ReadXYZ(&rawData);
 
-    for (;;)
-    {
+	//Convert raw ADC values to acceleration in g
+	x = ADXL345_ConvertToG( rawData.x );
+	y = ADXL345_ConvertToG( rawData.y );
+	z = ADXL345_ConvertToG( rawData.z );
 
-        // Read ADXL345
-        ADXL345_ReadXYZ(&rawData);
-
-        //Convert raw ADC values to acceleration in g
-        x = ADXL345_ConvertToG( rawData.x );
-        y = ADXL345_ConvertToG( rawData.y );
-        z = ADXL345_ConvertToG( rawData.z );
-
-        //Store sample in active buffer
-        Vibration_StoreSample( x, y, z );
-
-    }
+	//Store sample in active buffer
+	Vibration_StoreSample( x, y, z );
 }
 
 static void Vibration_StoreSample( float x, float y, float z){
@@ -141,14 +174,13 @@ static void Vibration_StoreSample( float x, float y, float z){
 
         //Start writing at beginning of new buffer.
         bufferIndex = 0U;
-        Vibration_ProcessTimeDomain();
-
-        Vibration_PrintResult();
+        sprintf(tempBuf, "Data:\r\n x: %f  y: %f z: %f\r\n",x, y, z);
+        customPrint(tempBuf,strlen(tempBuf));
 
     }
 }
 
-static VibrationSample_t* Vibration_GetCompletedBuffer()
+VibrationSample_t* Vibration_GetCompletedBuffer()
 {
     if (completedBuffer == 0U)
     {

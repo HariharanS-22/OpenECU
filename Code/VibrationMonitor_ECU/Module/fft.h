@@ -12,18 +12,10 @@
 #include <math.h>
 #include "arm_math.h"
 
-#include "vibration.h"
+#include "vibrationFFT.h"
 
-#define FFT_SIZE        64U
+#define FFT_SIZE        256U
 #define SAMPLE_RATE_HZ  800.0f
-
-typedef struct
-{
-    float x;
-    float y;
-    float z;
-
-} VibrationSample_t;
 
 typedef struct
 {

@@ -3,12 +3,20 @@
 	<section name="java.lang.Class">
 		<item key="replaceBarOpen" value="true"/>
 		<list key="findhistory">
+			<item value="FFTResult-&gt;"/>
+			<item value="ARM_MATH_NEON"/>
+			<item value="ARM_MATH_NEON0"/>
+			<item value="vibrationResult_time_t"/>
+			<item value="vibrationResult"/>
 			<item value="FFT_GetResolution"/>
 			<item value="vibrationBufferA"/>
 			<item value="vibrationBufferB"/>
 			<item value="_write"/>
 		</list>
 		<list key="replacehistory">
+			<item value="FFTResult."/>
+			<item value="VibrationResult_t"/>
+			<item value="vibrationResult_time"/>
 			<item value="vibBuf_A"/>
 			<item value="vibBuf_B"/>
 		</list>

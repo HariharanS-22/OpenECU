@@ -17,9 +17,9 @@
 
 volatile uint32_t sysTick = 0;
 
-void SysTick_Handler(void){
-    sysTick++;
-}
+//void SysTick_Handler(void){
+//    sysTick++;
+//}
 
 void SysTick_config(void){
 

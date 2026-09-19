@@ -27,7 +27,6 @@
 ../ThirdParty/FreeRTOS/tasks.c:3021:6:vTaskSwitchContext	32	static,ignoring_inline_asm
 ../ThirdParty/FreeRTOS/tasks.c:3097:6:vTaskPlaceOnEventList	24	static,ignoring_inline_asm
 ../ThirdParty/FreeRTOS/tasks.c:3115:6:vTaskPlaceOnUnorderedEventList	32	static,ignoring_inline_asm
-../ThirdParty/FreeRTOS/tasks.c:3143:10:vTaskPlaceOnEventListRestricted	32	static,ignoring_inline_asm
 ../ThirdParty/FreeRTOS/tasks.c:3176:12:xTaskRemoveFromEventList	32	static,ignoring_inline_asm
 ../ThirdParty/FreeRTOS/tasks.c:3244:6:vTaskRemoveFromUnorderedEventList	32	static,ignoring_inline_asm
 ../ThirdParty/FreeRTOS/tasks.c:3293:6:vTaskSetTimeOutState	24	static,ignoring_inline_asm
@@ -47,7 +46,6 @@
 ../ThirdParty/FreeRTOS/tasks.c:3958:17:prvDeleteTCB	16	static
 ../ThirdParty/FreeRTOS/tasks.c:4014:13:prvResetNextTaskUnblockTime	4	static
 ../ThirdParty/FreeRTOS/tasks.c:4037:18:xTaskGetCurrentTaskHandle	16	static
-../ThirdParty/FreeRTOS/tasks.c:4054:16:xTaskGetSchedulerState	16	static
 ../ThirdParty/FreeRTOS/tasks.c:4082:16:xTaskPriorityInherit	24	static
 ../ThirdParty/FreeRTOS/tasks.c:4172:16:xTaskPriorityDisinherit	32	static,ignoring_inline_asm
 ../ThirdParty/FreeRTOS/tasks.c:4252:10:vTaskPriorityDisinheritAfterTimeout	40	static,ignoring_inline_asm

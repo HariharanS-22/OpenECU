@@ -1,0 +1,1 @@
+(bin * SAMPLE_RATE_HZ) / (float)FFT_SIZE;
