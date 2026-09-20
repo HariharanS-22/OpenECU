@@ -838,3 +838,30 @@
 2026-09-19 21:52:26,947 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:615)
 2026-09-19 21:52:26,948 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:563)
 2026-09-19 21:52:26,948 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at org.eclipse.equinox.launcher.Main.run(Main.java:1415)
+2026-09-19 21:55:13,785 [INFO] Activator:177 - 
+
+
+2026-09-19 21:55:13,785 [INFO] Activator:178 - !SESSION log4j initialized
+2026-09-19 21:55:21,201 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2026-09-19 22:41:57,338 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] StartTraceHandler.execute(), success : Collect=true
+2026-09-19 22:41:58,266 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] StartTraceHandler.execute(), success : Collect=false
+2026-09-19 22:42:01,606 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] StartTraceHandler.execute(), success : Collect=true
+2026-09-19 22:42:31,806 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] StartTraceHandler.execute(), success : Collect=false
+2026-09-19 22:42:34,737 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] StartTraceHandler.execute(), success : Collect=true
+2026-09-19 22:42:35,758 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] StartTraceHandler.execute(), success : Collect=false
+2026-09-19 22:42:38,254 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] StartTraceHandler.execute(), success : Collect=true
+2026-09-19 22:51:49,337 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] StartTraceHandler.execute(), success : Collect=false
+2026-09-19 22:52:01,745 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] StartTraceHandler.execute(), success : Collect=true
+2026-09-19 22:55:37,934 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] Sept 19, 2026 10:55:37 PM com.github.weisj.jsvg.nodes.container.BaseContainerNode isAcceptableType
+2026-09-19 22:55:37,935 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] WARNING: Element <g> not allowed in <clippath> (or not implemented)
+2026-09-19 22:55:37,935 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 
+2026-09-19 22:55:37,943 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] Sept 19, 2026 10:55:37 PM com.github.weisj.jsvg.nodes.container.BaseContainerNode isAcceptableType
+2026-09-19 22:55:37,946 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] WARNING: Element <g> not allowed in <clippath> (or not implemented)
+2026-09-19 22:55:37,947 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 
+2026-09-19 22:55:37,962 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] Sept 19, 2026 10:55:37 PM com.github.weisj.jsvg.nodes.container.BaseContainerNode isAcceptableType
+2026-09-19 22:55:37,965 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] WARNING: Element <g> not allowed in <clippath> (or not implemented)
+2026-09-19 22:55:37,965 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 
+2026-09-19 22:55:37,973 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] Sept 19, 2026 10:55:37 PM com.github.weisj.jsvg.nodes.container.BaseContainerNode isAcceptableType
+2026-09-19 22:55:37,976 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] WARNING: Element <g> not allowed in <clippath> (or not implemented)
+2026-09-19 22:55:37,977 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 
+2026-09-19 23:13:38,688 [ERROR] ConfigurationRetriever:142 - IOException on connection: Connect timed out
