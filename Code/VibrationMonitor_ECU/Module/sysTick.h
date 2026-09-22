@@ -6,7 +6,7 @@
 
 extern volatile uint32_t sysTick;
 
-void SysTick_Handler(void);
+//void SysTick_Handler(void);
 
 void SysTick_config(void);
 

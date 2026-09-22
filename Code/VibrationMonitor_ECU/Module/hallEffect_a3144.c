@@ -9,7 +9,7 @@
 
 static volatile uint32_t previousCapture = 0U;
 static volatile uint32_t capturePeriod = 0U;
-static volatile float currentRPM = 0.0f;
+static volatile float currentRPM = 196;
 static volatile uint8_t rpmValid = 0U;
 static volatile uint32_t lastPulseTick = 0U;
 

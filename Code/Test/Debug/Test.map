@@ -4146,7 +4146,7 @@ LOAD C:/ST/STM32CubeIDE_1.17.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
  .debug_macro   0x0001ab3d      0x116 ./Src/sysmem.o
  .debug_macro   0x0001ac53      0x23c ./Src/sysmem.o
 
-.debug_line     0x00000000     0x9479
+.debug_line     0x00000000     0x944f
  .debug_line    0x00000000      0x863 ./CMSIS_DSP/Source/arm_bitreversal2.o
  .debug_line    0x00000863      0xeee ./CMSIS_DSP/Source/arm_cfft_f32.o
  .debug_line    0x00001751      0x885 ./CMSIS_DSP/Source/arm_cfft_init_f32.o
@@ -4157,14 +4157,14 @@ LOAD C:/ST/STM32CubeIDE_1.17.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
  .debug_line    0x0000423b      0x95c ./CMSIS_DSP/Source/arm_rfft_fast_init_f32.o
  .debug_line    0x00004b97      0x671 ./Module/adxl345.o
  .debug_line    0x00005208      0x75f ./Module/can.o
- .debug_line    0x00005967      0xa4d ./Module/fft.o
- .debug_line    0x000063b4      0x706 ./Module/hallEffect_a3144.o
- .debug_line    0x00006aba      0x55c ./Module/sysTick.o
- .debug_line    0x00007016      0xb9c ./Module/vibration.o
- .debug_line    0x00007bb2      0x9cf ./Src/main.o
- .debug_line    0x00008581      0x8f0 ./Src/syscalls.o
- .debug_line    0x00008e71      0x58d ./Src/sysmem.o
- .debug_line    0x000093fe       0x7b ./Startup/startup_stm32f446retx.o
+ .debug_line    0x00005967      0xa3f ./Module/fft.o
+ .debug_line    0x000063a6      0x706 ./Module/hallEffect_a3144.o
+ .debug_line    0x00006aac      0x55c ./Module/sysTick.o
+ .debug_line    0x00007008      0xb8e ./Module/vibration.o
+ .debug_line    0x00007b96      0x9c1 ./Src/main.o
+ .debug_line    0x00008557      0x8f0 ./Src/syscalls.o
+ .debug_line    0x00008e47      0x58d ./Src/sysmem.o
+ .debug_line    0x000093d4       0x7b ./Startup/startup_stm32f446retx.o
 
 .debug_str      0x00000000    0x95a57
  .debug_str     0x00000000    0x95a57 ./CMSIS_DSP/Source/arm_bitreversal2.o

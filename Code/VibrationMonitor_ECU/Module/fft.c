@@ -59,7 +59,7 @@ static void FFT_CalculateMagnitude(void)
      */
 
     /* DC component */
-    magnitude[0] = fabsf(fftOutput[0]);
+    magnitude[0] = fabsf(fftOutput[0])/ (float)FFT_SIZE;
 
     /*
      * Positive-frequency bins
@@ -71,10 +71,14 @@ static void FFT_CalculateMagnitude(void)
         float imag = fftOutput[(2U * k) + 1U];
 
         magnitude[k] = sqrtf((real * real) + (imag * imag));
+
+        magnitude[k] *= 2.0f / (float)FFT_SIZE;
     }
 
     /* Nyquist component */
-    magnitude[FFT_SIZE / 2U] = fabsf(fftOutput[1]);
+    magnitude[FFT_SIZE / 2U] = fabsf(fftOutput[1])/ (float)FFT_SIZE;
+
+
 }
 
 /*
@@ -82,13 +86,13 @@ static void FFT_CalculateMagnitude(void)
  */
 static float FFT_BinToFrequency(uint32_t bin)
 {
-    return ((float)bin * SAMPLE_RATE_HZ) / (float)FFT_SIZE;
+    return (bin * SAMPLE_RATE_HZ) / (float)FFT_SIZE;
 }
 
 static void FFT_ProcessAxis(const float *input, FFT_Peak_t *peak){
     float mean;
 
-    if ((input == NULL) || (peak == NULL))
+    if ((input == NULL))
     {
         return;
     }
@@ -155,7 +159,7 @@ void FFT_Process(const VibrationSample_t *input,  VibrationFFTResult_t *result){
     float ySamples[FFT_SIZE];
     float zSamples[FFT_SIZE];
 
-    if ((input == NULL) || (result == NULL))
+    if ((input == NULL))
     {
         return;
     }

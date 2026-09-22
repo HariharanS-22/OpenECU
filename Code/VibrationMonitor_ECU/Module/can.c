@@ -104,6 +104,14 @@ void CAN1_TxMsg(uint8_t* tx_msg, uint8_t DLC){
 
 }
 
+void CAN_SendWord(uint32_t msg){
+	uint8_t tx_msg[4];
+	for(uint8_t i=0; i<4 ; i++){
+		tx_msg[i] = (msg >> (24 - i*8)) & 0xFF;
+	}
+	CAN1_TxMsg(tx_msg, 4);
+}
+
 void CAN1_LoopBack(){
 	//Software Initialization : Set INRQ to initialize
 	CAN1->MCR |= MCR_INRQ;

@@ -15,11 +15,13 @@ RM := rm -rf
 -include ThirdParty/SEGGER/OS/subdir.mk
 -include ThirdParty/SEGGER/Config/subdir.mk
 -include ThirdParty/FreeRTOS/portable/MemMang/subdir.mk
+-include ThirdParty/FreeRTOS/portable/GCC/ARM_CM4F/subdir.mk
 -include ThirdParty/FreeRTOS/subdir.mk
 -include Module/subdir.mk
 -include Drivers/STM32F4xx_HAL_Driver/Src/subdir.mk
 -include Core/Startup/subdir.mk
 -include Core/Src/subdir.mk
+-include CMSIS_DSP/Source/subdir.mk
 -include objects.mk
 
 ifneq ($(MAKECMDGOALS),clean)

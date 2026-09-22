@@ -1,0 +1,8 @@
+../Module/fft.c:29:14:FFT_RemoveDC	24	static
+../Module/fft.c:42:14:FFT_HannWindow	16	static
+../Module/fft.c:47:13:FFT_CalculateMagnitude	24	static
+../Module/fft.c:87:14:FFT_BinToFrequency	16	static
+../Module/fft.c:92:13:FFT_ProcessAxis	40	static
+../Module/fft.c:152:12:FFT_Init	8	static
+../Module/fft.c:157:6:FFT_Process	3096	static
+../Module/fft.c:188:7:FFT_GetResolution	4	static

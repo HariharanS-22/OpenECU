@@ -1,0 +1,11 @@
+../Module/vibration.c:48:6:Vibration_Init	2
+../Module/vibration.c:78:6:Vibration_ProcessTimeDomain	1
+../Module/vibration.c:102:6:Vibration_ProcessFreqDomain	1
+../Module/vibration.c:113:6:Vibration_PrintResult	1
+../Module/vibration.c:132:6:VibrationSamplingTask	1
+../Module/vibration.c:152:13:Vibration_StoreSample	3
+../Module/vibration.c:183:20:Vibration_GetCompletedBuffer	2
+../Module/vibration.c:193:14:Vibration_GetMagnitude	1
+../Module/vibration.c:203:14:Vibration_CalculateRMS	2
+../Module/vibration.c:225:14:Vibration_CalculatePeak	3
+../Module/vibration.c:243:14:Vibration_CalculateCrestFactor	2
