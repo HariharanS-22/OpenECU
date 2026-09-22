@@ -1,0 +1,2 @@
+../Module/iwdg.c:14:6:Watchdog_Init	1
+../Module/iwdg.c:33:6:Watchdog_Refresh	1
