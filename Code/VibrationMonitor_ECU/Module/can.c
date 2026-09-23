@@ -109,7 +109,7 @@ void CAN_SendWord(uint32_t msg){
 	for(uint8_t i=0; i<4 ; i++){
 		tx_msg[i] = (msg >> (24 - i*8)) & 0xFF;
 	}
-	CAN1_TxMsg(tx_msg, 4);
+	//CAN1_TxMsg(tx_msg, 4);
 }
 
 void CAN1_LoopBack(){

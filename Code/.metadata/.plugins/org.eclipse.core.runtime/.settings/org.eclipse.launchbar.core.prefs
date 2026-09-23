@@ -8,6 +8,7 @@ org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:CAN_Driver/activeLaunchTarget=n
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:CAN_testing\ Debug/activeLaunchMode=debug
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:CAN_testing\ Debug/activeLaunchTarget=null\:---
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Coolant_ECU\ Debug/activeLaunchMode=debug
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Coolant_ECU\ Debug/activeLaunchTarget=null\:---
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:ECU_CoolantSystem\ Debug/activeLaunchMode=run
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:LIN_Driver\ Debug/activeLaunchMode=debug
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:LIN_Driver/activeLaunchMode=run

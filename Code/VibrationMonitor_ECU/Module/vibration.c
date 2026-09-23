@@ -3,6 +3,7 @@
 #include "adxl345.h"
 #include "uart.h"
 #include "FreeRTOS.h"
+#include "task.h"
 #include "queue.h"
 
 #include <math.h>
@@ -44,6 +45,9 @@ static float Vibration_CalculateCrestFactor( float peak,  float rms);
 void Vibration_ProcessTimeDomain(void);
 void Vibration_ProcessFreqDomain(void);
 void Vibration_PrintResult(void);
+
+extern TaskHandle_t ProcessTimeDomainTaskHandle;
+extern TaskHandle_t ProcessFreqDomainTaskHandle;
 
 void Vibration_Init(void)
 {
@@ -94,8 +98,8 @@ void Vibration_ProcessTimeDomain(void)
     vibrationResult_time.rms = rms;
     vibrationResult_time.peak = peak;
     vibrationResult_time.crest_factor = crest;
-//
-//    xQueueSend(TDtoCANQueueHandle, &vibrationResult_time, 0);
+
+    xQueueSend(TDtoCANQueueHandle, &vibrationResult_time, 0);
 
 }
 
@@ -104,15 +108,14 @@ void Vibration_ProcessFreqDomain(void){
 
 	FFT_Process((VibrationSample_t *)inputBuf, &FFTResult);
 
-//	xQueueSend(FDtoCANQueueHandle, &FFTResult.x, 0);
-//	xQueueSend(FDtoCANQueueHandle, &FFTResult.y, 0);
-//	xQueueSend(FDtoCANQueueHandle, &FFTResult.z, 0);
+	xQueueSend(FDtoCANQueueHandle, &FFTResult.x, 0);
+	xQueueSend(FDtoCANQueueHandle, &FFTResult.y, 0);
+	xQueueSend(FDtoCANQueueHandle, &FFTResult.z, 0);
 
 }
 
 void Vibration_PrintResult(void)
 {
-	vTaskSuspendAll();
 
     sprintf(tempBuf, "Vibration Time Result:\r\nRMS : %f\r\nPeak : %f\r\nCrest : %f\r\n",vibrationResult_time.rms,vibrationResult_time.peak,vibrationResult_time.crest_factor);
     customPrint(tempBuf,strlen(tempBuf));
@@ -126,7 +129,6 @@ void Vibration_PrintResult(void)
     sprintf(tempBuf, "\r\nZ Component\r\nFreq : %f\r\nMag : %f\r\nBin : %lu\r\n",FFTResult.z.frequency, FFTResult.z.magnitude, FFTResult.z.bin);
     customPrint(tempBuf,strlen(tempBuf));
 
-    xTaskResumeAll();
 }
 
 void VibrationSamplingTask(void)
@@ -176,6 +178,9 @@ static void Vibration_StoreSample( float x, float y, float z){
         bufferIndex = 0U;
         sprintf(tempBuf, "Data:\r\n x: %f  y: %f z: %f\r\n",x, y, z);
         customPrint(tempBuf,strlen(tempBuf));
+
+        xTaskNotifyGive(ProcessTimeDomainTaskHandle);
+        xTaskNotifyGive(ProcessFreqDomainTaskHandle);
 
     }
 }

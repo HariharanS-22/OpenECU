@@ -34,6 +34,8 @@
 #include "hallEffect_a3144.h"
 #include "iwdg.h"
 
+#define DWT_CTRL (*(volatile uint32_t *)(0xE0001000))
+
 uint16_t receivedID;
 uint8_t  receivedDLC;
 uint16_t receivedTimeStamp;
@@ -66,14 +68,14 @@ void AccelarationTask(void* param){
 
 	while(1){
 		VibrationSamplingTask();
-		vTaskDelay(pdMS_TO_TICKS(5));
+		vTaskDelay(pdMS_TO_TICKS(0.25));
 	}
 }
 
 void ProcessTimeDomainTask(void* param){
 
 	while(1){
-		vTaskDelay(pdMS_TO_TICKS(100));
+		ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
 		Vibration_ProcessTimeDomain();
 	}
 }
@@ -81,7 +83,7 @@ void ProcessTimeDomainTask(void* param){
 void ProcessFreqDomainTask(void* param){
 
 	while(1){
-		vTaskDelay(pdMS_TO_TICKS(100));
+		ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
 		Vibration_ProcessFreqDomain();
 	}
 }
@@ -90,7 +92,9 @@ void DisplayResultTask(void* param){
 
 	while(1){
 		vTaskDelay(pdMS_TO_TICKS(100));
+
 		Vibration_PrintResult();
+
 	}
 }
 
@@ -99,7 +103,7 @@ void iwdgTask(void *argument)
     while (1)
     {
     	Watchdog_Refresh();
-        vTaskDelay(pdMS_TO_TICKS(10));
+        vTaskDelay(pdMS_TO_TICKS(50));
     }
 }
 
@@ -109,7 +113,6 @@ void CAN_Task(void *argument){
 
     while (1)
     {
-    	vTaskDelay(pdMS_TO_TICKS(300));
 
     	if (xQueueReceive(TDtoCANQueueHandle, &receiveTD, portMAX_DELAY) == pdPASS){
     		CAN_SendWord(receiveTD.rms);
@@ -125,8 +128,6 @@ void CAN_Task(void *argument){
     	}
     	CAN_SendWord(A3144_GetRPM());
     	//Send Fault Messages or Any Sort of Message after computing here
-
-
 
     }
 }
@@ -150,6 +151,12 @@ int main(void)
 	Vibration_Init();
 	FFT_status = FFT_Init();
 
+    DWT_CTRL |= (1<<0);
+
+    SEGGER_SYSVIEW_Conf();
+    vSetVarulMaxPRIGROUPValue();
+    SEGGER_SYSVIEW_Start();
+
 	TDtoCANQueueHandle = xQueueCreate(10, sizeof(VibrationResult_t));
 	FDtoCANQueueHandle = xQueueCreate(10, sizeof(FFT_Peak_t));
 
@@ -167,16 +174,15 @@ int main(void)
 	TaskCreationStatus = xTaskCreate(ProcessFreqDomainTask, "FD", 1024, NULL, 2, &ProcessFreqDomainTaskHandle);
 	configASSERT(TaskCreationStatus == pdPASS);
 
-	TaskCreationStatus = xTaskCreate(DisplayResultTask, "Display", 1024, NULL, 2, &DisplayResultTaskHandle);
+	TaskCreationStatus = xTaskCreate(DisplayResultTask, "Display", 1024, NULL, 1, &DisplayResultTaskHandle);
 	configASSERT(TaskCreationStatus == pdPASS);
 
-	TaskCreationStatus = xTaskCreate(iwdgTask, "IWDG", 64, NULL, 3, &iwdgTaskHandle);
+	TaskCreationStatus = xTaskCreate(iwdgTask, "IWDG", 256, NULL, 3, &iwdgTaskHandle);
 	configASSERT(TaskCreationStatus == pdPASS);
 
-	TaskCreationStatus = xTaskCreate(CAN_Task, "CAN", 256, NULL, 1, &CANTaskHandle);
+	TaskCreationStatus = xTaskCreate(CAN_Task, "CAN", 1024, NULL, 2, &CANTaskHandle);
 	configASSERT(TaskCreationStatus == pdPASS);
 
 	vTaskStartScheduler();
-	//CAN1_LoopBack();
 
 }
