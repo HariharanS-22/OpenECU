@@ -51,6 +51,7 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  H:/OpenECU/Code/Coolant_ECU/ThirdParty/FreeRTOS/include/mpu_wrappers.h \
  H:/OpenECU/Code/Coolant_ECU/ThirdParty/FreeRTOS/include/task.h \
  H:/OpenECU/Code/Coolant_ECU/ThirdParty/FreeRTOS/include/list.h \
+ H:/OpenECU/Code/Coolant_ECU/Module/can.h \
  H:/OpenECU/Code/Coolant_ECU/Module/iwdg.h \
  H:/OpenECU/Code/Coolant_ECU/ThirdParty/FreeRTOS/include/queue.h \
  H:/OpenECU/Code/Coolant_ECU/ThirdParty/FreeRTOS/include/task.h
@@ -107,6 +108,7 @@ H:/OpenECU/Code/Coolant_ECU/ThirdParty/FreeRTOS/portable/GCC/ARM_CM4F/portmacro.
 H:/OpenECU/Code/Coolant_ECU/ThirdParty/FreeRTOS/include/mpu_wrappers.h:
 H:/OpenECU/Code/Coolant_ECU/ThirdParty/FreeRTOS/include/task.h:
 H:/OpenECU/Code/Coolant_ECU/ThirdParty/FreeRTOS/include/list.h:
+H:/OpenECU/Code/Coolant_ECU/Module/can.h:
 H:/OpenECU/Code/Coolant_ECU/Module/iwdg.h:
 H:/OpenECU/Code/Coolant_ECU/ThirdParty/FreeRTOS/include/queue.h:
 H:/OpenECU/Code/Coolant_ECU/ThirdParty/FreeRTOS/include/task.h:

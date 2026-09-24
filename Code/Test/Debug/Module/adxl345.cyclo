@@ -1,7 +1,0 @@
-../Module/adxl345.c:8:13:SPI1_Init	1
-../Module/adxl345.c:43:16:SPI1_Transfer	3
-../Module/adxl345.c:53:6:ADXL345_Init	2
-../Module/adxl345.c:84:6:ADXL345_WriteReg	1
-../Module/adxl345.c:94:9:ADXL345_ReadReg	1
-../Module/adxl345.c:109:6:ADXL345_ReadXYZ	1
-../Module/adxl345.c:135:7:ADXL345_ConvertToG	1

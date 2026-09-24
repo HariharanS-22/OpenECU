@@ -76,8 +76,8 @@ static void CoolerTask(void *argument)
 
             if (temperature == INT16_MIN){
 
-                fanSpeed = 0U;
-                //fanSpeed = 100U;
+//                fanSpeed = 0U;
+                fanSpeed = 100U;
             	Fan_SetSpeed(fanSpeed);
                 sprintf(stringBuf, "DS18B20 ERROR\r\n");
                 customPrint(stringBuf, strlen(stringBuf));
@@ -133,10 +133,12 @@ static void CAN_Task(void *argument){
     		tempBuf[1]=((temperature & 0xF0)>>8);
     		tempBuf[0]=((temperature & 0x0F)>>0);
 
+    		tempBuf[0] = 25;
+    		tempBuf[1] = 30;
     		CAN1_TxMsg(tempBuf, 2);
     	}
 
-    	vTaskDelay(pdMS_TO_TICKS(1));
+    	vTaskDelay(pdMS_TO_TICKS(250));
     }
 }
 
@@ -144,7 +146,7 @@ static void MonitorTask(void *argument)
 {
     while (1)
     {
-    	vTaskDelay(pdMS_TO_TICKS(1000));
+    	vTaskDelay(pdMS_TO_TICKS(250));
     	SystemMonitorTask();
     }
 }

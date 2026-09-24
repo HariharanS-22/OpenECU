@@ -32,17 +32,43 @@ void SystemMonitor_Init(void)
 void SystemMonitorTask(){
 
     char stringBuf[256];
+	uint64_t temp=0;
 
 
 	systemData.freeHeap = xPortGetFreeHeapSize();
+	temp=((uint64_t)0<<32)+systemData.freeHeap;
+	CAN_SendWord(temp);
+	vTaskDelay(pdMS_TO_TICKS(10));
 
 	systemData.minimumFreeHeap = xPortGetMinimumEverFreeHeapSize();
+	temp=((uint64_t)1<<32)+systemData.minimumFreeHeap;
+	CAN_SendWord(temp);
+	vTaskDelay(pdMS_TO_TICKS(10));
 
 	systemData.tempMaxStackUsage = uxTaskGetStackHighWaterMark(temperatureTaskHandle);
+	temp=((uint64_t)2<<32)+systemData.tempMaxStackUsage;
+	CAN_SendWord(temp);
+	vTaskDelay(pdMS_TO_TICKS(10));
+
 	systemData.coolerMaxStackUsage = uxTaskGetStackHighWaterMark(coolerTaskHandle);
+	temp=((uint64_t)3<<32)+systemData.coolerMaxStackUsage;
+	CAN_SendWord(temp);
+	vTaskDelay(pdMS_TO_TICKS(10));
+
 	systemData.monitorMaxStackUsage = uxTaskGetStackHighWaterMark(MonitorTaskHandle);
+	temp=((uint64_t)4<<32)+systemData.monitorMaxStackUsage;
+	CAN_SendWord(temp);
+	vTaskDelay(pdMS_TO_TICKS(10));
+
 	systemData.canTxMaxStackUsage = uxTaskGetStackHighWaterMark(CAN_Tx_TaskHandle);
+	temp=((uint64_t)5<<32)+systemData.canTxMaxStackUsage;
+	CAN_SendWord(temp);
+	vTaskDelay(pdMS_TO_TICKS(10));
+
 	systemData.iwdgMaxStackUsage = uxTaskGetStackHighWaterMark(IWDG_TaskHandle);
+	temp=((uint64_t)6<<32)+systemData.iwdgMaxStackUsage;
+	CAN_SendWord(temp);
+	vTaskDelay(pdMS_TO_TICKS(10));
 
 
 	sprintf(stringBuf,"\r\n");

@@ -34,7 +34,7 @@
 #include "hallEffect_a3144.h"
 #include "iwdg.h"
 
-#define DWT_CTRL (*(volatile uint32_t *)(0xE0001000))
+//#define DWT_CTRL (*(volatile uint32_t *)(0xE0001000))
 
 uint16_t receivedID;
 uint8_t  receivedDLC;
@@ -68,7 +68,7 @@ void AccelarationTask(void* param){
 
 	while(1){
 		VibrationSamplingTask();
-		vTaskDelay(pdMS_TO_TICKS(0.25));
+		vTaskDelay(pdMS_TO_TICKS(1));
 	}
 }
 
@@ -119,15 +119,17 @@ void CAN_Task(void *argument){
     		memcpy(&bits, &receiveTD.rms, sizeof(bits));
     		temp=((uint64_t)0<<32)+bits;
     		CAN_SendWord(temp);
+    		vTaskDelay(pdMS_TO_TICKS(10));
 
     		memcpy(&bits, &receiveTD.peak, sizeof(bits));
     		temp=((uint64_t)1<<32)+bits;
     		CAN_SendWord(temp);
+    		vTaskDelay(pdMS_TO_TICKS(10));
 
     		memcpy(&bits, &receiveTD.crest_factor, sizeof(bits));
     		temp=((uint64_t)2<<32)+bits;
     		CAN_SendWord(temp);
-
+    		vTaskDelay(pdMS_TO_TICKS(10));
     	}
 
     	for(uint8_t i=0 ; i<3; i++){
@@ -135,14 +137,17 @@ void CAN_Task(void *argument){
         		memcpy(&bits, &receiveFD.frequency, sizeof(bits));
         		temp=((uint64_t)(3*i+3)<<32)+bits;
         		CAN_SendWord(temp);
+        		vTaskDelay(pdMS_TO_TICKS(10));
 
         		memcpy(&bits, &receiveFD.magnitude, sizeof(bits));
         		temp=((uint64_t)(3*i+4)<<32)+bits;
         		CAN_SendWord(temp);
+        		vTaskDelay(pdMS_TO_TICKS(10));
 
         		memcpy(&bits, &receiveFD.bin, sizeof(bits));
         		temp=((uint64_t)(3*i+5)<<32)+bits;
         		CAN_SendWord(temp);
+        		vTaskDelay(pdMS_TO_TICKS(10));
 			}
     	}
 
@@ -150,6 +155,7 @@ void CAN_Task(void *argument){
 		memcpy(&bits, &rpm, sizeof(bits));
 		temp=((uint64_t)12<<32)+bits;
 		CAN_SendWord(temp);
+		vTaskDelay(pdMS_TO_TICKS(10));
     }
 }
 void vApplicationStackOverflowHook(TaskHandle_t xTask, char *pcTaskName){
@@ -172,11 +178,11 @@ int main(void)
 	Vibration_Init();
 	FFT_status = FFT_Init();
 
-    DWT_CTRL |= (1<<0);
-
-    SEGGER_SYSVIEW_Conf();
-    vSetVarulMaxPRIGROUPValue();
-    SEGGER_SYSVIEW_Start();
+//    DWT_CTRL |= (1<<0);
+//
+//    SEGGER_SYSVIEW_Conf();
+//    vSetVarulMaxPRIGROUPValue();
+//    SEGGER_SYSVIEW_Start();
 
 	TDtoCANQueueHandle = xQueueCreate(10, sizeof(VibrationResult_t));
 	FDtoCANQueueHandle = xQueueCreate(10, sizeof(FFT_Peak_t));

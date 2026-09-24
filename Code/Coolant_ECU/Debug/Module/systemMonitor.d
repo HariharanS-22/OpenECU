@@ -42,7 +42,9 @@ Module/systemMonitor.o: ../Module/systemMonitor.c \
  H:/OpenECU/Code/Coolant_ECU/ThirdParty/FreeRTOS/portable/GCC/ARM_CM4F/portmacro.h \
  H:/OpenECU/Code/Coolant_ECU/ThirdParty/FreeRTOS/include/mpu_wrappers.h \
  H:/OpenECU/Code/Coolant_ECU/ThirdParty/FreeRTOS/include/task.h \
- H:/OpenECU/Code/Coolant_ECU/ThirdParty/FreeRTOS/include/list.h
+ H:/OpenECU/Code/Coolant_ECU/ThirdParty/FreeRTOS/include/list.h \
+ ../Module/can.h ../Core/Inc/main.h \
+ ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f446xx.h
 ../Module/systemMonitor.h:
 ../Module/uart.h:
 ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h:
@@ -88,3 +90,6 @@ H:/OpenECU/Code/Coolant_ECU/ThirdParty/FreeRTOS/portable/GCC/ARM_CM4F/portmacro.
 H:/OpenECU/Code/Coolant_ECU/ThirdParty/FreeRTOS/include/mpu_wrappers.h:
 H:/OpenECU/Code/Coolant_ECU/ThirdParty/FreeRTOS/include/task.h:
 H:/OpenECU/Code/Coolant_ECU/ThirdParty/FreeRTOS/include/list.h:
+../Module/can.h:
+../Core/Inc/main.h:
+../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f446xx.h:

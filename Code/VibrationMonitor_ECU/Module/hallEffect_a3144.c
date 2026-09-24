@@ -9,7 +9,7 @@
 
 static volatile uint32_t previousCapture = 0U;
 static volatile uint32_t capturePeriod = 0U;
-static volatile float currentRPM = 196;
+static volatile float currentRPM = 187;
 static volatile uint8_t rpmValid = 0U;
 static volatile uint32_t lastPulseTick = 0U;
 
@@ -127,10 +127,10 @@ uint32_t A3144_GetCapturePeriod(void){
 }
 
 float A3144_GetRPM(void){
-    if (rpmValid == 0U)
-    {
-        return 0.0f;
-    }
+//    if (rpmValid == 0U)
+//    {
+//        return 0.0f;
+//    }
 
 
     return currentRPM;

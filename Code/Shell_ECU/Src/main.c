@@ -53,6 +53,30 @@ typedef struct
     uint32_t bin;
 } FFT_Peak_t;
 
+
+#define ECU1_FREEHEAP		0x00
+#define ECU1_MIN_FREEHEAP 	0x01
+#define ECU1_TEMP_S			0x02
+#define ECU1_COOL_S 		0x03
+#define ECU1_MONITOR_S		0x04
+#define ECU1_CANTX_S 		0x05
+#define ECU1_IDWG_S			0x06
+
+typedef struct
+{
+    uint32_t freeHeap;
+    uint32_t minimumFreeHeap;
+
+    uint32_t tempMaxStackUsage;
+    uint32_t coolerMaxStackUsage;
+    uint32_t monitorMaxStackUsage;
+    uint32_t canTxMaxStackUsage;
+    uint32_t iwdgMaxStackUsage;
+
+} SystemMonitorData_t;
+
+SystemMonitorData_t systemData;
+
 VibrationResult_t receivedVibRes;
 FFT_Peak_t receivedFFT[3];
 uint32_t receivedVibRPM;
@@ -108,6 +132,64 @@ static uint8_t Coolant_Control(uint16_t temperature){
 	return fanSpeed;
 }
 
+static void Print_CoolantSystem(void){
+	uint8_t dataID = 0;
+	uint32_t data = 0;
+	if(receivedDLC > 5)
+		return;
+
+	dataID = (uint8_t)(receivedMsg >> 32) & 0xFF;
+	switch(dataID){
+		case ECU1_FREEHEAP:
+			data = (receivedMsg & 0xFFFFFFFF);
+			systemData.freeHeap = data;
+			printf("\r\n===== COOLANT SYSTEM =====\r\n");
+			printf("Free Heap       : %lu bytes\r\n", (unsigned long)systemData.freeHeap);
+			break;
+
+		case ECU1_MIN_FREEHEAP:
+			data = (receivedMsg & 0xFFFFFFFF);
+			systemData.minimumFreeHeap = data;
+			printf("Minimum Heap    : %lu bytes\r\n", (unsigned long)systemData.minimumFreeHeap);
+			break;
+
+		case ECU1_TEMP_S:
+			data = (receivedMsg & 0xFFFFFFFF);
+			systemData.tempMaxStackUsage = data;
+			printf("Temp Stack Free : %lu words\r\n", (unsigned long)systemData.tempMaxStackUsage);
+			break;
+
+		case ECU1_COOL_S:
+			data = (receivedMsg & 0xFFFFFFFF);
+			systemData.coolerMaxStackUsage = data;
+			printf("Cooler Stack    : %lu words\r\n", (unsigned long)systemData.coolerMaxStackUsage);
+			break;
+
+		case ECU1_MONITOR_S:
+			data = (receivedMsg & 0xFFFFFFFF);
+			systemData.monitorMaxStackUsage = data;
+			printf("Monitor Stack   : %lu words\r\n",(unsigned long)systemData.monitorMaxStackUsage);
+			break;
+
+		case ECU1_CANTX_S:
+			data = (receivedMsg & 0xFFFFFFFF);
+			systemData.canTxMaxStackUsage = data;
+			printf("CAN TX Stack   : %lu words\r\n",(unsigned long)systemData.canTxMaxStackUsage);
+			break;
+
+		case ECU1_IDWG_S:
+			data = (receivedMsg & 0xFFFFFFFF);
+			systemData.iwdgMaxStackUsage = data;
+			printf("IWDG Stack     : %lu words\r\n",(unsigned long)systemData.iwdgMaxStackUsage);
+			printf("\r\n=============================\r\n");
+
+			break;
+
+		default:
+			break;
+	}
+}
+
 static void Print_VibrationMonitor(void)
 {
     float value;
@@ -128,7 +210,7 @@ static void Print_VibrationMonitor(void)
         case ECU2_VIB_RMS:
 
         	receivedVibRes.rms = value;
-            printf("\r\n[VIBRATION MONITOR]");
+            printf("\r\n====== VIBRATION MONITOR =======");
             printf("\r\nRMS       : %.3f", receivedVibRes.rms);
             break;
 
@@ -141,7 +223,7 @@ static void Print_VibrationMonitor(void)
         case ECU2_VIB_CREST:
 
         	receivedVibRes.crest_factor = value;
-            printf("\r\nCrest     : %.3f", receivedVibRes.crest_factor);
+            printf("\r\nCrest     : %.3f\r\n", receivedVibRes.crest_factor);
             break;
 
         case ECU2_VIB_X_FREQ:
@@ -159,8 +241,8 @@ static void Print_VibrationMonitor(void)
 
         case ECU2_VIB_X_BIN:
 
-        	receivedFFT[0].bin = (uint32_t)value;
-            printf("\r\nFFT Bin   : %lu", receivedFFT[0].bin);
+        	receivedFFT[0].bin = raw;
+            printf("\r\nFFT Bin   : %lu\r\n", receivedFFT[0].bin);
             break;
 
         case ECU2_VIB_Y_FREQ:
@@ -178,8 +260,8 @@ static void Print_VibrationMonitor(void)
 
 	   case ECU2_VIB_Y_BIN:
 
-		   receivedFFT[1].bin = (uint32_t)value;
-		   printf("\r\nFFT Bin   : %lu", receivedFFT[1].bin);
+		   receivedFFT[1].bin = raw;
+		   printf("\r\nFFT Bin   : %lu\r\n", receivedFFT[1].bin);
 		   break;
 
 	   case ECU2_VIB_Z_FREQ:
@@ -197,14 +279,15 @@ static void Print_VibrationMonitor(void)
 
 	   case ECU2_VIB_Z_BIN:
 
-		   receivedFFT[2].bin = (uint32_t)value;
-		   printf("\r\nFFT Bin   : %lu", receivedFFT[2].bin);
+		   receivedFFT[2].bin = raw;
+		   printf("\r\nFFT Bin   : %lu\r\n", receivedFFT[2].bin);
 		   break;
 
         case ECU2_VIB_RPM:
 
         	receivedVibRPM = (uint32_t)value;
-            printf("\r\nRPM       : %lu", receivedVibRPM);
+            printf("\r\nRPM       : %lu\r\n", receivedVibRPM);
+            printf("\r\n================================\r\n");
             break;
 
         default:
@@ -234,9 +317,9 @@ int main(void)
 
 	uint32_t now = 0;
 
-	char *MSG = "ShellMsg";
-	uint8_t len = strlen(MSG);
-	uint8_t buf[9] = {0};
+//	char *MSG = "ShellMsg";
+//	uint8_t len = strlen(MSG);
+//	uint8_t buf[9] = {0};
 
 	uint8_t tempData[2] = {0};
 	uint8_t fanSpeed = 0;
@@ -252,12 +335,17 @@ int main(void)
 
 		if(flag_msgReceived){
 			if(receivedID == ECU1_Coolant){
-				tempData[0] = (uint8_t)(receivedMsg & 0xFF);
-				tempData[1] = (uint8_t)((receivedMsg & 0xFF00) >> 8);
+				if(receivedDLC == 2){
+					tempData[0] = (uint8_t)(receivedMsg & 0xFF);
+					tempData[1] = (uint8_t)((receivedMsg & 0xFF00) >> 8);
 
-				fanSpeed = Coolant_Control((uint16_t)(tempData[1] << 8));
+					fanSpeed = Coolant_Control((uint16_t)(tempData[1] << 8));
 
-				printf("\r\nCoolant ECU @ %ld:\r\n Temperature: %ld.%ld\r\n Fan Speed: %ld \r\n",sysTick, tempData[1],tempData[0], fanSpeed * 30);
+					printf("\r\nCoolant ECU @ %ld:\r\n Temperature: %d.%d\r\n Fan Speed: %d \r\n",sysTick, tempData[1],tempData[0], fanSpeed * 30);
+				}
+				else{
+					Print_CoolantSystem();
+				}
 			}
 
 			if(receivedID == ECU2_VibMon){

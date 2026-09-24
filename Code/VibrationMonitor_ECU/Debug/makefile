@@ -9,11 +9,6 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
--include ThirdParty/SEGGER/SEGGER/Syscalls/subdir.mk
--include ThirdParty/SEGGER/SEGGER/subdir.mk
--include ThirdParty/SEGGER/Rec/subdir.mk
--include ThirdParty/SEGGER/OS/subdir.mk
--include ThirdParty/SEGGER/Config/subdir.mk
 -include ThirdParty/FreeRTOS/portable/MemMang/subdir.mk
 -include ThirdParty/FreeRTOS/portable/GCC/ARM_CM4F/subdir.mk
 -include ThirdParty/FreeRTOS/subdir.mk
@@ -62,6 +57,12 @@ default.size.stdout \
 OBJDUMP_LIST += \
 VibrationMonitor_ECU.list \
 
+OBJCOPY_HEX += \
+VibrationMonitor_ECU.hex \
+
+OBJCOPY_BIN += \
+VibrationMonitor_ECU.bin \
+
 
 # All Target
 all: main-build
@@ -85,12 +86,22 @@ VibrationMonitor_ECU.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_
 	@echo 'Finished building: $@'
 	@echo ' '
 
+VibrationMonitor_ECU.hex: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objcopy  -O ihex $(EXECUTABLES) "VibrationMonitor_ECU.hex"
+	@echo 'Finished building: $@'
+	@echo ' '
+
+VibrationMonitor_ECU.bin: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objcopy  -O binary $(EXECUTABLES) "VibrationMonitor_ECU.bin"
+	@echo 'Finished building: $@'
+	@echo ' '
+
 # Other Targets
 clean:
-	-$(RM) VibrationMonitor_ECU.elf VibrationMonitor_ECU.list VibrationMonitor_ECU.map default.size.stdout
+	-$(RM) VibrationMonitor_ECU.bin VibrationMonitor_ECU.elf VibrationMonitor_ECU.hex VibrationMonitor_ECU.list VibrationMonitor_ECU.map default.size.stdout
 	-@echo ' '
 
-secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)
+secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST) $(OBJCOPY_HEX) $(OBJCOPY_BIN)
 
 fail-specified-linker-script-missing:
 	@echo 'Error: Cannot find the specified linker script. Check the linker settings in the build configuration.'

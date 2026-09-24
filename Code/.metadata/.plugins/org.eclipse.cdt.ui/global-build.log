@@ -1,14 +1,7 @@
-21:51:50 **** Incremental Build of configuration Debug for project VibrationMonitor_ECU ****
+01:14:52 **** Incremental Build of configuration Debug for project Shell_ECU ****
 make -j12 all 
-arm-none-eabi-size  VibrationMonitor_ECU.elf 
+arm-none-eabi-size  Shell_ECU.elf 
    text	   data	    bss	    dec	    hex	filename
- 141688	    468	  93960	 236116	  39a54	VibrationMonitor_ECU.elf
-Finished building: default.size.stdout
- 
-21:52:19 **** Incremental Build of configuration Debug for project VibrationMonitor_ECU ****
-make -j12 all 
-arm-none-eabi-size  VibrationMonitor_ECU.elf 
-   text	   data	    bss	    dec	    hex	filename
- 141688	    468	  93960	 236116	  39a54	VibrationMonitor_ECU.elf
+  26200	    456	   2008	  28664	   6ff8	Shell_ECU.elf
 Finished building: default.size.stdout
  

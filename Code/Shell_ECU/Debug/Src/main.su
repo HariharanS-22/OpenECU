@@ -1,4 +1,5 @@
-../Src/main.c:68:13:LED_Init	4	static
-../Src/main.c:82:16:Coolant_Control	24	static
-../Src/main.c:111:13:Print_VibrationMonitor	24	static
-../Src/main.c:215:5:main	48	static
+../Src/main.c:92:13:LED_Init	4	static
+../Src/main.c:106:16:Coolant_Control	24	static
+../Src/main.c:135:13:Print_CoolantSystem	16	static
+../Src/main.c:193:13:Print_VibrationMonitor	24	static
+../Src/main.c:298:5:main	32	static

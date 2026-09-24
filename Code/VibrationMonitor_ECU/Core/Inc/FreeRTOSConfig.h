@@ -41,7 +41,7 @@
  * See http://www.freertos.org/a00110.html
  *----------------------------------------------------------*/
 
-#include "SEGGER_SYSVIEW_FreeRTOS.h"
+//#include "SEGGER_SYSVIEW_FreeRTOS.h"
 
 /* Ensure stdint is only used by the compiler, and not the assembler. */
 #if defined(__ICCARM__) || defined(__GNUC__) || defined(__CC_ARM)
@@ -126,8 +126,8 @@ standard names. */
 #define xPortSysTickHandler SysTick_Handler
 
 //Segger
-#define INCLUDE_xTaskGetIdleTaskHandle 1
-#define INCLUDE_pxTaskGetStackStart 1
+//#define INCLUDE_xTaskGetIdleTaskHandle 1
+//#define INCLUDE_pxTaskGetStackStart 1
 
 #endif /* FREERTOS_CONFIG_H */
 

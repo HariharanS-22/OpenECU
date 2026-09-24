@@ -27,3 +27,20 @@
 2026-09-24 14:42:01,287 [ERROR] AdobePublisher:162 - Exception while opening the connection: java.net.SocketTimeoutException: Connect timed out
 2026-09-24 14:42:01,287 [ERROR] AdobePublisher:162 - Exception while opening the connection: java.net.SocketTimeoutException: Connect timed out
 2026-09-24 16:53:57,537 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 
+2026-09-24 16:55:20,081 [INFO] Activator:177 - 
+
+
+2026-09-24 16:55:20,083 [INFO] Activator:178 - !SESSION log4j initialized
+2026-09-24 16:55:27,497 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2026-09-24 21:45:20,374 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] Sept 24, 2026 9:45:20 PM com.github.weisj.jsvg.nodes.container.BaseContainerNode isAcceptableType
+2026-09-24 21:45:20,376 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] WARNING: Element <g> not allowed in <clippath> (or not implemented)
+2026-09-24 21:45:20,376 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 
+2026-09-24 21:45:20,382 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] Sept 24, 2026 9:45:20 PM com.github.weisj.jsvg.nodes.container.BaseContainerNode isAcceptableType
+2026-09-24 21:45:20,384 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] WARNING: Element <g> not allowed in <clippath> (or not implemented)
+2026-09-24 21:45:20,384 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 
+2026-09-24 21:45:20,398 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] Sept 24, 2026 9:45:20 PM com.github.weisj.jsvg.nodes.container.BaseContainerNode isAcceptableType
+2026-09-24 21:45:20,400 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] WARNING: Element <g> not allowed in <clippath> (or not implemented)
+2026-09-24 21:45:20,400 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 
+2026-09-24 21:45:20,405 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] Sept 24, 2026 9:45:20 PM com.github.weisj.jsvg.nodes.container.BaseContainerNode isAcceptableType
+2026-09-24 21:45:20,406 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] WARNING: Element <g> not allowed in <clippath> (or not implemented)
+2026-09-24 21:45:20,406 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 

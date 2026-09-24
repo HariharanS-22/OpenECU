@@ -11,7 +11,6 @@ RM := rm -rf
 -include sources.mk
 -include Startup/subdir.mk
 -include Src/subdir.mk
--include Module/subdir.mk
 -include CMSIS_DSP/Source/subdir.mk
 -include objects.mk
 

@@ -13,6 +13,7 @@
 #include "FreeRTOS.h"
 #include "task.h"
 #include <string.h>
+#include "can.h"
 
 typedef struct
 {
