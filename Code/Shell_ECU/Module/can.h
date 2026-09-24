@@ -51,7 +51,7 @@
 #define BTR_LBKM		(1U << 30)
 
 #define FMR_FINIT		(1U << 0)
-#define FMR_CANSB        (14U << 8)	//14 CAN1
+#define FMR_CANSB       (14U << 8)	//14 CAN1
 
 #define TSR_TME0		(1U << 26)
 

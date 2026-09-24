@@ -118,13 +118,14 @@ int main(void)
 	while(1){
 
 		if((sysTick - now) >= 1000){
-			CAN1_TxMsg((uint8_t *)MSG, len);
+//			CAN1_TxMsg((uint8_t *)MSG, len);
 			GPIOC->ODR ^= GPIO_ODR_ODR13;
-//			printf("\r\nFunctioning....");
+			printf("\r\nFunctioning....");
 			now = sysTick;
 		}
 
 		if(flag_msgReceived){
+
 			memcpy(buf, &receivedMsg, receivedDLC);
 			buf[receivedDLC] = '\0';
 			printf("\r\nReceived : %s @ %ld\r\n",buf,sysTick);

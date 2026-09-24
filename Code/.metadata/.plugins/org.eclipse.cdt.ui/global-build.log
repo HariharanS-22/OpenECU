@@ -1,27 +1,29 @@
-01:04:28 **** Incremental Build of configuration Debug for project Shell_ECU ****
+14:41:54 **** Incremental Build of configuration Debug for project Shell_ECU ****
 make -j12 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -I"H:/OpenECU/Code/Shell_ECU/CMSIS" -I"H:/OpenECU/Code/Shell_ECU/Module" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
 arm-none-eabi-gcc "../Module/can.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -I"H:/OpenECU/Code/Shell_ECU/CMSIS" -I"H:/OpenECU/Code/Shell_ECU/Module" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Module/can.d" -MT"Module/can.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Module/can.o"
+../Src/main.c: In function 'main':
+../Src/main.c:115:17: warning: unused variable 'len' [-Wunused-variable]
+  115 |         uint8_t len = strlen(MSG);
+      |                 ^~~
+../Src/main.c: At top level:
+../Src/main.c:33:13: warning: 'Clock_Init_16MHz' defined but not used [-Wunused-function]
+   33 | static void Clock_Init_16MHz(void)
+      |             ^~~~~~~~~~~~~~~~
 arm-none-eabi-gcc -o "Shell_ECU.elf" @"objects.list"   -mcpu=cortex-m3 -T"H:\OpenECU\Code\Shell_ECU\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Shell_ECU.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: Shell_ECU.elf
  
 arm-none-eabi-size  Shell_ECU.elf 
 arm-none-eabi-objdump -h -S Shell_ECU.elf  > "Shell_ECU.list"
-arm-none-eabi-objcopy  -O ihex Shell_ECU.elf  "Shell_ECU.hex"
    text	   data	    bss	    dec	    hex	filename
-   6128	     92	   1928	   8148	   1fd4	Shell_ECU.elf
+   6040	     92	   1928	   8060	   1f7c	Shell_ECU.elf
+arm-none-eabi-objcopy  -O ihex Shell_ECU.elf  "Shell_ECU.hex"
 arm-none-eabi-objcopy  -O binary Shell_ECU.elf  "Shell_ECU.bin"
 Finished building: default.size.stdout
  
 Finished building: Shell_ECU.hex
+Finished building: Shell_ECU.bin
 Finished building: Shell_ECU.list
  
-Finished building: Shell_ECU.bin
  
- 
-01:06:53 **** Incremental Build of configuration Debug for project Physical_Layer ****
-make -j12 all 
-arm-none-eabi-size  Physical_Layer.elf 
-   text	   data	    bss	    dec	    hex	filename
-  26016	    456	   2080	  28552	   6f88	Physical_Layer.elf
-Finished building: default.size.stdout
  

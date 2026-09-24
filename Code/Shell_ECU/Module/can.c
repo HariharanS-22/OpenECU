@@ -43,26 +43,22 @@ void CAN1_Init(void)
 
     CAN1->BTR = CAN1_BTR;
 
-    /* Filter initialization */
-    CAN1->FMR |= FMR_FINIT;
+	CAN1->FA1R &= ~(1U << 0);			//Disable Filter
 
-    CAN1->FMR &= ~(0xFU << 8);
-    CAN1->FMR |= (14U << 8);
+	//Filter1 enable - FF0
+	CAN1->FM1R |= (1U << 0);			// List mode
+	CAN1->FS1R &= ~(1U << 0);           // 16-bit
 
-    /* Disable filter 0 */
-    CAN1->FA1R &= ~(1U << 0);
+	//Filter0 assigned to FIFO0
+	CAN1->FFA1R &= ~(1U << 0);
 
-    CAN1->FM1R &= ~(1U << 0);
-    CAN1->FS1R &= ~(1U << 0);
-    CAN1->FFA1R &= ~(1U << 0);
+	CAN1->sFilterRegister[0].FR1 = (ECU1_Coolant << 5) << 16 | (ECU2_VibMon << 5);
 
-    CAN1->sFilterRegister[0].FR1 = ((ECU2_VibMon << 5) << 16) | (ECU1_Coolant << 5);
+	//Filter activation - FF0
+	CAN1->FA1R |= (1U << 0);			//Enable Filter
 
-    /* Enable filter */
-    CAN1->FA1R |= (1U << 0);
-
-    /* Exit filter initialization */
-    CAN1->FMR &= ~FMR_FINIT;
+	//Clear to exit FilterInitialization
+	CAN1->FMR &= ~FMR_FINIT;
 
     /* Enable FIFO0 message pending interrupt */
     CAN1->IER |= IER_FMPIE0;
@@ -122,16 +118,23 @@ void CAN1_LoopBack(){
 	//while((CAN1->MSR & MSR_INAK)) {}
 }
 
-void CAN1_RX0_IRQHandler(void){
+void USB_LP_CAN_RX0_IRQHandler(void)
+{
+    uint32_t low;
+    uint32_t high;
 
-	flag_msgReceived = 1;
+    low  = CAN1->sFIFOMailBox[0].RDLR;
+    high = CAN1->sFIFOMailBox[0].RDHR;
 
-	receivedID = (uint16_t)((CAN1->sFIFOMailBox[0].RIR & 0xFFE00000)>>21);
-	receivedDLC = (uint8_t)(CAN1->sFIFOMailBox[0].RDTR & 0xF);
-	receivedTimeStamp = (uint16_t)((CAN1->sFIFOMailBox[0].RDTR & 0xFFFF0000)>>16);
-	receivedMsg = (((uint64_t)CAN1->sFIFOMailBox[0].RDHR << 32) | (uint64_t)CAN1->sFIFOMailBox[0].RDLR );
+    receivedID = (uint16_t)((CAN1->sFIFOMailBox[0].RIR >> 21) & 0x7FFU);
+    receivedDLC = (uint8_t)(CAN1->sFIFOMailBox[0].RDTR & 0x0FU);
+    receivedTimeStamp = (uint16_t)((CAN1->sFIFOMailBox[0].RDTR >> 16) & 0xFFFFU);
+    receivedMsg = ((uint64_t)high << 32) | (uint64_t)low;
 
-	CAN1->RF0R |= RF0R_RFOM0;
+    flag_msgReceived = 1;
+
+    /* Release FIFO0 mailbox */
+    CAN1->RF0R |= RF0R_RFOM0;
 }
 
 //void CAN1_RX1_IRQHandler(void){

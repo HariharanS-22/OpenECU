@@ -65,7 +65,7 @@ int main(void)
 
 	while(1){
 		//CAN Transmission
-		if((sysTick - now) >= 250){
+		if((sysTick - now) >= 500){
 			CAN1_TxMsg((uint8_t *)CAN_MSG, size);
 			now = sysTick;
 		}
