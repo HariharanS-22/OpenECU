@@ -3,6 +3,7 @@
 	<section name="java.lang.Class">
 		<item key="replaceBarOpen" value="true"/>
 		<list key="findhistory">
+			<item value="sprintf(stringBuf,"/>
 			<item value="USB_LP_CAN_RX0_IRQHandler"/>
 			<item value="CAN1_RX0_IRQHandler"/>
 			<item value="USB_LP_CAN1_RX0_IRQn"/>
@@ -17,9 +18,9 @@
 			<item value="FFT_GetResolution"/>
 			<item value="vibrationBufferA"/>
 			<item value="vibrationBufferB"/>
-			<item value="_write"/>
 		</list>
 		<list key="replacehistory">
+			<item value="printf("/>
 			<item value="ECU3_Shell"/>
 			<item value="ECU2_VibMon"/>
 			<item value="AHBENR"/>
