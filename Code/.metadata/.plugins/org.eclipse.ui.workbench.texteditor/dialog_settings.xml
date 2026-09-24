@@ -3,6 +3,9 @@
 	<section name="java.lang.Class">
 		<item key="replaceBarOpen" value="true"/>
 		<list key="findhistory">
+			<item value="ECU2_CAN_ID"/>
+			<item value="ECU1_CAN_ID"/>
+			<item value="AHB1ENR"/>
 			<item value="FFTResult-&gt;"/>
 			<item value="ARM_MATH_NEON"/>
 			<item value="ARM_MATH_NEON0"/>
@@ -14,6 +17,12 @@
 			<item value="_write"/>
 		</list>
 		<list key="replacehistory">
+			<item value="ECU3_Shell"/>
+			<item value="ECU2_VibMon"/>
+			<item value="AHBENR"/>
+			<item value="ECU1_Coolant "/>
+			<item value="ECU1_Coolant"/>
+			<item value="ECU2_VibrationMonitor"/>
 			<item value="FFTResult."/>
 			<item value="VibrationResult_t"/>
 			<item value="vibrationResult_time"/>

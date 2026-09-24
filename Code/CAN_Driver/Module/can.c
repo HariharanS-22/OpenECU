@@ -65,7 +65,7 @@ void CAN1_Init(){
 	//Filter0 assigned to FIFO0
 	CAN1->FFA1R &= ~(1U << 0);
 
-	CAN1->sFilterRegister[0].FR1 = ECU2_CAN_ID << 5;
+	CAN1->sFilterRegister[0].FR1 = (ECU3_Shell << 5) << 16 | (ECU1_Coolant << 5);
 
 	//Filter activation - FF0
 	CAN1->FA1R |= (1U << 0);			//Enable Filter
@@ -92,7 +92,7 @@ void CAN1_TxMsg(uint8_t* tx_msg, uint8_t DLC){
 
 	while(!(CAN1->TSR & TSR_TME0)) {}
 
-	CAN1->sTxMailBox->TIR 	= (ECU1_CAN_ID << 21);		//RTR - bit 1 | IDE - bit 2
+	CAN1->sTxMailBox->TIR 	= (ECU2_VibMon << 21);		//RTR - bit 1 | IDE - bit 2
 	CAN1->sTxMailBox->TIR 	&= ~(1U << 2);
 	CAN1->sTxMailBox->TIR 	&= ~(1U << 1);
 
@@ -115,7 +115,7 @@ void CAN1_LoopBack(){
 
 	//Loopback Enable
 	CAN1->BTR |= BTR_LBKM;
-	CAN1->sFilterRegister[0].FR1 |= (ECU1_CAN_ID << 5) << 16 ;
+	CAN1->sFilterRegister[0].FR1 |= (ECU2_VibMon << 5) << 16 ;
 
 	//Clear to exit FilterInitialization
 	CAN1->FMR &= ~FMR_FINIT;

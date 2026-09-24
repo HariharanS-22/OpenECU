@@ -1248,7 +1248,7 @@ void CAN1_Init(){
  8000e86:	f023 0301 	bic.w	r3, r3, #1
  8000e8a:	f8c2 3214 	str.w	r3, [r2, #532]	@ 0x214
 
-	CAN1->sFilterRegister[0].FR1 = ECU2_CAN_ID << 5;
+	CAN1->sFilterRegister[0].FR1 = (ECU2_CAN_ID << 5);
  8000e8e:	4b14      	ldr	r3, [pc, #80]	@ (8000ee0 <CAN1_Init+0x170>)
  8000e90:	2240      	movs	r2, #64	@ 0x40
  8000e92:	f8c3 2240 	str.w	r2, [r3, #576]	@ 0x240
@@ -2255,82 +2255,82 @@ int main(void)
 
 	while(1){
 		//CAN Transmission
-		if((sysTick - now) >= 1){
+		if((sysTick - now) >= 250){
  800153e:	4b24      	ldr	r3, [pc, #144]	@ (80015d0 <main+0xdc>)
- 8001540:	681b      	ldr	r3, [r3, #0]
- 8001542:	69fa      	ldr	r2, [r7, #28]
- 8001544:	429a      	cmp	r2, r3
- 8001546:	d007      	beq.n	8001558 <main+0x64>
+ 8001540:	681a      	ldr	r2, [r3, #0]
+ 8001542:	69fb      	ldr	r3, [r7, #28]
+ 8001544:	1ad3      	subs	r3, r2, r3
+ 8001546:	2bf9      	cmp	r3, #249	@ 0xf9
+ 8001548:	d907      	bls.n	800155a <main+0x66>
 			CAN1_TxMsg((uint8_t *)CAN_MSG, size);
- 8001548:	7dfb      	ldrb	r3, [r7, #23]
- 800154a:	4619      	mov	r1, r3
- 800154c:	69b8      	ldr	r0, [r7, #24]
- 800154e:	f7ff fccb 	bl	8000ee8 <CAN1_TxMsg>
+ 800154a:	7dfb      	ldrb	r3, [r7, #23]
+ 800154c:	4619      	mov	r1, r3
+ 800154e:	69b8      	ldr	r0, [r7, #24]
+ 8001550:	f7ff fcca 	bl	8000ee8 <CAN1_TxMsg>
 			now = sysTick;
- 8001552:	4b1f      	ldr	r3, [pc, #124]	@ (80015d0 <main+0xdc>)
- 8001554:	681b      	ldr	r3, [r3, #0]
- 8001556:	61fb      	str	r3, [r7, #28]
+ 8001554:	4b1e      	ldr	r3, [pc, #120]	@ (80015d0 <main+0xdc>)
+ 8001556:	681b      	ldr	r3, [r3, #0]
+ 8001558:	61fb      	str	r3, [r7, #28]
 		}
 
 		if(CAN_msgReceived){
- 8001558:	4b1e      	ldr	r3, [pc, #120]	@ (80015d4 <main+0xe0>)
- 800155a:	781b      	ldrb	r3, [r3, #0]
- 800155c:	2b00      	cmp	r3, #0
- 800155e:	d01a      	beq.n	8001596 <main+0xa2>
+ 800155a:	4b1e      	ldr	r3, [pc, #120]	@ (80015d4 <main+0xe0>)
+ 800155c:	781b      	ldrb	r3, [r3, #0]
+ 800155e:	2b00      	cmp	r3, #0
+ 8001560:	d01a      	beq.n	8001598 <main+0xa4>
 			memcpy(buf, &receivedMsg, receivedDLC);
- 8001560:	4b1d      	ldr	r3, [pc, #116]	@ (80015d8 <main+0xe4>)
- 8001562:	781b      	ldrb	r3, [r3, #0]
- 8001564:	461a      	mov	r2, r3
- 8001566:	f107 030c 	add.w	r3, r7, #12
- 800156a:	491c      	ldr	r1, [pc, #112]	@ (80015dc <main+0xe8>)
- 800156c:	4618      	mov	r0, r3
- 800156e:	f001 fa68 	bl	8002a42 <memcpy>
+ 8001562:	4b1d      	ldr	r3, [pc, #116]	@ (80015d8 <main+0xe4>)
+ 8001564:	781b      	ldrb	r3, [r3, #0]
+ 8001566:	461a      	mov	r2, r3
+ 8001568:	f107 030c 	add.w	r3, r7, #12
+ 800156c:	491b      	ldr	r1, [pc, #108]	@ (80015dc <main+0xe8>)
+ 800156e:	4618      	mov	r0, r3
+ 8001570:	f001 fa67 	bl	8002a42 <memcpy>
 			buf[receivedDLC] = '\0';
- 8001572:	4b19      	ldr	r3, [pc, #100]	@ (80015d8 <main+0xe4>)
- 8001574:	781b      	ldrb	r3, [r3, #0]
- 8001576:	3320      	adds	r3, #32
- 8001578:	443b      	add	r3, r7
- 800157a:	2200      	movs	r2, #0
- 800157c:	f803 2c14 	strb.w	r2, [r3, #-20]
+ 8001574:	4b18      	ldr	r3, [pc, #96]	@ (80015d8 <main+0xe4>)
+ 8001576:	781b      	ldrb	r3, [r3, #0]
+ 8001578:	3320      	adds	r3, #32
+ 800157a:	443b      	add	r3, r7
+ 800157c:	2200      	movs	r2, #0
+ 800157e:	f803 2c14 	strb.w	r2, [r3, #-20]
 			printf("Received : %s @ %ld\n\r",buf,sysTick);
- 8001580:	4b13      	ldr	r3, [pc, #76]	@ (80015d0 <main+0xdc>)
- 8001582:	681a      	ldr	r2, [r3, #0]
- 8001584:	f107 030c 	add.w	r3, r7, #12
- 8001588:	4619      	mov	r1, r3
- 800158a:	4815      	ldr	r0, [pc, #84]	@ (80015e0 <main+0xec>)
- 800158c:	f001 f872 	bl	8002674 <iprintf>
+ 8001582:	4b13      	ldr	r3, [pc, #76]	@ (80015d0 <main+0xdc>)
+ 8001584:	681a      	ldr	r2, [r3, #0]
+ 8001586:	f107 030c 	add.w	r3, r7, #12
+ 800158a:	4619      	mov	r1, r3
+ 800158c:	4814      	ldr	r0, [pc, #80]	@ (80015e0 <main+0xec>)
+ 800158e:	f001 f871 	bl	8002674 <iprintf>
 			CAN_msgReceived = 0;
- 8001590:	4b10      	ldr	r3, [pc, #64]	@ (80015d4 <main+0xe0>)
- 8001592:	2200      	movs	r2, #0
- 8001594:	701a      	strb	r2, [r3, #0]
+ 8001592:	4b10      	ldr	r3, [pc, #64]	@ (80015d4 <main+0xe0>)
+ 8001594:	2200      	movs	r2, #0
+ 8001596:	701a      	strb	r2, [r3, #0]
 //		if(LIN_Stats.TxPackets%100 == 0)
 //		{
 //		    CommStats_Print(&LIN_Stats,"LIN");
 //		}
 
 		if((CAN_Stats.TxPackets%1000 == 0)&& (CAN_Stats.TxPackets != 0))
- 8001596:	4b13      	ldr	r3, [pc, #76]	@ (80015e4 <main+0xf0>)
- 8001598:	681a      	ldr	r2, [r3, #0]
- 800159a:	4b13      	ldr	r3, [pc, #76]	@ (80015e8 <main+0xf4>)
- 800159c:	fba3 1302 	umull	r1, r3, r3, r2
- 80015a0:	099b      	lsrs	r3, r3, #6
- 80015a2:	f44f 717a 	mov.w	r1, #1000	@ 0x3e8
- 80015a6:	fb01 f303 	mul.w	r3, r1, r3
- 80015aa:	1ad3      	subs	r3, r2, r3
- 80015ac:	2b00      	cmp	r3, #0
- 80015ae:	d1c6      	bne.n	800153e <main+0x4a>
- 80015b0:	4b0c      	ldr	r3, [pc, #48]	@ (80015e4 <main+0xf0>)
- 80015b2:	681b      	ldr	r3, [r3, #0]
- 80015b4:	2b00      	cmp	r3, #0
- 80015b6:	d0c2      	beq.n	800153e <main+0x4a>
+ 8001598:	4b12      	ldr	r3, [pc, #72]	@ (80015e4 <main+0xf0>)
+ 800159a:	681a      	ldr	r2, [r3, #0]
+ 800159c:	4b12      	ldr	r3, [pc, #72]	@ (80015e8 <main+0xf4>)
+ 800159e:	fba3 1302 	umull	r1, r3, r3, r2
+ 80015a2:	099b      	lsrs	r3, r3, #6
+ 80015a4:	f44f 717a 	mov.w	r1, #1000	@ 0x3e8
+ 80015a8:	fb01 f303 	mul.w	r3, r1, r3
+ 80015ac:	1ad3      	subs	r3, r2, r3
+ 80015ae:	2b00      	cmp	r3, #0
+ 80015b0:	d1c5      	bne.n	800153e <main+0x4a>
+ 80015b2:	4b0c      	ldr	r3, [pc, #48]	@ (80015e4 <main+0xf0>)
+ 80015b4:	681b      	ldr	r3, [r3, #0]
+ 80015b6:	2b00      	cmp	r3, #0
+ 80015b8:	d0c1      	beq.n	800153e <main+0x4a>
 		{
 		    CommStats_Print(&CAN_Stats,"CAN");
- 80015b8:	490c      	ldr	r1, [pc, #48]	@ (80015ec <main+0xf8>)
- 80015ba:	480a      	ldr	r0, [pc, #40]	@ (80015e4 <main+0xf0>)
- 80015bc:	f7ff fe2a 	bl	8001214 <CommStats_Print>
-		if((sysTick - now) >= 1){
- 80015c0:	e7bd      	b.n	800153e <main+0x4a>
- 80015c2:	bf00      	nop
+ 80015ba:	490c      	ldr	r1, [pc, #48]	@ (80015ec <main+0xf8>)
+ 80015bc:	4809      	ldr	r0, [pc, #36]	@ (80015e4 <main+0xf0>)
+ 80015be:	f7ff fe29 	bl	8001214 <CommStats_Print>
+		if((sysTick - now) >= 250){
+ 80015c2:	e7bc      	b.n	800153e <main+0x4a>
  80015c4:	0800612c 	.word	0x0800612c
  80015c8:	08006144 	.word	0x08006144
  80015cc:	0800616c 	.word	0x0800616c

@@ -36,7 +36,7 @@ int main(void)
 	//Initialization
 	SysTick_config();
 	CAN1_Init();
-	//CAN1_LoopBack();
+//	CAN1_LoopBack();
 
 	uint32_t now = 0;
 
@@ -46,7 +46,9 @@ int main(void)
 
 	while(1){
 		if((sysTick - now) >= 1000){
-			CAN1_TxMsg((uint8_t *)MSG, len);
+//			CAN1_TxMsg((uint8_t *)MSG, len);
+			printf("\r\nTSR : 0x%08lX", CAN1->TSR);
+			printf("\r\nESR : 0x%08lX", CAN1->ESR);
 			now = sysTick;
 		}
 

@@ -66,7 +66,7 @@ void CAN1_Init(){
 	//Filter0 assigned to FIFO0
 	CAN1->FFA1R &= ~(1U << 0);
 
-	CAN1->sFilterRegister[0].FR1 = ECU2_CAN_ID << 5;
+	CAN1->sFilterRegister[0].FR1 = (ECU2_CAN_ID << 5);
 
 	//Filter activation - FF0
 	CAN1->FA1R |= (1U << 0);			//Enable Filter

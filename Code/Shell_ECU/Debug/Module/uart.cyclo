@@ -1,0 +1,7 @@
+../Module/uart.c:28:13:UART_SetBaudRate	1
+../Module/uart.c:35:6:UART2_RxTxInit	1
+../Module/uart.c:59:6:UART2_Read	2
+../Module/uart.c:66:6:UART2_Write	2
+../Module/uart.c:77:5:_write	2
+../Module/uart.c:87:5:_read	3
+../Module/uart.c:113:6:customPrint	2
