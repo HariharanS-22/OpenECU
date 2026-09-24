@@ -110,25 +110,46 @@ void iwdgTask(void *argument)
 void CAN_Task(void *argument){
 	VibrationResult_t receiveTD ;
 	FFT_Peak_t receiveFD;
-
+	uint64_t temp=0;
+	uint32_t bits=0;
     while (1)
     {
 
     	if (xQueueReceive(TDtoCANQueueHandle, &receiveTD, portMAX_DELAY) == pdPASS){
-    		CAN_SendWord(receiveTD.rms);
-    		CAN_SendWord(receiveTD.peak);
-    		CAN_SendWord(receiveTD.crest_factor);
+    		memcpy(&bits, &receiveTD.rms, sizeof(bits));
+    		temp=((uint64_t)0<<32)+bits;
+    		CAN_SendWord(temp);
+
+    		memcpy(&bits, &receiveTD.peak, sizeof(bits));
+    		temp=((uint64_t)1<<32)+bits;
+    		CAN_SendWord(temp);
+
+    		memcpy(&bits, &receiveTD.crest_factor, sizeof(bits));
+    		temp=((uint64_t)2<<32)+bits;
+    		CAN_SendWord(temp);
+
     	}
+
     	for(uint8_t i=0 ; i<3; i++){
     		if (xQueueReceive(FDtoCANQueueHandle, &receiveFD, portMAX_DELAY) == pdPASS){
-    			CAN_SendWord(receiveFD.frequency);
-				CAN_SendWord(receiveFD.magnitude);
-				CAN_SendWord(receiveFD.bin);
+        		memcpy(&bits, &receiveFD.frequency, sizeof(bits));
+        		temp=((uint64_t)(3*i+3)<<32)+bits;
+        		CAN_SendWord(temp);
+
+        		memcpy(&bits, &receiveFD.magnitude, sizeof(bits));
+        		temp=((uint64_t)(3*i+4)<<32)+bits;
+        		CAN_SendWord(temp);
+
+        		memcpy(&bits, &receiveFD.bin, sizeof(bits));
+        		temp=((uint64_t)(3*i+5)<<32)+bits;
+        		CAN_SendWord(temp);
 			}
     	}
-    	CAN_SendWord(A3144_GetRPM());
-    	//Send Fault Messages or Any Sort of Message after computing here
 
+    	float rpm=A3144_GetRPM();
+		memcpy(&bits, &rpm, sizeof(bits));
+		temp=((uint64_t)12<<32)+bits;
+		CAN_SendWord(temp);
     }
 }
 void vApplicationStackOverflowHook(TaskHandle_t xTask, char *pcTaskName){

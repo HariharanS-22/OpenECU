@@ -20,8 +20,42 @@
 #include <string.h>
 
 #include "can.h"
+#include "clock.h"
 #include "sysTick.h"
 #include "uart.h"
+
+#define ECU2_VIB_RMS        0x00
+#define ECU2_VIB_PEAK       0x01
+#define ECU2_VIB_CREST      0x02
+#define ECU2_VIB_X_FREQ     0x03
+#define ECU2_VIB_X_MAG      0x04
+#define ECU2_VIB_X_BIN      0x05
+#define ECU2_VIB_Y_FREQ     0x06
+#define ECU2_VIB_Y_MAG      0x07
+#define ECU2_VIB_Y_BIN      0x08
+#define ECU2_VIB_Z_FREQ     0x09
+#define ECU2_VIB_Z_MAG      0x0A
+#define ECU2_VIB_Z_BIN      0x0B
+#define ECU2_VIB_RPM        0x0C
+
+typedef struct
+{
+    float rms;
+    float peak;
+    float crest_factor;
+
+} VibrationResult_t;
+
+typedef struct
+{
+    float frequency;
+    float magnitude;
+    uint32_t bin;
+} FFT_Peak_t;
+
+VibrationResult_t receivedVibRes;
+FFT_Peak_t receivedFFT[3];
+uint32_t receivedVibRPM;
 
 uint16_t receivedID;
 uint8_t  receivedDLC;
@@ -30,50 +64,6 @@ uint64_t receivedMsg;
 
 uint8_t flag_msgReceived = 0;
 
-static void Clock_Init_16MHz(void)
-{
-    /*
-     * HSI = 8 MHz
-     * PLL input = HSI / 2 = 4 MHz
-     * PLL multiplier = x4
-     * SYSCLK = 4 MHz x 4 = 16 MHz
-     */
-
-    /* Enable HSI */
-    RCC->CR |= RCC_CR_HSION;
-
-    /* Wait for HSI ready */
-    while (!(RCC->CR & RCC_CR_HSIRDY)) { }
-
-    // Set AHB prescaler = /1
-    RCC->CFGR &= ~RCC_CFGR_HPRE;
-
-    //Set APB1 prescaler = /1
-    RCC->CFGR &= ~RCC_CFGR_PPRE1;
-
-    //Set APB2 prescaler = /1
-    RCC->CFGR &= ~RCC_CFGR_PPRE2;
-
-    //PLL source = HSI/2 --> PLLSRC = 0
-    RCC->CFGR &= ~RCC_CFGR_PLLSRC;
-
-    //PLL multiplication factor = x4 --> PLLMUL[3:0] = 0010
-    RCC->CFGR &= ~RCC_CFGR_PLLMULL;
-    RCC->CFGR |= RCC_CFGR_PLLMULL4;
-
-    //Enable PLL
-    RCC->CR |= RCC_CR_PLLON;
-
-    /* Wait for PLL ready */
-    while (!(RCC->CR & RCC_CR_PLLRDY)){ }
-
-    //Select PLL as SYSCLK --> SW = 10
-    RCC->CFGR &= ~RCC_CFGR_SW;
-    RCC->CFGR |= RCC_CFGR_SW_PLL;
-
-    //Wait until PLL becomes SYSCLK
-    while ((RCC->CFGR & RCC_CFGR_SWS) != RCC_CFGR_SWS_PLL) { }
-}
 
 static void LED_Init(void){
 	/* 1. Enable GPIOC clock */
@@ -87,6 +77,139 @@ static void LED_Init(void){
 
 	/* LED OFF initially */
 	GPIOC->BSRR = GPIO_BSRR_BS13;
+}
+
+static uint8_t Coolant_Control(uint16_t temperature){
+	uint8_t fanSpeed;
+	if (temperature < 2000)
+	{
+		fanSpeed = 0U;
+	}
+	else if (temperature < 3000)
+	{
+		fanSpeed = 30U;
+	}
+	else if (temperature < 3500)
+	{
+		fanSpeed = 50U;
+	}
+	else if (temperature < 4000)
+	{
+		fanSpeed = 70U;
+	}
+	else if (temperature < 4500)
+	{
+		fanSpeed = 85U;
+	}
+	else
+	{
+		fanSpeed = 100U;
+	}
+	return fanSpeed;
+}
+
+static void Print_VibrationMonitor(void)
+{
+    float value;
+    uint32_t raw;
+    uint8_t dataID;
+
+    if (receivedDLC != 5)
+        return;
+
+    dataID = (uint8_t)((receivedMsg >> 32) & 0xFF);
+
+    raw = (uint32_t)(receivedMsg & 0xFFFFFFFFU);
+
+    memcpy(&value, &raw, sizeof(float));
+
+    switch (dataID)
+    {
+        case ECU2_VIB_RMS:
+
+        	receivedVibRes.rms = value;
+            printf("\r\n[VIBRATION MONITOR]");
+            printf("\r\nRMS       : %.3f", receivedVibRes.rms);
+            break;
+
+        case ECU2_VIB_PEAK:
+
+        	receivedVibRes.peak = value;
+            printf("\r\nPeak      : %.3f", receivedVibRes.peak);
+            break;
+
+        case ECU2_VIB_CREST:
+
+        	receivedVibRes.crest_factor = value;
+            printf("\r\nCrest     : %.3f", receivedVibRes.crest_factor);
+            break;
+
+        case ECU2_VIB_X_FREQ:
+
+        	receivedFFT[0].frequency = value;
+        	printf("\r\nX - Component");
+            printf("\r\nFrequency : %.3f Hz", receivedFFT[0].frequency);
+            break;
+
+        case ECU2_VIB_X_MAG:
+
+        	receivedFFT[0].magnitude = value;
+            printf("\r\nMagnitude : %.3f", receivedFFT[0].magnitude);
+            break;
+
+        case ECU2_VIB_X_BIN:
+
+        	receivedFFT[0].bin = (uint32_t)value;
+            printf("\r\nFFT Bin   : %lu", receivedFFT[0].bin);
+            break;
+
+        case ECU2_VIB_Y_FREQ:
+
+        	receivedFFT[1].frequency = value;
+        	printf("\r\nY - Component");
+        	printf("\r\nFrequency : %.3f Hz", receivedFFT[1].frequency);
+        	break;
+
+	   case ECU2_VIB_Y_MAG:
+
+		   receivedFFT[1].magnitude = value;
+		   printf("\r\nMagnitude : %.3f", receivedFFT[1].magnitude);
+		   break;
+
+	   case ECU2_VIB_Y_BIN:
+
+		   receivedFFT[1].bin = (uint32_t)value;
+		   printf("\r\nFFT Bin   : %lu", receivedFFT[1].bin);
+		   break;
+
+	   case ECU2_VIB_Z_FREQ:
+
+		   receivedFFT[2].frequency = value;
+		   printf("\r\nZ - Component");
+		   printf("\r\nFrequency : %.3f Hz", receivedFFT[2].frequency);
+		   break;
+
+	   case ECU2_VIB_Z_MAG:
+
+		   receivedFFT[2].magnitude = value;
+		   printf("\r\nMagnitude : %.3f", receivedFFT[2].magnitude);
+		   break;
+
+	   case ECU2_VIB_Z_BIN:
+
+		   receivedFFT[2].bin = (uint32_t)value;
+		   printf("\r\nFFT Bin   : %lu", receivedFFT[2].bin);
+		   break;
+
+        case ECU2_VIB_RPM:
+
+        	receivedVibRPM = (uint32_t)value;
+            printf("\r\nRPM       : %lu", receivedVibRPM);
+            break;
+
+        default:
+            break;
+    }
 }
 
 int main(void)
@@ -115,6 +238,9 @@ int main(void)
 	uint8_t len = strlen(MSG);
 	uint8_t buf[9] = {0};
 
+	uint8_t tempData[2] = {0};
+	uint8_t fanSpeed = 0;
+
 	while(1){
 
 		if((sysTick - now) >= 1000){
@@ -125,10 +251,20 @@ int main(void)
 		}
 
 		if(flag_msgReceived){
+			if(receivedID == ECU1_Coolant){
+				tempData[0] = (uint8_t)(receivedMsg & 0xFF);
+				tempData[1] = (uint8_t)((receivedMsg & 0xFF00) >> 8);
 
-			memcpy(buf, &receivedMsg, receivedDLC);
-			buf[receivedDLC] = '\0';
-			printf("\r\nReceived : %s @ %ld\r\n",buf,sysTick);
+				fanSpeed = Coolant_Control((uint16_t)(tempData[1] << 8));
+
+				printf("\r\nCoolant ECU @ %ld:\r\n Temperature: %ld.%ld\r\n Fan Speed: %ld \r\n",sysTick, tempData[1],tempData[0], fanSpeed * 30);
+			}
+
+			if(receivedID == ECU2_VibMon){
+				Print_VibrationMonitor();
+			}
+//			memcpy(buf, &receivedMsg, receivedDLC);
+//			buf[receivedDLC] = '\0';
 			flag_msgReceived = 0;
 		}
 	}

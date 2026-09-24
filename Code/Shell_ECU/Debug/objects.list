@@ -1,5 +1,6 @@
 "./CMSIS/system_stm32f1xx.o"
 "./Module/can.o"
+"./Module/clock.o"
 "./Module/sysTick.o"
 "./Module/uart.o"
 "./Src/main.o"

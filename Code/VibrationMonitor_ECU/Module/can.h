@@ -12,8 +12,9 @@
 #include "main.h"
 #include "stm32f446xx.h"
 
-#define ECU1_CAN_ID 			(0x01)		//11bit
-#define ECU2_CAN_ID  			(0x02)
+#define ECU1_Coolant		(0x01)		//11bit
+#define ECU2_VibMon 		(0x02)
+#define ECU3_Shell			(0x03)
 
 #define PA11_AF			(10U << 22)
 #define PA12_AF			(10U << 24)
@@ -45,7 +46,7 @@
 
 void CAN1_Init(void);
 void CAN1_TxMsg(uint8_t *msg, uint8_t DLC);
-void CAN_SendWord(uint32_t msg);
+void CAN_SendWord(uint64_t msg);
 void CAN1_LoopBack(void);
 
 void CAN1_RX0_IRQHandler(void);
