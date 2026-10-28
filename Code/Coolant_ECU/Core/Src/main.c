@@ -138,7 +138,7 @@ static void CAN_Task(void *argument){
     		CAN1_TxMsg(tempBuf, 2);
     	}
 
-    	vTaskDelay(pdMS_TO_TICKS(250));
+    	vTaskDelay(pdMS_TO_TICKS(20));
     }
 }
 
@@ -146,7 +146,7 @@ static void MonitorTask(void *argument)
 {
     while (1)
     {
-    	vTaskDelay(pdMS_TO_TICKS(250));
+    	vTaskDelay(pdMS_TO_TICKS(5));
     	SystemMonitorTask();
     }
 }
@@ -157,7 +157,7 @@ static void iwdgTask(void *argument)
     {
     	Watchdog_Refresh();
 
-        vTaskDelay(pdMS_TO_TICKS(1));
+        vTaskDelay(pdMS_TO_TICKS(50));
     }
 }
 
@@ -187,61 +187,22 @@ int main(void)
     temperatureQueue2 = xQueueCreate(1, sizeof(TemperatureData_t));
     if (temperatureQueue == NULL){while (1){}}
 
-    BaseType_t Temp_task = xTaskCreate(
-	   TemperatureTask,
-	   "Temperature",
-	   256,
-	   NULL,
-	   1,
-	   &temperatureTaskHandle
-   );
+    BaseType_t Temp_task = xTaskCreate( TemperatureTask, "Temperature", 256, NULL, 1, &temperatureTaskHandle);
     configASSERT(Temp_task==pdPASS);
 
-    BaseType_t Cooler_task = xTaskCreate(
-	   CoolerTask,
-	   "Cooler",
-	   256,
-	   NULL,
-	   1,
-	   &coolerTaskHandle
-   );
+    BaseType_t Cooler_task = xTaskCreate( CoolerTask, "Cooler", 256, NULL, 1, &coolerTaskHandle);
+    configASSERT(Cooler_task==pdPASS);
 
-   configASSERT(Cooler_task==pdPASS);
+    BaseType_t CAN_task = xTaskCreate(CAN_Task,"CAN_Tx", 256, NULL, 2, &CAN_Tx_TaskHandle);
+    configASSERT(CAN_task==pdPASS);
 
-   BaseType_t CAN_task = xTaskCreate(
-  	   CAN_Task,
-  	   "CAN_Tx",
-  	   256,
-  	   NULL,
-  	   1,
-  	   &CAN_Tx_TaskHandle
-     );
+    BaseType_t SystemMonitor = xTaskCreate(MonitorTask, "Monitor", 256, NULL, 1,  &MonitorTaskHandle);
+    configASSERT(SystemMonitor==pdPASS);
 
-   configASSERT(CAN_task==pdPASS);
+    BaseType_t IWDG_Task = xTaskCreate( iwdgTask, "IWDG", 64, NULL, 3, &IWDG_TaskHandle);
+    configASSERT(IWDG_Task==pdPASS);
 
-   BaseType_t SystemMonitor = xTaskCreate(
-	   MonitorTask,
-	   "Monitor",
-	   256,
-	   NULL,
-	   2,
-	   &MonitorTaskHandle
-  );
-
-  configASSERT(SystemMonitor==pdPASS);
-
-  BaseType_t IWDG_Task = xTaskCreate(
-	   iwdgTask,
-	   "IWDG",
-	   64,
-	   NULL,
-	   3,
-	   &IWDG_TaskHandle
-  );
-
-  configASSERT(IWDG_Task==pdPASS);
-
-   vTaskStartScheduler();
+    vTaskStartScheduler();
 
 
 	while(1){

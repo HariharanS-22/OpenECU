@@ -92,60 +92,34 @@ static float FFT_BinToFrequency(uint32_t bin)
 static void FFT_ProcessAxis(const float *input, FFT_Peak_t *peak){
     float mean;
 
-    if ((input == NULL))
-    {
-        return;
-    }
+    if ((input == NULL))   return;
 
     //Step 1: Calculate DC/mean value
     mean = FFT_RemoveDC(input);
-
     //Step 2: Remove DC and apply Hann window
-    for (uint32_t i = 0U; i < FFT_SIZE; i++)
-    {
+    for (uint32_t i = 0U; i < FFT_SIZE; i++){
         float sample;
-
         sample = input[i] - mean;
         sample *= FFT_HannWindow(i);
-
         fftInput[i] = sample;
     }
-
     //Step 3: Perform real FFT
     arm_rfft_fast_f32(&fftInstance, fftInput, fftOutput, 0);
-
     //Step 4: Calculate magnitude spectrum
     FFT_CalculateMagnitude();
-
-
-    /* --------------------------------------------------------
-     * Step 5: Find dominant frequency
-     *
-     * Ignore bin 0 because it represents DC.
-     *
-     * Search bins:      1 ... 31
-     *
-     * Nyquist bin 32 is not normally considered for
-     * rotating-machine vibration analysis.
-     * -------------------------------------------------------- */
-
+    // Step 5: Find dominant frequency
     float maxMagnitude = 0.0f;
     uint32_t maxBin = 1U;
 
-    for (uint32_t k = 1U; k < (FFT_SIZE / 2U); k++)
-    {
-        if (magnitude[k] > maxMagnitude)
-        {
+    for (uint32_t k = 1U; k < (FFT_SIZE / 2U); k++){
+        if (magnitude[k] > maxMagnitude){
             maxMagnitude = magnitude[k];
             maxBin = k;
         }
     }
-
     //Step 6: Store result
     peak->bin = maxBin;
-
     peak->frequency = FFT_BinToFrequency(maxBin);
-
     peak->magnitude = maxMagnitude;
 }
 

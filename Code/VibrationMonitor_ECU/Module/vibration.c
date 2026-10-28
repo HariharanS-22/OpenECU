@@ -82,17 +82,13 @@ void Vibration_Init(void)
 void Vibration_ProcessTimeDomain(void)
 {
     VibrationSample_t *buffer;
-
     float rms;
     float peak;
     float crest;
 
     buffer =  Vibration_GetCompletedBuffer();
-
     rms = Vibration_CalculateRMS( buffer);
-
     peak = Vibration_CalculatePeak( buffer );
-
     crest = Vibration_CalculateCrestFactor( peak, rms );
 
     vibrationResult_time.rms = rms;
@@ -100,7 +96,6 @@ void Vibration_ProcessTimeDomain(void)
     vibrationResult_time.crest_factor = crest;
 
     xQueueSend(TDtoCANQueueHandle, &vibrationResult_time, 0);
-
 }
 
 void Vibration_ProcessFreqDomain(void){

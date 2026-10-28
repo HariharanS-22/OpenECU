@@ -27,9 +27,9 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
  11 .ARM.attributes 00000030  00000000  00000000  00008058  2**0
                   CONTENTS, READONLY
- 12 .debug_info   00013a62  00000000  00000000  00008088  2**0
+ 12 .debug_info   00013a5e  00000000  00000000  00008088  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 13 .debug_abbrev 00003076  00000000  00000000  0001baea  2**0
+ 13 .debug_abbrev 00003077  00000000  00000000  0001bae6  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  14 .debug_aranges 00001298  00000000  00000000  0001eb60  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
@@ -37,15 +37,15 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  16 .debug_macro  00025ba1  00000000  00000000  00020c36  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_line   00016bdd  00000000  00000000  000467d7  2**0
+ 17 .debug_line   00016bc3  00000000  00000000  000467d7  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    000e9b7a  00000000  00000000  0005d3b4  2**0
+ 18 .debug_str    000e9b7a  00000000  00000000  0005d39a  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000043  00000000  00000000  00146f2e  2**0
+ 19 .comment      00000043  00000000  00000000  00146f14  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  00004f24  00000000  00000000  00146f74  2**2
+ 20 .debug_frame  00004f24  00000000  00000000  00146f58  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 21 .debug_line_str 0000007e  00000000  00000000  0014be98  2**0
+ 21 .debug_line_str 0000007e  00000000  00000000  0014be7c  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -591,8 +591,8 @@ static void CAN_Task(void *argument){
  800051c:	f000 fb74 	bl	8000c08 <CAN1_TxMsg>
     	}
 
-    	vTaskDelay(pdMS_TO_TICKS(250));
- 8000520:	20fa      	movs	r0, #250	@ 0xfa
+    	vTaskDelay(pdMS_TO_TICKS(20));
+ 8000520:	2014      	movs	r0, #20
  8000522:	f002 f835 	bl	8002590 <vTaskDelay>
     	if (xQueueReceive(temperatureQueue2, &temperatureData, portMAX_DELAY) == pdPASS){
  8000526:	e7db      	b.n	80004e0 <CAN_Task+0x8>
@@ -610,12 +610,12 @@ static void MonitorTask(void *argument)
  8000532:	6078      	str	r0, [r7, #4]
     while (1)
     {
-    	vTaskDelay(pdMS_TO_TICKS(250));
- 8000534:	20fa      	movs	r0, #250	@ 0xfa
+    	vTaskDelay(pdMS_TO_TICKS(5));
+ 8000534:	2005      	movs	r0, #5
  8000536:	f002 f82b 	bl	8002590 <vTaskDelay>
     	SystemMonitorTask();
  800053a:	f000 fe6f 	bl	800121c <SystemMonitorTask>
-    	vTaskDelay(pdMS_TO_TICKS(250));
+    	vTaskDelay(pdMS_TO_TICKS(5));
  800053e:	bf00      	nop
  8000540:	e7f8      	b.n	8000534 <MonitorTask+0x8>
 
@@ -634,8 +634,8 @@ static void iwdgTask(void *argument)
     	Watchdog_Refresh();
  800054a:	f000 fe3b 	bl	80011c4 <Watchdog_Refresh>
 
-        vTaskDelay(pdMS_TO_TICKS(1));
- 800054e:	2001      	movs	r0, #1
+        vTaskDelay(pdMS_TO_TICKS(50));
+ 800054e:	2032      	movs	r0, #50	@ 0x32
  8000550:	f002 f81e 	bl	8002590 <vTaskDelay>
     	Watchdog_Refresh();
  8000554:	bf00      	nop
@@ -713,7 +713,7 @@ int main(void)
  80005c2:	bf00      	nop
  80005c4:	e7fd      	b.n	80005c2 <main+0x6a>
 
-    BaseType_t Temp_task = xTaskCreate(
+    BaseType_t Temp_task = xTaskCreate( TemperatureTask, "Temperature", 256, NULL, 1, &temperatureTaskHandle);
  80005c6:	4b48      	ldr	r3, [pc, #288]	@ (80006e8 <main+0x190>)
  80005c8:	9301      	str	r3, [sp, #4]
  80005ca:	2301      	movs	r3, #1
@@ -724,11 +724,6 @@ int main(void)
  80005d6:	4846      	ldr	r0, [pc, #280]	@ (80006f0 <main+0x198>)
  80005d8:	f001 fe76 	bl	80022c8 <xTaskCreate>
  80005dc:	6278      	str	r0, [r7, #36]	@ 0x24
-	   256,
-	   NULL,
-	   1,
-	   &temperatureTaskHandle
-   );
     configASSERT(Temp_task==pdPASS);
  80005de:	6a7b      	ldr	r3, [r7, #36]	@ 0x24
  80005e0:	2b01      	cmp	r3, #1
@@ -754,7 +749,7 @@ int main(void)
  80005f8:	bf00      	nop
  80005fa:	e7fd      	b.n	80005f8 <main+0xa0>
 
-    BaseType_t Cooler_task = xTaskCreate(
+    BaseType_t Cooler_task = xTaskCreate( CoolerTask, "Cooler", 256, NULL, 1, &coolerTaskHandle);
  80005fc:	4b3d      	ldr	r3, [pc, #244]	@ (80006f4 <main+0x19c>)
  80005fe:	9301      	str	r3, [sp, #4]
  8000600:	2301      	movs	r3, #1
@@ -765,12 +760,7 @@ int main(void)
  800060c:	483b      	ldr	r0, [pc, #236]	@ (80006fc <main+0x1a4>)
  800060e:	f001 fe5b 	bl	80022c8 <xTaskCreate>
  8000612:	6238      	str	r0, [r7, #32]
-	   NULL,
-	   1,
-	   &coolerTaskHandle
-   );
-
-   configASSERT(Cooler_task==pdPASS);
+    configASSERT(Cooler_task==pdPASS);
  8000614:	6a3b      	ldr	r3, [r7, #32]
  8000616:	2b01      	cmp	r3, #1
  8000618:	d00b      	beq.n	8000632 <main+0xda>
@@ -785,10 +775,10 @@ int main(void)
  800062e:	bf00      	nop
  8000630:	e7fd      	b.n	800062e <main+0xd6>
 
-   BaseType_t CAN_task = xTaskCreate(
+    BaseType_t CAN_task = xTaskCreate(CAN_Task,"CAN_Tx", 256, NULL, 2, &CAN_Tx_TaskHandle);
  8000632:	4b33      	ldr	r3, [pc, #204]	@ (8000700 <main+0x1a8>)
  8000634:	9301      	str	r3, [sp, #4]
- 8000636:	2301      	movs	r3, #1
+ 8000636:	2302      	movs	r3, #2
  8000638:	9300      	str	r3, [sp, #0]
  800063a:	2300      	movs	r3, #0
  800063c:	f44f 7280 	mov.w	r2, #256	@ 0x100
@@ -796,12 +786,7 @@ int main(void)
  8000642:	4831      	ldr	r0, [pc, #196]	@ (8000708 <main+0x1b0>)
  8000644:	f001 fe40 	bl	80022c8 <xTaskCreate>
  8000648:	61f8      	str	r0, [r7, #28]
-  	   NULL,
-  	   1,
-  	   &CAN_Tx_TaskHandle
-     );
-
-   configASSERT(CAN_task==pdPASS);
+    configASSERT(CAN_task==pdPASS);
  800064a:	69fb      	ldr	r3, [r7, #28]
  800064c:	2b01      	cmp	r3, #1
  800064e:	d00b      	beq.n	8000668 <main+0x110>
@@ -816,10 +801,10 @@ int main(void)
  8000664:	bf00      	nop
  8000666:	e7fd      	b.n	8000664 <main+0x10c>
 
-   BaseType_t SystemMonitor = xTaskCreate(
+    BaseType_t SystemMonitor = xTaskCreate(MonitorTask, "Monitor", 256, NULL, 1,  &MonitorTaskHandle);
  8000668:	4b28      	ldr	r3, [pc, #160]	@ (800070c <main+0x1b4>)
  800066a:	9301      	str	r3, [sp, #4]
- 800066c:	2302      	movs	r3, #2
+ 800066c:	2301      	movs	r3, #1
  800066e:	9300      	str	r3, [sp, #0]
  8000670:	2300      	movs	r3, #0
  8000672:	f44f 7280 	mov.w	r2, #256	@ 0x100
@@ -827,12 +812,7 @@ int main(void)
  8000678:	4826      	ldr	r0, [pc, #152]	@ (8000714 <main+0x1bc>)
  800067a:	f001 fe25 	bl	80022c8 <xTaskCreate>
  800067e:	61b8      	str	r0, [r7, #24]
-	   NULL,
-	   2,
-	   &MonitorTaskHandle
-  );
-
-  configASSERT(SystemMonitor==pdPASS);
+    configASSERT(SystemMonitor==pdPASS);
  8000680:	69bb      	ldr	r3, [r7, #24]
  8000682:	2b01      	cmp	r3, #1
  8000684:	d00b      	beq.n	800069e <main+0x146>
@@ -847,7 +827,7 @@ int main(void)
  800069a:	bf00      	nop
  800069c:	e7fd      	b.n	800069a <main+0x142>
 
-  BaseType_t IWDG_Task = xTaskCreate(
+    BaseType_t IWDG_Task = xTaskCreate( iwdgTask, "IWDG", 64, NULL, 3, &IWDG_TaskHandle);
  800069e:	4b1e      	ldr	r3, [pc, #120]	@ (8000718 <main+0x1c0>)
  80006a0:	9301      	str	r3, [sp, #4]
  80006a2:	2303      	movs	r3, #3
@@ -858,12 +838,7 @@ int main(void)
  80006ac:	481c      	ldr	r0, [pc, #112]	@ (8000720 <main+0x1c8>)
  80006ae:	f001 fe0b 	bl	80022c8 <xTaskCreate>
  80006b2:	6178      	str	r0, [r7, #20]
-	   NULL,
-	   3,
-	   &IWDG_TaskHandle
-  );
-
-  configASSERT(IWDG_Task==pdPASS);
+    configASSERT(IWDG_Task==pdPASS);
  80006b4:	697b      	ldr	r3, [r7, #20]
  80006b6:	2b01      	cmp	r3, #1
  80006b8:	d00b      	beq.n	80006d2 <main+0x17a>
@@ -878,7 +853,7 @@ int main(void)
  80006ce:	bf00      	nop
  80006d0:	e7fd      	b.n	80006ce <main+0x176>
 
-   vTaskStartScheduler();
+    vTaskStartScheduler();
  80006d2:	f001 ff93 	bl	80025fc <vTaskStartScheduler>
 
 

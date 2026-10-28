@@ -34,7 +34,7 @@
 #include "hallEffect_a3144.h"
 #include "iwdg.h"
 
-//#define DWT_CTRL (*(volatile uint32_t *)(0xE0001000))
+#define DWT_CTRL (*(volatile uint32_t *)(0xE0001000))
 
 uint16_t receivedID;
 uint8_t  receivedDLC;
@@ -68,7 +68,7 @@ void AccelarationTask(void* param){
 
 	while(1){
 		VibrationSamplingTask();
-		vTaskDelay(pdMS_TO_TICKS(1));
+		vTaskDelay(pdMS_TO_TICKS(1.25));
 	}
 }
 
@@ -91,7 +91,7 @@ void ProcessFreqDomainTask(void* param){
 void DisplayResultTask(void* param){
 
 	while(1){
-		vTaskDelay(pdMS_TO_TICKS(100));
+		vTaskDelay(pdMS_TO_TICKS(500));
 
 		Vibration_PrintResult();
 
@@ -178,11 +178,11 @@ int main(void)
 	Vibration_Init();
 	FFT_status = FFT_Init();
 
-//    DWT_CTRL |= (1<<0);
-//
-//    SEGGER_SYSVIEW_Conf();
-//    vSetVarulMaxPRIGROUPValue();
-//    SEGGER_SYSVIEW_Start();
+    DWT_CTRL |= (1<<0);
+
+    SEGGER_SYSVIEW_Conf();
+    vSetVarulMaxPRIGROUPValue();
+    SEGGER_SYSVIEW_Start();
 
 	TDtoCANQueueHandle = xQueueCreate(10, sizeof(VibrationResult_t));
 	FDtoCANQueueHandle = xQueueCreate(10, sizeof(FFT_Peak_t));
@@ -195,13 +195,13 @@ int main(void)
 	TaskCreationStatus = xTaskCreate(AccelarationTask, "ADXL", 1024, NULL, 1, &AccelerationTaskHandle);
 	configASSERT(TaskCreationStatus == pdPASS);
 
-	TaskCreationStatus = xTaskCreate(ProcessTimeDomainTask, "TD", 1024, NULL, 2, &ProcessTimeDomainTaskHandle);
+	TaskCreationStatus = xTaskCreate(ProcessTimeDomainTask, "TD", 1024, NULL, 1, &ProcessTimeDomainTaskHandle);
 	configASSERT(TaskCreationStatus == pdPASS);
 
-	TaskCreationStatus = xTaskCreate(ProcessFreqDomainTask, "FD", 1024, NULL, 2, &ProcessFreqDomainTaskHandle);
+	TaskCreationStatus = xTaskCreate(ProcessFreqDomainTask, "FD", 1024, NULL, 1, &ProcessFreqDomainTaskHandle);
 	configASSERT(TaskCreationStatus == pdPASS);
 
-	TaskCreationStatus = xTaskCreate(DisplayResultTask, "Display", 1024, NULL, 1, &DisplayResultTaskHandle);
+	TaskCreationStatus = xTaskCreate(DisplayResultTask, "Display", 1024, NULL, 2, &DisplayResultTaskHandle);
 	configASSERT(TaskCreationStatus == pdPASS);
 
 	TaskCreationStatus = xTaskCreate(iwdgTask, "IWDG", 256, NULL, 3, &iwdgTaskHandle);

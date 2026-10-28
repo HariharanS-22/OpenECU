@@ -3,6 +3,7 @@
 	<section name="java.lang.Class">
 		<item key="replaceBarOpen" value="true"/>
 		<list key="findhistory">
+			<item value="SEGGER_SYSVIEW_RTT_BUFFER_SIZE"/>
 			<item value="sprintf(stringBuf,"/>
 			<item value="USB_LP_CAN_RX0_IRQHandler"/>
 			<item value="CAN1_RX0_IRQHandler"/>
@@ -17,7 +18,6 @@
 			<item value="vibrationResult"/>
 			<item value="FFT_GetResolution"/>
 			<item value="vibrationBufferA"/>
-			<item value="vibrationBufferB"/>
 		</list>
 		<list key="replacehistory">
 			<item value="printf("/>

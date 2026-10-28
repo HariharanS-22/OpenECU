@@ -29,6 +29,7 @@
 #ifndef FREERTOS_CONFIG_H
 #define FREERTOS_CONFIG_H
 
+#include "SEGGER_SYSVIEW_FreeRTOS.h"
 /*-----------------------------------------------------------
  * Application specific definitions.
  *
@@ -126,8 +127,8 @@ standard names. */
 #define xPortSysTickHandler SysTick_Handler
 
 //Segger
-//#define INCLUDE_xTaskGetIdleTaskHandle 1
-//#define INCLUDE_pxTaskGetStackStart 1
+#define INCLUDE_xTaskGetIdleTaskHandle 1
+#define INCLUDE_pxTaskGetStackStart 1
 
 #endif /* FREERTOS_CONFIG_H */
 
